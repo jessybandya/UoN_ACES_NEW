@@ -6,15 +6,14 @@ import Pricing from './components/Firstpage/pages/PricingPage';
 import Footer from './components/Firstpage/components/Footer/Footer';
 import GlobalStyle from './components/Firstpage/globalStyles';
 import Navbar from './components/Firstpage/components/Navbar/Navbar';
-
+import Grid from "./components/Grid"
 function App() {
   return (
     <div className="App">
 		<Router>
 			<GlobalStyle />
-			<Navbar />
 			<Switch>
-				<Route path="/" exact component={Home} />
+				<Route path="/" exact component={Grid} />
 				<Route path="/signup" exact component={SignUp} />
 				<Route path="/pricing" exact component={Pricing} />
 			</Switch>
