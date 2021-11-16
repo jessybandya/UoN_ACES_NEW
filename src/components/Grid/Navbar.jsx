@@ -73,10 +73,10 @@ const Navbar = () => {
     <AppBar position="fixed">
       <Toolbar className={classes.toolbar}>
         <Typography variant="h6" className={classes.logoLg}>
-          Lama Dev
+          UoN_ACES
         </Typography>
         <Typography variant="h6" className={classes.logoSm}>
-          LAMA
+          ACES
         </Typography>
         <div className={classes.search}>
           <Search />

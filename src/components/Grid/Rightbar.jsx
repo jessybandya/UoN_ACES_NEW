@@ -38,28 +38,30 @@ const Rightbar = () => {
       <AvatarGroup max={6} style={{ marginBottom: 20 }}>
         <Avatar
           alt="Remy Sharp"
-          src="https://material-ui.com/static/images/avatar/1.jpg"
+          src="https://images.pexels.com/photos/8647814/pexels-photo-8647814.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
         />
         <Avatar
           alt="Travis Howard"
-          src="https://material-ui.com/static/images/avatar/2.jpg"
+          src="https://images.pexels.com/photos/8647814/pexels-photo-8647814.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
         />
         <Avatar
           alt="Cindy Baker"
-          src="https://material-ui.com/static/images/avatar/3.jpg"
+          src="https://images.pexels.com/photos/8647814/pexels-photo-8647814.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
         />
-        <Avatar alt="Agnes Walker" src="" />
-        <Avatar
-          alt="Trevor Henderson"
-          src="https://material-ui.com/static/images/avatar/6.jpg"
+        <Avatar alt="Agnes Walker" 
+        src="https://images.pexels.com/photos/8647814/pexels-photo-8647814.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" 
         />
         <Avatar
           alt="Trevor Henderson"
-          src="https://material-ui.com/static/images/avatar/7.jpg"
+          src="https://images.pexels.com/photos/8647814/pexels-photo-8647814.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
         />
         <Avatar
           alt="Trevor Henderson"
-          src="https://material-ui.com/static/images/avatar/8.jpg"
+          src="https://images.pexels.com/photos/8647814/pexels-photo-8647814.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+        />
+        <Avatar
+          alt="Trevor Henderson"
+          src="https://images.pexels.com/photos/8647814/pexels-photo-8647814.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
         />
       </AvatarGroup>
       <Typography className={classes.title} gutterBottom>
@@ -68,37 +70,37 @@ const Rightbar = () => {
       <ImageList rowHeight={100} style={{ marginBottom: 20 }} cols={2}>
         <ImageListItem>
           <img
-            src="https://material-ui.com/static/images/image-list/breakfast.jpg"
+            src="https://images.pexels.com/photos/8647814/pexels-photo-8647814.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
             alt=""
           />
         </ImageListItem>
         <ImageListItem>
           <img
-            src="https://material-ui.com/static/images/image-list/burgers.jpg"
+            src="https://images.pexels.com/photos/8647814/pexels-photo-8647814.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
             alt=""
           />
         </ImageListItem>
         <ImageListItem>
           <img
-            src="https://material-ui.com/static/images/image-list/camera.jpg"
+            src="https://images.pexels.com/photos/8647814/pexels-photo-8647814.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
             alt=""
           />
         </ImageListItem>
         <ImageListItem>
           <img
-            src="https://material-ui.com/static/images/image-list/morning.jpg"
+            src="https://images.pexels.com/photos/8647814/pexels-photo-8647814.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
             alt=""
           />
         </ImageListItem>
         <ImageListItem>
           <img
-            src="https://material-ui.com/static/images/image-list/hats.jpg"
+            src="https://images.pexels.com/photos/8647814/pexels-photo-8647814.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
             alt=""
           />
         </ImageListItem>
         <ImageListItem>
           <img
-            src="https://material-ui.com/static/images/image-list/vegetables.jpg"
+            src="https://images.pexels.com/photos/8647814/pexels-photo-8647814.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
             alt=""
           />
         </ImageListItem>
