@@ -1,4 +1,4 @@
-import { Container, makeStyles, Typography } from "@material-ui/core";
+import { Container, makeStyles, Typography, Badge } from "@material-ui/core";
 import {
   Bookmark,
   List,
@@ -11,11 +11,19 @@ import {
   Storefront,
   TabletMac,
 } from "@material-ui/icons";
+import { useState,useEffect } from "react";
+import { db,auth } from "../firebase"
+import { useHistory } from "react-router";
+import "./styles.css"
+import PostAddIcon from '@mui/icons-material/PostAdd';
+import { Link } from "react-router-dom";
+
 
 const useStyles = makeStyles((theme) => ({
   container: {
     height: "100vh",
     color: "white",
+    zIndex:2,
     paddingTop: theme.spacing(10),
     backgroundColor: theme.palette.primary.main,
     position: "sticky",
@@ -49,49 +57,69 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Leftbar = () => {
+const Leftbar = ({user}) => {
   const classes = useStyles();
+  const [profileUserData, setProfileUserData] = useState();
+  const history = useHistory("");
+
+
+  useEffect(() => {
+    db.collection('users').doc(`${user?.uid}`).onSnapshot((doc) => {
+        setProfileUserData(doc.data());
+    });
+}, [])
+
+const logout = () => {
+  if (user) {
+    auth.signOut();
+    history.push("/login");
+  }
+}
   return (
-    <Container className={classes.container}>
-      <div className={classes.item}>
+    <Container  className={classes.container}>
+      <div className={classes.item} className="leftNav" style={{display: "flex",alignItems:"center",height:50,cursor:"pointer",borderRadius:10}}>
+      {/* <Badge badgeContent={411} color="error" className={classes.badge}> */}
         <Home className={classes.icon} />
+        {/* </Badge> */}
         <Typography className={classes.text}>Homepage</Typography>
       </div>
-      <div className={classes.item}>
+      <div className={classes.item} className="leftNav" style={{display: "flex",alignItems:"center",height:50,cursor:"pointer",borderRadius:10}}>
         <Person className={classes.icon} />
         <Typography className={classes.text}>Friends</Typography>
       </div>
-      <div className={classes.item}>
+      <div className={classes.item} className="leftNav" style={{display: "flex",alignItems:"center",height:50,cursor:"pointer",borderRadius:10}}>
         <List className={classes.icon} />
         <Typography className={classes.text}>Lists</Typography>
       </div>
-      <div className={classes.item}>
+      <div className={classes.item} className="leftNav" style={{display: "flex",alignItems:"center",height:50,cursor:"pointer",borderRadius:10}}>
         <PhotoCamera className={classes.icon} />
         <Typography className={classes.text}>Camera</Typography>
       </div>
-      <div className={classes.item}>
+      <div className={classes.item} className="leftNav" style={{display: "flex",alignItems:"center",height:50,cursor:"pointer",borderRadius:10}}>
         <PlayCircleOutline className={classes.icon} />
         <Typography className={classes.text}>Videos</Typography>
       </div>
-      <div className={classes.item}>
+      <div className={classes.item} className="leftNav" style={{display: "flex",alignItems:"center",height:50,cursor:"pointer",borderRadius:10}}>
         <TabletMac className={classes.icon} />
         <Typography className={classes.text}>Apps</Typography>
       </div>
-      <div className={classes.item}>
+      <div className={classes.item} className="leftNav" style={{display: "flex",alignItems:"center",height:50,cursor:"pointer",borderRadius:10}}>
         <Bookmark className={classes.icon} />
         <Typography className={classes.text}>Collections</Typography>
       </div>
-      <div className={classes.item}>
+      <div className={classes.item} className="leftNav" style={{display: "flex",alignItems:"center",height:50,cursor:"pointer",borderRadius:10}}>
         <Storefront className={classes.icon} />
         <Typography className={classes.text}>Market Place</Typography>
       </div>
-      <div className={classes.item}>
-        <Settings className={classes.icon} />
-        <Typography className={classes.text}>Settings</Typography>
+      <div className={classes.item} className="leftNav" style={{display: "flex",alignItems:"center",height:50,cursor:"pointer",borderRadius:10}}>
+        <a style={{display: "flex",color: "none"}} className="port" href={`/addpost`}>
+        <PostAddIcon className={classes.icon} />
+        <Typography className={classes.text}>Add Post</Typography>
+        </a>
       </div>
-      <div className={classes.item}>
-        <ExitToApp className={classes.icon} />
-        <Typography className={classes.text}>Logout</Typography>
+      <div className={classes.item} className="leftNav" style={{display: "flex",alignItems:"center",height:50,cursor:"pointer",borderRadius:10}}>
+        <ExitToApp onClick={logout} className={classes.icon} />
+        <Typography onClick={logout} className={classes.text}>Logout</Typography>
       </div>
     </Container>
   );
