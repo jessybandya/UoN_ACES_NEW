@@ -112,7 +112,7 @@ const logout = () => {
         <Typography className={classes.text}>Market Place</Typography>
       </div>
       <div className={classes.item} className="leftNav" style={{display: "flex",alignItems:"center",height:50,cursor:"pointer",borderRadius:10}}>
-        <a style={{display: "flex",color: "none"}} className="port" href={`/addpost`}>
+        <a style={{display: "flex"}} className="port" href={`/addpost`}>
         <PostAddIcon className={classes.icon} />
         <Typography className={classes.text}>Add Post</Typography>
         </a>
