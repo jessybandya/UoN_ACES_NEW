@@ -93,7 +93,7 @@ useEffect(() => {
 					</>
 						)}
         				{fromId == user?.uid  &&(
-                        <li class="out">
+                        <li style={{marginBottom: 50}} class="out">
 						<div class="chat-img">
 							{/* <img class="card-img-top navbar-brand user_img  rounded-circle" alt="Avtar" src="" style={{objectFit: "cover"}}/> */}
 							<Avatar src="" alt=""/>

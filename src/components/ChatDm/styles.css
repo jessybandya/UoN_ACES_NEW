@@ -205,7 +205,7 @@
   .sendNewMessage {
     position: fixed;
     display: flex;
-    width: 100%;
+    width: 80%;
     bottom: 0;
     z-index: 1;
     border-top: 1px solid lightgray;

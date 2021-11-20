@@ -6,6 +6,7 @@ import Navbar from "../Grid/Navbar";
 import Rightbar from "../Grid/Rightbar";
 import { auth } from "../firebase"
 import { useHistory } from "react-router";
+import Footer from './../Firstpage/components/Footer/Footer';
 
 const useStyles = makeStyles((theme) => ({
   right: {
@@ -32,7 +33,6 @@ const Postview1 = ({user}) => {
         </Grid>
         <Grid item sm={3} className={classes.right}>
           <Rightbar />
-          <Add /> 
         </Grid>
       </Grid>
        </>
@@ -49,7 +49,7 @@ const Postview1 = ({user}) => {
       {/* <Add /> */}
        </>
       )}
-
+  <Footer />
     </div>
   );
 };
