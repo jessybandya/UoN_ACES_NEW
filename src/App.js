@@ -14,6 +14,7 @@ import {auth} from "./components/firebase"
 import Postview from './components/Postview';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
+import Addpost from './components/Addpost1';
 
 
 function App() {
@@ -40,6 +41,9 @@ function App() {
 				<Route exact path="/register"  component={Register} />
 				<Route exact path="/postview">
               <Postview user={user}/>
+             </Route> 
+			 <Route exact path="/addpost">
+              <Addpost user={user}/>
              </Route> 
 			</Switch>
 			<Footer />
