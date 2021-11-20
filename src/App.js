@@ -12,6 +12,9 @@ import Login from './components/Login';
 import { useState,useEffect } from 'react';
 import {auth} from "./components/firebase"
 import Postview from './components/Postview1';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
+
 
 function App() {
 	const [user, setUser] = useState([]);
@@ -29,6 +32,7 @@ function App() {
 		<Router>
 			<GlobalStyle />
 			<Navbar />
+			<ToastContainer />
 			<Switch>
 				<Route exact path="/" component={Home1} />
 				<Route exact path="/home"  component={Home} />

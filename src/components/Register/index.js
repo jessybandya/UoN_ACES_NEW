@@ -8,7 +8,7 @@ import { Grid, makeStyles } from "@material-ui/core";
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import Alert from '@mui/material/Alert';
-
+import {  toast } from 'react-toastify';
 
 function Register() {
     const history = useHistory("");
@@ -38,64 +38,64 @@ function Register() {
 
 
             if (!firstName.trim()) {
-                errors.firstName = alert('First name is required');
+                errors.firstName = toast.error('First name is required');
               } else if (!/^[A-Za-z]+/.test(firstName.trim())) {
-                  errors.firstName = alert('Enter a valid first name');
+                  errors.firstName = toast.error('Enter a valid first name');
               }else if(!lastName.trim()){
-                errors.lastName = alert('Last name is required');
+                errors.lastName = toast.error('Last name is required');
             } else if (!/^[A-Za-z]+/.test(lastName.trim())) {
-                errors.lastName = alert('Enter a valid last name');
+                errors.lastName = toast.error('Enter a valid last name');
             }else if(!username.trim()){
-                errors.username = alert('Username is required');
+                errors.username = toast.error('Username is required');
             } else if (!/^[a-z0-9]+/.test(username.trim())) {
-                errors.username = alert('Username should contain lower case letters with no space and some numbers(Optional)');
+                errors.username = toast.error('Username should contain lower case letters with no space and some numbers(Optional)');
             }else if(!reg.trim()){
-                errors.reg = alert('Registration number is required');
+                errors.reg = toast.error('Registration number is required');
             }else if (!/^[F16]||[f16]+/.test(reg)) {
-                errors.reg = alert("Your Registration number shows you don't belong to civil engineering department");
+                errors.reg = toast.error("Your Registration number shows you don't belong to civil engineering department");
                  }else if(!birthday[0]){
-                errors.birthday = alert('Birth day is required');
+                errors.birthday = toast.error('Birth day is required');
             }else if(!birthday[1]){
-                errors.birthday = alert('Birth month is required');
+                errors.birthday = toast.error('Birth month is required');
             }
                 else if(!birthday[2]){
-                    errors.birthday = alert('Birth year is required');
+                    errors.birthday = toast.error('Birth year is required');
             }else if(!year.trim()){
-                errors.year = alert('Year of study is required');
+                errors.year = toast.error('Year of study is required');
             } else if (!/^[0-9]+/.test(year.trim())) {
-                errors.year = alert('Enter a valid academic Year');
+                errors.year = toast.error('Enter a valid academic Year');
             
             }else if(!member.trim()){
-                errors.member = alert('Membership field is required');
+                errors.member = toast.error('Membership field is required');
             } else if (!/^[A-Za-z]+/.test(member.trim())) {
-                errors.member = alert('Enter a valid name');
+                errors.member = toast.error('Enter a valid name');
             }else if(!cat.trim()){
-                errors.cat = alert('Category is required');
+                errors.cat = toast.error('Category is required');
             } else if (!/^[A-Za-z]+/.test(cat.trim())) {
-                errors.cat = alert('Enter a valid category name');
+                errors.cat = toast.error('Enter a valid category name');
             }else if(!gender.trim()){
-                errors.gender = alert('Gender is required');
+                errors.gender = toast.error('Gender is required');
             } else if (!/^[A-Za-z]+/.test(gender.trim())) {
-                errors.gender = alert('Enter a valid gender name');
+                errors.gender = toast.error('Enter a valid gender name');
             } else  if (!email) {
-                errors.email = alert('Email required');
+                errors.email = toast.error('Email required');
                }else if (!/\S+@[students]+\.[uonbi]+\.[ac]+\.[ke]+/.test(email)) {
-                errors.email = alert('Student Email address is invalid\nFormat (...@students.uonbi.ac.ke)');
+                errors.email = toast.error('Student Email address is invalid\nFormat (...@students.uonbi.ac.ke)');
                  }
                   else if (!password) {
-                 errors.password = alert('Password is required');
+                 errors.password = toast.error('Password is required');
               } else if (password.length < 8) {
-                 errors.password = alert('Password needs to be 8 characters or more');
+                 errors.password = toast.error('Password needs to be 8 characters or more');
               }  else if (!password1) {
-                 errors.password1 = alert('Confirm Password is required');
+                 errors.password1 = toast.error('Confirm Password is required');
                } else if (password1 !== password) {
-                errors.password1 = alert('Passwords do not match');
+                errors.password1 = toast.error('Passwords do not match');
               }else{
 
                 db.collection('users').where("username", "==", username).get().then(
                     snap => {
                         if(snap.docs.length > 0){
-                            alert("The username you entered is taken!")
+                            toast.error("The username you entered is taken!")
                         }else{
 
                             db.collection('users').where("email", "==", email).get().then((resultSnapShot) => {
@@ -132,7 +132,7 @@ function Register() {
                                                     timestamp: Date.now()
                                                 })
                                                     .then((r) => {
-                                                        alert("Succesfully created an account.")
+                                                        toast.success("Succesfully created an account.")
                                                         history.push(`/home`)
                                                     })
                                             })
@@ -141,12 +141,12 @@ function Register() {
                                     .catch((e) => {
                                         if (
                                             e.message ===
-                                            alert(e.message)
+                                            toast.error(e.message)
                                         ) {
-                                            alert("Please check your credentials again");
+                                            toast.error("Please check your credentials again");
                                         } else if (
                                             e.message ===
-                                            alert(e.message)
+                                            toast.error(e.message)
                                         ) {
                                             history.push("/register");
                                             window.scrollTo({
@@ -159,7 +159,7 @@ function Register() {
                         
                                 } else {
                                     //Already registered
-                                    alert("The email you enterd already in use")
+                                    toast.error("The email you enterd already in use")
                                 }
                         
                             })
@@ -183,7 +183,7 @@ function Register() {
                 <div  class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-2">
                     <div  class="card px-0 pt-4 pb-0 mt-3 mb-3">
                         <h2><strong>Create UoN_ACES account</strong></h2>
-                        <p>Fill all form field to go to next step</p>
+                        <p>Fill all form fields to go to next step</p>
                         <div  class="row">
                             <div  class="col-md-12 mx-0">
                                 <div  id="msform">

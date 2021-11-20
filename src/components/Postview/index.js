@@ -31,6 +31,8 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import ThumbUpAltOutlinedIcon from '@mui/icons-material/ThumbUpAltOutlined';
 import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
+import NumberFormat from 'react-number-format';
+
 
 import "./styles.css"
   const useStyles = makeStyles((theme) => ({
@@ -95,17 +97,20 @@ import "./styles.css"
       </CardContent>
       <CardActions disableSpacing style={{alignItems: "center",border: "1px solid #AEAEAE",borderTopLeftRadius:5,borderTopRightRadius:5}}>
       <div style={{display:"flex",justifyContent:"space-between",padding:8,width:"100%"}}>
-           <div style={{alignItems:"center"}}><div style={{fontWeight:"600"}}>4,508</div><ThumbUpAltOutlinedIcon style={{color: "#3f51b5",cursor:"pointer"}}/></div>
-           <div style={{alignItems:"center"}}><div style={{fontWeight:"600"}}>10,678</div>        
+           <div style={{alignItems:"center"}}><div style={{fontWeight:"700",color: "#808080"}}>
+           <NumberFormat value={2555} displayType={'text'} thousandSeparator={true}  />
+            </div><ThumbUpAltOutlinedIcon style={{color: "#3f51b5",cursor:"pointer"}}/></div>
+           <div style={{alignItems:"center"}}><div style={{fontWeight:"700",color: "#808080"}}>
+           <NumberFormat value={188} displayType={'text'} thousandSeparator={true}  />
+             </div>        
 
         <ChatBubbleOutlineOutlinedIcon expand={comments} onClick={handleExpandClick1} aria-expanded={comments} aria-label="show more" style={{color: "#3f51b5",marginRight:0,cursor:"pointer"}}/>
         </div>
-           <div style={{alignItems:"center"}}><div style={{fontWeight:"600"}}>share</div><ShareOutlinedIcon style={{color: "#3f51b5",cursor:"pointer"}}/></div>
+           <div style={{alignItems:"center"}}><div style={{fontWeight:"600",color: "#808080"}}>share</div><ShareOutlinedIcon style={{color: "#3f51b5",cursor:"pointer"}}/></div>
          
-        <div
-
-        >
-          <ExpandMoreIcon aria-expanded={expanded} onClick={handleExpandClick} expand={expanded} style={{color: "#3f51b5",marginTop:20,cursor:"pointer"}}/>
+        <div style={{alignItems:"center",color: "#808080"}}>
+        <div style={{fontWeight:"600"}}>view</div>
+          <ExpandMoreIcon aria-expanded={expanded} onClick={handleExpandClick} expand={expanded} style={{color: "#3f51b5",marginTop:0,cursor:"pointer"}}/>
         </div>
         </div>
       </CardActions>
