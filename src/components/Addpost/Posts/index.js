@@ -113,25 +113,20 @@ function Addpost() {
         alt="Title"
       />
 
-<div style={{display: "flex",justifyContent:"space-between"}}>
           <CardActions disableSpacing>
-          <div>
           <b>4000</b>
         <IconButton style={{marginLeft:-8}} aria-label="add to favorites">
            <FavoriteIcon />
         </IconButton>
         <b>102</b>
-        <IconButton style={{marginLeft:-8}} aria-label="share">
+        <IconButton style={{marginLeft:-5}} aria-label="share">
           <InsertCommentIcon />
         </IconButton> 
-          </div>
-          <div>
-          <IconButton style={{marginLeft: 100}} aria-label="settings">
+
+          <IconButton style={{marginLeft: 90}} aria-label="settings">
           <ShareIcon onClick={handleToggle}/>
         </IconButton> 
-            </div>
             </CardActions>
-          </div>
       
     </Card>
 
@@ -153,29 +148,24 @@ function Addpost() {
         alt="Title"
       />
 
-<div style={{display: "flex",justifyContent:"space-between"}}>
           <CardActions disableSpacing>
-          <div>
           <b>4000</b>
         <IconButton style={{marginLeft:-8}} aria-label="add to favorites">
            <FavoriteIcon />
         </IconButton>
         <b>102</b>
-        <IconButton style={{marginLeft:-8}} aria-label="share">
+        <IconButton style={{marginLeft:-5}} aria-label="share">
           <InsertCommentIcon />
         </IconButton> 
-          </div>
-          <div>
-          <IconButton style={{marginLeft: 100}} aria-label="settings">
+
+          <IconButton style={{marginLeft: 90}} aria-label="settings">
           <ShareIcon onClick={handleToggle}/>
         </IconButton> 
-            </div>
             </CardActions>
-          </div>
       
     </Card>
 
-    <Card sx={{ maxWidth: 345,margin:1,width:500, borderTop: "2px solid #808080" }}>
+    <Card sx={{ maxWidth: 345,margin:1,width:400, borderTop: "2px solid #808080" }}>
       <CardHeader
 
         action={
@@ -189,25 +179,19 @@ function Addpost() {
 
 
       
-          <div style={{display: "flex",justifyContent:"space-between"}}>
           <CardActions disableSpacing>
-          <div>
           <b>4000</b>
         <IconButton style={{marginLeft:-8}} aria-label="add to favorites">
            <FavoriteIcon />
         </IconButton>
         <b>102</b>
-        <IconButton style={{marginLeft:-8}} aria-label="share">
+        <IconButton style={{marginLeft:-5}} aria-label="share">
           <InsertCommentIcon />
         </IconButton> 
-          </div>
-          <div>
-          <IconButton style={{marginLeft: 100}} aria-label="settings">
+          <IconButton style={{marginLeft: 90}} aria-label="settings">
           <ShareIcon onClick={handleToggle}/>
         </IconButton> 
-            </div>
             </CardActions>
-          </div>
 
 
      
