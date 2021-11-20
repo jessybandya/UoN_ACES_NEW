@@ -189,7 +189,7 @@ auth.onAuthStateChanged((authUser) =>{
       {!auth?.currentUser?.uid &&(
         <div style={{display: "flex",justifyContent: "space-between",width: 150}}>
                       <a href="/home">
-          <div style={{fontWeight: "500",color: "#fff"}}>Feeds</div>
+          <div style={{fontWeight: "500",color: "#fff"}}>Home</div>
           </a>
           <a href="/register">
           <div style={{fontWeight: "500",marginLeft:10,color: "#fff"}}>Register</div>
