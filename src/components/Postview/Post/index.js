@@ -32,6 +32,55 @@ import ThumbUpAltOutlinedIcon from '@mui/icons-material/ThumbUpAltOutlined';
 import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import NumberFormat from 'react-number-format';
+import Backdrop from '@mui/material/Backdrop';
+import {
+  EmailShareButton,
+  FacebookShareButton,
+  HatenaShareButton,
+  InstapaperShareButton,
+  LineShareButton,
+  LinkedinShareButton,
+  LivejournalShareButton,
+  MailruShareButton,
+  OKShareButton,
+  PinterestShareButton,
+  PocketShareButton,
+  RedditShareButton,
+  TelegramShareButton,
+  TumblrShareButton,
+  TwitterShareButton,
+  ViberShareButton,
+  VKShareButton,
+  WhatsappShareButton,
+  WorkplaceShareButton
+} from "react-share";
+
+import {
+  EmailIcon,
+  FacebookIcon,
+  FacebookMessengerIcon,
+  HatenaIcon,
+  InstapaperIcon,
+  LineIcon,
+  LinkedinIcon,
+  LivejournalIcon,
+  MailruIcon,
+  OKIcon,
+  PinterestIcon,
+  PocketIcon,
+  RedditIcon,
+  TelegramIcon,
+  TumblrIcon,
+  TwitterIcon,
+  ViberIcon,
+  VKIcon,
+  WeiboIcon,
+  WhatsappIcon,
+  WorkplaceIcon
+} from "react-share";
+import { MailIcon } from 'react-mail-icon'
+
+
 
 
   const useStyles = makeStyles((theme) => ({
@@ -69,6 +118,15 @@ import NumberFormat from 'react-number-format';
         setComments(!comments);
         setExpanded(false);
       };
+      const [open2, setOpen2] = React.useState(false);
+      const handleClose2 = () => {
+        setOpen2(false);
+      };
+      const handleToggle = () => {
+        setOpen2(true);
+      };
+
+      
     return (
       <>
  <Card sx={{ maxWidth: 345 }} style={{marginBottom:5,borderTop: "1px solid #C5C5C5",marginTop:70,padding:10}}>
@@ -105,7 +163,7 @@ import NumberFormat from 'react-number-format';
 
         <ChatBubbleOutlineOutlinedIcon expand={comments} onClick={handleExpandClick1} aria-expanded={comments} aria-label="show more" style={{color: "#3f51b5",marginRight:0,cursor:"pointer"}}/>
         </div>
-           <div style={{alignItems:"center"}}><div style={{fontWeight:"600",color: "#808080"}}>share</div><ShareOutlinedIcon style={{color: "#3f51b5",cursor:"pointer"}}/></div>
+           <div style={{alignItems:"center"}}><div style={{fontWeight:"600",color: "#808080"}}>share</div><ShareOutlinedIcon onClick={handleToggle} style={{color: "#3f51b5",cursor:"pointer"}}/></div>
          
         <div style={{alignItems:"center",color: "#808080"}}>
         <div style={{fontWeight:"600"}}>view</div>
@@ -266,6 +324,73 @@ import NumberFormat from 'react-number-format';
       </Collapse>
 
     </Card>
+
+
+
+    <Backdrop
+     sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+     open={open2}
+     onClick={handleClose2}
+   >
+     <div style={{display: "flex",padding:15,justifyContent:"space-between",width:250,backgroundColor:"#fff",borderRadius:30}}>
+
+     <div>
+       <EmailShareButton
+        title={`title`}
+        url={`#`}
+        hashtag={"#academicsurvey"}
+        description={`formdescription`}
+      >
+        <EmailIcon  size={32} round />
+      </EmailShareButton>
+       </div>
+
+       <div>
+       <FacebookShareButton
+        title={`title`}
+        url={`#`}
+        // quote={"Talking is easy just show me the codes."}
+        hashtag={"#academicsurvey"}
+        description={`formdescription`}
+        className=""
+      >
+        <FacebookIcon size={32} round />
+      </FacebookShareButton>
+       </div>
+       <div>
+       <TwitterShareButton
+        title={`title`}
+        url={`#`}
+        hashtag={"#academicsurvey"}
+        description={`formdescription`}
+      >
+        <TwitterIcon size={32} round />
+      </TwitterShareButton>
+       </div>
+       <div>
+       <WhatsappShareButton
+        title={`title`}
+        url={`#`}
+        hashtag={"#academicsurvey"}
+        description={`formdescription`}
+      >
+        <WhatsappIcon size={32} round />
+      </WhatsappShareButton>
+       </div>
+
+              <div>
+       <LinkedinShareButton
+        title={`title`}
+        url={`#`}
+        hashtag={"#academicsurvey"}
+        description={`formdescription`}
+      >
+        <LinkedinIcon size={32} round />
+      </LinkedinShareButton>
+       </div>  
+
+     </div>
+   </Backdrop>
       </>
     );
   };
