@@ -1,13 +1,11 @@
 import { Grid, makeStyles } from "@material-ui/core";
 import Add from "../Grid/Add";
-import Feed from "../Notificationspage";
+import Feed from "../Profileview";
 import Leftbar from "../Grid/Leftbar";
 import Navbar from "../Grid/Navbar";
 import Rightbar from "../Grid/Rightbar";
 import { auth } from "../firebase"
 import { useHistory } from "react-router";
- 
-
 const useStyles = makeStyles((theme) => ({
   right: {
     [theme.breakpoints.down("sm")]: {
@@ -16,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Home = ({user}) => {
+const Profileview1 = ({user}) => {
   const history = useHistory("")
   const classes = useStyles();
 
@@ -60,4 +58,4 @@ const Home = ({user}) => {
   );
 };
 
-export default Home;
+export default Profileview1;

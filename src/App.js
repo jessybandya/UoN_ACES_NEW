@@ -18,6 +18,7 @@ import Addpost from './components/Addpost';
 import MainMessagesPage from './components/MainMessagesPage';
 import ChatDm from './components/ChatDm1';
 import Notificationspage from './components/Notificationspage1';
+import Profileview from './components/Profileview1';
 
 
 function App() {
@@ -57,7 +58,11 @@ function App() {
 
 			  <Route exact path="/notifications">
               <Notificationspage user={user}/>
-             </Route>  
+             </Route> 	 
+			 
+             <Route exact path="/profileview">
+              <Profileview user={user}/>
+             </Route>
 			</Switch>
 			{/* <Footer /> */}
 		</Router>
