@@ -62,9 +62,11 @@ import "./styles.css"
 
     const handleExpandClick = () => {
       setExpanded(!expanded);
+      setComments(false);
     };
     const handleExpandClick1 = () => {
         setComments(!comments);
+        setExpanded(false);
       };
     return (
       <>
