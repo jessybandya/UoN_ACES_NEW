@@ -32,7 +32,6 @@ const Home = ({user}) => {
         </Grid>
         <Grid item sm={3} className={classes.right}>
           <Rightbar />
-          <Add /> 
         </Grid>
       </Grid>
        </>

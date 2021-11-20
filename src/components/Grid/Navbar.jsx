@@ -164,7 +164,7 @@ auth.onAuthStateChanged((authUser) =>{
           {auth?.currentUser?.uid &&(
             <>
                                     <a href={`/home`}>
-          <div style={{fontWeight: "600",color: "#fff",marginRight:10}}>Feeds</div>
+          <div style={{fontWeight: "600",color: "#fff",marginRight:10}}>Home</div>
           </a>
           <a href={`/mainmessagespage`}>
           <Badge badgeContent={5} color="secondary" className={classes.badge}>

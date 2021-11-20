@@ -11,7 +11,7 @@ import Register from './components/Register';
 import Login from './components/Login';
 import { useState,useEffect } from 'react';
 import {auth} from "./components/firebase"
-import Postview from './components/Postview1';
+import Postview from './components/Postview';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 
