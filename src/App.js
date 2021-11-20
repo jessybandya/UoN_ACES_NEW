@@ -9,18 +9,34 @@ import Navbar from './components/Grid/Navbar';
 import Home from "./components/Home"
 import Register from './components/Register';
 import Login from './components/Login';
+import { useState,useEffect } from 'react';
+import {auth} from "./components/firebase"
+import Postview from './components/Postview1';
 
 function App() {
+	const [user, setUser] = useState([]);
+	useEffect(() => {
+	  auth.onAuthStateChanged((authUser) =>{
+		if(authUser){
+		  setUser(authUser)
+		}else{
+		  setUser(false);
+		}
+	  })
+	}, [])
   return (
     <div className="App">
 		<Router>
 			<GlobalStyle />
 			<Navbar />
 			<Switch>
-				<Route path="/" exact component={Home1} />
-				<Route path="/home" exact component={Home} />
-				<Route path="/login" exact component={Login} />
-				<Route path="/register" exact component={Register} />
+				<Route exact path="/" component={Home1} />
+				<Route exact path="/home"  component={Home} />
+				<Route exact path="/login"  component={Login} />
+				<Route exact path="/register"  component={Register} />
+				<Route exact path="/postview">
+              <Postview user={user}/>
+             </Route> 
 			</Switch>
 			<Footer />
 		</Router>
