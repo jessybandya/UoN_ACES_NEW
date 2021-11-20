@@ -14,7 +14,7 @@ import {auth} from "./components/firebase"
 import Postview from './components/Postview';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
-import Addpost from './components/Addpost1';
+import Addpost from './components/Addpost';
 
 
 function App() {
