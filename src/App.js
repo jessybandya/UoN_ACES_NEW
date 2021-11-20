@@ -15,7 +15,7 @@ import Postview from './components/Postview';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 import Addpost from './components/Addpost';
-import MainMessagesPage1 from './components/MainMessagesPage1';
+import MainMessagesPage from './components/MainMessagesPage';
 
 
 function App() {
@@ -47,7 +47,7 @@ function App() {
               <Addpost user={user}/>
              </Route> 
 		      <Route exact path="/mainmessagespage">
-              <MainMessagesPage1 user={user}/>
+              <MainMessagesPage user={user}/>
              </Route> 
 
 			</Switch>
