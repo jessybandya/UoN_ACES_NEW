@@ -17,7 +17,7 @@ import { useHistory } from "react-router";
 import "./styles.css"
 import PostAddIcon from '@mui/icons-material/PostAdd';
 import { Link } from "react-router-dom";
-
+import AddIcon from '@mui/icons-material/Add';
 
 const useStyles = makeStyles((theme) => ({
   container: {
