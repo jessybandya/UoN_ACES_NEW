@@ -78,9 +78,11 @@ const logout = () => {
     <Container  className={classes.container}>
       <div className={classes.item} className="leftNav" style={{display: "flex",alignItems:"center",height:50,cursor:"pointer",borderRadius:10}}>
       {/* <Badge badgeContent={411} color="error" className={classes.badge}> */}
+      <a style={{display: "flex"}} className="port" href="/home">
         <Home className={classes.icon} />
         {/* </Badge> */}
         <Typography className={classes.text}>Homepage</Typography>
+        </a>
       </div>
       <div className={classes.item} className="leftNav" style={{display: "flex",alignItems:"center",height:50,cursor:"pointer",borderRadius:10}}>
         <Person className={classes.icon} />
