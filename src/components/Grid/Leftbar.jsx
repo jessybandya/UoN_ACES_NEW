@@ -70,10 +70,9 @@ const Leftbar = ({user}) => {
 }, [])
 
 const logout = () => {
-  if (user) {
+  
     auth.signOut();
     history.push("/login");
-  }
 }
   return (
     <Container  className={classes.container}>

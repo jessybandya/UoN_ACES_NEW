@@ -1,0 +1,14 @@
+@media (max-width:480px){
+ 
+    .mobile{
+        width: 100%;
+    }
+}    
+
+@media (min-width:480px){
+ 
+    .mobile{
+        padding-left: 250px;
+        padding-right: 250px;
+    }
+}  
