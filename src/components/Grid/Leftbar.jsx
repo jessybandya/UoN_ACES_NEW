@@ -72,7 +72,7 @@ const Leftbar = ({user}) => {
 const logout = () => {
   
     auth.signOut();
-    history.push("/login");
+    history.push("/");
 }
   return (
     <Container  className={classes.container}>
