@@ -359,7 +359,7 @@ a {
     font-weight: bold;
     color: white;
     border: 0 none;
-    border-radius: 0px;
+    border-radius: 15px;
     cursor: pointer;
     padding: 10px 5px;
     margin: 10px 5px
@@ -372,15 +372,15 @@ a {
 
 #msform .action-button-previous {
     width: 100px;
-    background: #616161;
+    background: rgb(223, 215, 215);
     font-weight: bold;
-    color: white;
+    color: #3f51b5;
     border: 0 none;
-    border-radius: 0px;
+    border-radius: 15px;
     cursor: pointer;
     padding: 10px 5px;
     margin: 10px 5px
-}
+  }
 
 #msform .action-button-previous:hover,
 #msform .action-button-previous:focus {
