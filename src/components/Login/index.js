@@ -6,6 +6,7 @@ import {useHistory} from 'react-router-dom';
 import {  toast } from 'react-toastify';
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import Footer from './../Firstpage/components/Footer/Footer';
 
 function Login() {
     const {currentUser} = auth
@@ -72,8 +73,10 @@ function Login() {
                         <button onClick={()=> toast.success("!oops, we're still working on this...")} className="loginRegisterButton">Forgot password?</button>
                       </div>
                       )}
+                        <Footer />   
+
             
-  </>      
+  </>   
     )
 }
 

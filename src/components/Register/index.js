@@ -10,6 +10,7 @@ import Box from '@mui/material/Box';
 import Alert from '@mui/material/Alert';
 import {  toast } from 'react-toastify';
 import Backdrop from '@mui/material/Backdrop';
+import Footer from './../Firstpage/components/Footer/Footer';
 
 
 function Register() {
@@ -560,6 +561,8 @@ function Register() {
                 </div>
             </div>
         </div>
+                                <Footer />   
+
                       </>
        ):(
            <>
@@ -911,6 +914,8 @@ function Register() {
                 </div>
             </div>
         </div>
+                                <Footer />   
+
            </>
        )}
         

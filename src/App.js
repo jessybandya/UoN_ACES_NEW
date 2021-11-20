@@ -16,6 +16,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 import Addpost from './components/Addpost';
 import MainMessagesPage from './components/MainMessagesPage';
+import ChatDm from './components/ChatDm1';
 
 
 function App() {
@@ -49,9 +50,11 @@ function App() {
 		      <Route exact path="/mainmessagespage">
               <MainMessagesPage user={user}/>
              </Route> 
-
+             <Route exact path="/messages">
+              <ChatDm user={user}/>
+             </Route> 
 			</Switch>
-			<Footer />
+			{/* <Footer /> */}
 		</Router>
     </div>
   );
