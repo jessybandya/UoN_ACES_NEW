@@ -15,6 +15,7 @@ import Postview from './components/Postview';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 import Addpost from './components/Addpost';
+import Friends from './components/Friends';
 import MainMessagesPage from './components/MainMessagesPage';
 import ChatDm from './components/ChatDm1';
 import Notificationspage from './components/Notificationspage1';
@@ -49,6 +50,11 @@ function App() {
 			 <Route exact path="/addpost">
               <Addpost user={user}/>
              </Route> 
+
+			 <Route exact path="/friends">
+              <Friends user={user}/>
+             </Route> 
+
 		      <Route exact path="/mainmessagespage">
               <MainMessagesPage user={user}/>
              </Route> 
