@@ -20,6 +20,7 @@ import InsertCommentIcon from '@mui/icons-material/InsertComment';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import Backdrop from '@mui/material/Backdrop';
 import FormSelect from '../../forms/FormSelect';
+import { Form, FormGroup, Label, Input , Modal, ModalHeader, ModalBody,Table} from 'reactstrap';
 import {
   EmailShareButton,
   FacebookShareButton,
@@ -94,7 +95,48 @@ function Addpost() {
 
 
     return (
-        <div style={{marginTop: 70,display:"flex",flexWrap: "wrap"}}>
+      <>
+<section style={{justifyContent:"center"}} class="results-shown"> 
+<Form inline className="Search-header">
+
+<div style={{display: "flex",alignItems: "center",marginTop:80,marginLeft:20}}>
+
+
+<FormGroup>
+
+
+<FormSelect  style={{color: "#555",border: "1px solid #888888",borderRadius: 5}}
+                 
+                 
+                  
+                 options={[{
+                   value: "",
+                   name: "Browse"
+                 },
+                       {
+                         value: "Mentor",
+                         name: "Mentor"
+                       }, {
+                         value: "Mentee",
+                         name: "Mentee"
+                       }]} 
+                 required=""             
+                //  onChange={(e) => setBusinessCategory(e.target.value)} type="text" 
+               />
+
+
+
+
+</FormGroup>
+<FormGroup>
+<p className="card-text"><small className="text-muted">Find people</small></p>
+
+</FormGroup>
+</div>
+
+</Form>
+</section>
+        <div style={{marginTop: 0,display:"flex",flexWrap: "wrap"}}>
 
 <div class="card1 p-3">
         <div class="d-flex align-items-center">
@@ -135,7 +177,7 @@ function Addpost() {
 
 
 
-        
+    </>    
     )
 }
 
