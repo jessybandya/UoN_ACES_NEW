@@ -1,6 +1,6 @@
 import { Grid, makeStyles } from "@material-ui/core";
 import Add from "../Grid/Add";
-import Feed from "../Addpost/Posts";
+import Feed from "../Friends/Posts";
 import Leftbar from "../Grid/Leftbar";
 import Navbar from "../Grid/Navbar";
 import Rightbar from "../Grid/Rightbar";
