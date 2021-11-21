@@ -101,21 +101,21 @@ function abbrNum(number, decPlaces) {
                       <div style={{margin: 5}}>                   
                       <div style={{color: "#3f51b5"}}><b>Follower(s)</b></div>
                       <div style={{fontWeight: "700",color: "#808080"}}>
-                      {abbrNum(400000,3)}
+                      {abbrNum(123456789,2)}
                       </div>
                       </div>
 
                       <div style={{margin: 5}}>                   
                       <div style={{color: "#3f51b5"}}><b>Following</b></div>
                       <div style={{fontWeight: "700",color: "#808080"}}>
-                      {abbrNum(1200000,3)}
+                      {abbrNum(1200000,2)}
                       </div>
                       </div>
 
                       <div style={{margin: 5}}>                   
                       <div style={{color: "#3f51b5"}}><b>Post(s)</b></div>
                       <div style={{fontWeight: "700",color: "#808080"}}>
-                      {abbrNum(1500,3)}
+                      {abbrNum(1500,2)}
                       </div>
                       </div>
                       </span>

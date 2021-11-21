@@ -177,8 +177,8 @@ function Addpost() {
             <div class="ml-3 w-100">
                 <h4 class="mb-0 mt-0">Jessy Bandya</h4> <span>@jessybandya</span>
                 <div class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
-                    <div class="d-flex flex-column"> <span class="followers">Followers</span> <span class="number2">{abbrNum(1200,3)}</span> </div>
-                    <div class="d-flex flex-column"> <span class="rating">Following</span> <span class="number3">{abbrNum(2200,3)}</span> </div>
+                    <div class="d-flex flex-column"> <span class="followers">Followers</span> <span class="number2">{abbrNum(1200,2)}</span> </div>
+                    <div class="d-flex flex-column"> <span class="rating">Following</span> <span class="number3">{abbrNum(2200,2)}</span> </div>
                 </div>
                 <div class="button mt-2 d-flex flex-row align-items-center"> <button class="btn btn-sm btn-outline-primary w-100">Chat</button> <button class="btn btn-sm btn-primary w-100 ml-2">Follow</button> </div>
             </div>
@@ -192,8 +192,8 @@ function Addpost() {
             <div class="ml-3 w-100">
                 <h4 class="mb-0 mt-0">Jessy Bandya</h4> <span>@jessybandya</span>
                 <div style={{justifyContent:"space-between"}} class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
-                <div class="d-flex flex-column"> <span class="followers">Followers</span> <span class="number2">{abbrNum(1200,3)}</span> </div>
-                    <div class="d-flex flex-column"> <span class="rating">Following</span> <span class="number3">{abbrNum(2200,3)}</span> </div>
+                <div class="d-flex flex-column"> <span class="followers">Followers</span> <span class="number2">{abbrNum(1200,2)}</span> </div>
+                    <div class="d-flex flex-column"> <span class="rating">Following</span> <span class="number3">{abbrNum(2200,2)}</span> </div>
                 </div>
                 <div class="button mt-2 d-flex flex-row align-items-center"> <button class="btn btn-sm btn-outline-primary w-100">Chat</button> <button class="btn btn-sm btn-primary w-100 ml-2">Follow</button> </div>
             </div>

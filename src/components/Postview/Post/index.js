@@ -79,7 +79,7 @@ import {
   WorkplaceIcon
 } from "react-share";
 import { MailIcon } from 'react-mail-icon'
-
+import { auth } from "../../firebase"
 
 
 
@@ -187,20 +187,23 @@ import { MailIcon } from 'react-mail-icon'
           </Typography>
         </CardContent>
       </Collapse>
+      {auth?.currentUser?.uid &&(
       <div style={{display:"flex",marginTop:10,alignItems:"center",justifyContent:"space-between"}}>
-          <div>
-          <Avatar src="https://ict.uonbi.ac.ke/sites/ict.uonbi.ac.ke/files/2020-06/UniversityOfNairobiTowersProject_banner.jpg" alt="Jessy Bandya"/>    
-          </div>
-          <div style={{marginLeft:0,display:"flex",alignItems:"center",justifyContent:"space-between"}}>            
-                  <TextField
-                  multiline
-                  rows={2}
-                  placeholder="@jessybandya comment here"
-                  size="small"
-                  style={{ width: 200 }}
-                /></div>
-                <div><SendIcon style={{color: "#3f51b5",cursor:"pointer"}}/></div>
+      <div>
+      <Avatar src="https://ict.uonbi.ac.ke/sites/ict.uonbi.ac.ke/files/2020-06/UniversityOfNairobiTowersProject_banner.jpg" alt="Jessy Bandya"/>    
       </div>
+      <div style={{marginLeft:0,display:"flex",alignItems:"center",justifyContent:"space-between"}}>            
+              <TextField
+              multiline
+              rows={2}
+              placeholder="@jessybandya comment here"
+              size="small"
+              style={{ width: 200 }}
+            /></div>
+            <div><SendIcon style={{color: "#3f51b5",cursor:"pointer"}}/></div>
+  </div>
+      )}
+
       <Collapse in={comments} timeout="auto" unmountOnExit>
         <CardContent style={{marginTop:20}}>
         <Typography paragraph style={{fontWeight:"600"}}>Comments</Typography>
