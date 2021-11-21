@@ -93,6 +93,39 @@ function Addpost() {
       setOpen2(true);
     };
 
+    function kFormatter(num) {
+      return Math.abs(num) > 999 ? Math.sign(num)*((Math.abs(num)/1000).toFixed(1)) + 'K' : Math.sign(num)*Math.abs(num)
+  }
+      
+  function abbrNum(number, decPlaces) {
+    // 2 decimal places => 100, 3 => 1000, etc
+    decPlaces = Math.pow(10,decPlaces);
+  
+    // Enumerate number abbreviations
+    var abbrev = [ "K", "M", "B", "T" ];
+  
+    // Go through the array backwards, so we do the largest first
+    for (var i=abbrev.length-1; i>=0; i--) {
+  
+        // Convert array index to "1000", "1000000", etc
+        var size = Math.pow(10,(i+1)*3);
+  
+        // If the number is bigger or equal do the abbreviation
+        if(size <= number) {
+             // Here, we multiply by decPlaces, round, and then divide by decPlaces.
+             // This gives us nice rounding to a particular decimal place.
+             number = Math.round(number*decPlaces/size)/decPlaces;
+  
+             // Add the letter for the abbreviation
+             number += abbrev[i];
+  
+             // We are done... stop
+             break;
+        }
+    }
+  
+    return number;
+  }
 
     return (
       <>
@@ -144,8 +177,8 @@ function Addpost() {
             <div class="ml-3 w-100">
                 <h4 class="mb-0 mt-0">Jessy Bandya</h4> <span>@jessybandya</span>
                 <div class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
-                    <div class="d-flex flex-column"> <span class="followers">Followers</span> <span class="number2">980</span> </div>
-                    <div class="d-flex flex-column"> <span class="rating">Following</span> <span class="number3">200</span> </div>
+                    <div class="d-flex flex-column"> <span class="followers">Followers</span> <span class="number2">{abbrNum(1200,3)}</span> </div>
+                    <div class="d-flex flex-column"> <span class="rating">Following</span> <span class="number3">{abbrNum(2200,3)}</span> </div>
                 </div>
                 <div class="button mt-2 d-flex flex-row align-items-center"> <button class="btn btn-sm btn-outline-primary w-100">Chat</button> <button class="btn btn-sm btn-primary w-100 ml-2">Follow</button> </div>
             </div>
@@ -159,8 +192,8 @@ function Addpost() {
             <div class="ml-3 w-100">
                 <h4 class="mb-0 mt-0">Jessy Bandya</h4> <span>@jessybandya</span>
                 <div style={{justifyContent:"space-between"}} class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
-                    <div class="d-flex flex-column"> <span class="followers">Followers</span> <span class="number2">980</span> </div>
-                    <div class="d-flex flex-column"> <span class="rating">Following</span> <span class="number3">200</span> </div>
+                <div class="d-flex flex-column"> <span class="followers">Followers</span> <span class="number2">{abbrNum(1200,3)}</span> </div>
+                    <div class="d-flex flex-column"> <span class="rating">Following</span> <span class="number3">{abbrNum(2200,3)}</span> </div>
                 </div>
                 <div class="button mt-2 d-flex flex-row align-items-center"> <button class="btn btn-sm btn-outline-primary w-100">Chat</button> <button class="btn btn-sm btn-primary w-100 ml-2">Follow</button> </div>
             </div>

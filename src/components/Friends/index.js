@@ -18,6 +18,8 @@ const Home = ({user}) => {
   const history = useHistory("")
   const classes = useStyles();
 
+  
+
   return (
     <div>
       {auth?.currentUser?.uid &&(
