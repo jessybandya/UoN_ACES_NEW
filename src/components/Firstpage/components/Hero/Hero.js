@@ -6,7 +6,7 @@ import { auth } from "../../../firebase"
 const Hero = () => {
 	return (
 		<HeroSection>
-			<HeroVideo src="./assets/hero.mp4" autoPlay muted />
+			<HeroVideo src="./assets/test.mp4" autoPlay muted control loop/>
 			<Container>
 				<MainHeading>UoN ACES <p>MOTIVATE || INSPIRE || INNOVATE</p></MainHeading>
 				<HeroText>
