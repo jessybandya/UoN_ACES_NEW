@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Container, MainHeading } from '../../globalStyles';
 import { HeroVideo, HeroSection, HeroText, ButtonWrapper, HeroButton } from './HeroStyles';
-
+import { auth } from "../../../firebase"
 const Hero = () => {
 	return (
 		<HeroSection>
@@ -13,9 +13,11 @@ const Hero = () => {
 					We provide the best civil engineering direction skills in and out of academic field
 				</HeroText>
 				<ButtonWrapper>
+					{!auth?.currentUser?.uid &&(
 					<Link to="/register">
-						<Button>Get Started</Button>
-					</Link>
+					<Button>Get Started</Button>
+				</Link>
+					)}
 					<HeroButton>Find More</HeroButton>
 				</ButtonWrapper>
 			</Container>
