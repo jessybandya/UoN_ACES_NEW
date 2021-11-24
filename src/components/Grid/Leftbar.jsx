@@ -18,8 +18,8 @@ import "./styles.css"
 import PostAddIcon from '@mui/icons-material/PostAdd';
 import { Link } from "react-router-dom";
 import AddIcon from '@mui/icons-material/Add';
-
-
+import MenuBookIcon from '@mui/icons-material/MenuBook';
+import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -89,13 +89,15 @@ const logout = () => {
       </div>
       <div className={classes.item} className="leftNav" style={{display: "flex",alignItems:"center",height:50,cursor:"pointer",borderRadius:10}}>
         <a style={{display: "flex"}} className="port" href={`/friends`}>
-        <Person className={classes.icon} />
+        <PeopleAltIcon className={classes.icon} />
         <Typography className={classes.text}>Friends</Typography>
         </a>
       </div>
       <div className={classes.item} className="leftNav" style={{display: "flex",alignItems:"center",height:50,cursor:"pointer",borderRadius:10}}>
-        <List className={classes.icon} />
-        <Typography className={classes.text}>Lists</Typography>
+        <a style={{display: "flex"}} className="port" href={`/friends`}>
+        <MenuBookIcon className={classes.icon} />
+        <Typography className={classes.text}>Academics</Typography>
+        </a>
       </div>
       <div className={classes.item} className="leftNav" style={{display: "flex",alignItems:"center",height:50,cursor:"pointer",borderRadius:10}}>
         <PhotoCamera className={classes.icon} />
