@@ -69,7 +69,7 @@ export const Content = ({
 							>
 								{description}
 							</Subtitle>
-							<ContentButton
+							{/* <ContentButton
 								initial={initial}
 								transition={{ delay: 1, duration: 0.6 }}
 								animate={animation}
@@ -77,7 +77,7 @@ export const Content = ({
 								primary={primary}
 							>
 								{buttonLabel}
-							</ContentButton>
+							</ContentButton> */}
 						</TextWrapper>
 					</ContentColumn>
 					<ContentColumn

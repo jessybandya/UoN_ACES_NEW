@@ -2,11 +2,11 @@ export const heroOne = {
 	reverse: true,
 	inverse: true,
 	topLine: {
-		text: 'Founded in 2012',
+		text: 'Founded in 2015',
 	},
-	headline: "We've been in business for 9 years",
-	description: 'We have designed and implemented the best cloud security solutions',
-	buttonLabel: 'Find More',
+	headline: "We've been in  for 7 years",
+	description: 'We have designed and implemented the best civil engineering guidelines in collaboration with uon civil and construction department',
+	// buttonLabel: 'Find More',
 	imgStart: 'start',
 	img: './assets/svg/Deal.svg',
 	start: 'true',
@@ -19,7 +19,7 @@ export const heroTwo = {
 		text: 'Designed & Developed',
 	},
 	headline: 'The best practices',
-	description: 'Our clients have had the best experience working with us',
+	description: 'Civil engineering students have had the best experience with us',
 	buttonLabel: 'View Project',
 
 	linkTo: '/more',
@@ -36,7 +36,7 @@ export const heroThree = {
 	},
 	headline: 'Why us? ',
 	description:
-		'Our 9 year experience have allowed us to use the most innovative technologies and methodologies',
+		'Our 7 year experience have allowed us to use the most innovative technologies and methodologies',
 	buttonLabel: 'View Project',
 
 	linkTo: '/download',
