@@ -38,7 +38,7 @@ const Carousel = () => {
 						<TextWrapper size="0.9rem" margin="0.7rem" color="#4f4f4f">
 							{el.description}
 						</TextWrapper>
-						<CardButton>Learn More</CardButton>
+						<CardButton></CardButton>
 					</ImageWrapper>
 				))}
 			</ReviewSlider>

@@ -1,28 +1,28 @@
 export const data = [
 	{
-		title: 'What our clients say',
+		title: 'Mission',
 		description:
-			'Our clients happily stay with our services for more several years now. See real reviews from our clients.',
-		image: './assets/clients.jpg',
+			'“We have a mission to be the world’s most respected service brand. To do this, we have established a culture that supports our team members, so they can provide exceptional service to our customers.”',
+		image: 'https://cnc.bc.ca/images/default-source/programs/start_building_your_fututre.tmb-1000px.jpg?sfvrsn=56db1683_1',
 	},
 	{
-		title: 'Our security ',
-		description: 'Learn more about our security systems to make sure your data is always safe',
-		image: './assets/security.jpg',
+		title: 'Vision ',
+		description: '“To make a contribution to the world by making tools for the mind that advance humankind.”',
+		image: 'https://www.build-review.com/wp-content/uploads/2021/02/civil-engineering-company.jpg',
 	},
 	{
 		title: 'Our Team',
 		description: 'Our team consists of the best experts in the industry, learn about them',
-		image: './assets/teamwork.jpg',
+		image: 'https://www.build-review.com/wp-content/uploads/2021/02/civil-engineering-company.jpg',
 	},
 	{
-		title: 'Our servers',
-		description: 'Find more about hardware and software used for your service',
+		title: 'Motto',
+		description: '“It always seems impossible until it’s done. You can do it.”',
 		image: 'https://images.pexels.com/photos/325229/pexels-photo-325229.jpeg?cs=srgb&dl=pexels-manuel-geissinger-325229.jpg&fm=jpg',
 	},
 	{
-		title: 'Our top clients',
-		description: 'We have provided services to top clients in tech industry',
+		title: 'Our dreams',
+		description: '“To make a contribution to the world by making tools for the mind that advance humankind.”',
 		image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80',
 	},
 ];
