@@ -14,8 +14,21 @@ import {
 } from './FooterStyles';
 import { footerData, footerSocialData } from '../../data/FooterData';
 import { Row, Section } from '../../globalStyles';
+import { Link } from "react-router-dom"
+function Footer({ data }) {
 
-function Footer() {
+	if (data) {
+		var networks = data.social.map(function (network) {
+		  return (
+			<li key={network.name}>
+			  <a href={network.url}>
+				<i className={network.className}></i>
+			  </a>
+			</li>
+		  );
+		});
+	  }
+	
 	return (
 		<Section padding="4rem 0 2rem 0">
 			<FooterWrapper>
@@ -33,13 +46,15 @@ function Footer() {
 							{footerSocialData.map((social, index) => (
 								<FooterSocialIcon
 									key={index}
-									href="/"
 									target="_blank"
+									href={"http://"+social.link}
+									rel="noopener"
 									aria-label={social.name}
 								>
 									{social.icon}
 								</FooterSocialIcon>
 							))}
+							{/* {networks} */}
 						</Row>
 					</FooterColumn>
 					{footerData.map((footerItem, index) => (

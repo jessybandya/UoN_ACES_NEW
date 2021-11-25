@@ -1,0 +1,131 @@
+
+
+{
+  
+  "main": {
+    "name": "Jessy Bandya",
+    "occupation": "Software Developer",
+    "description": "I eat, sleep and breathe Programming",
+    "image": "jessy1.jpg",
+    "bio": "Hi there! I am Jessy! a full-stack Web and mobile(Android & Ios) Application Developer and Software Developer, currently living in Nairobi, Kenya. I'm currently pursuing Bachelor of Science in civil Engineering at the University Of Nairobi, and my primary focus and inspiration for my studies is software Development.",
+    "contactmessage": "Get in touch with me to be a part of the PAPA fam!",
+    "email": "jessy.bandya5@gmail.com",
+    "phone": "+254 746749307",
+    "address": {
+      "street": "University way",
+      "city": "Nairobi",
+      "state": "Westlands",
+      "zip": "UoN"
+    },
+    "website": "https://www.papareact.com/course",
+    "resumedownload": "http://papareact.com",
+    "social": [
+        {
+        "name": "facebook",
+        "url": "https://www.facebook.com/profile.php?id=100010990051978",
+        "className": "fa fa-facebook"
+      },
+      {
+        "name": "linkedin",
+        "url": "https://www.linkedin.com/in/jessy-bandya-7934a01b4/",
+        "className": "fa fa-linkedin"
+      },
+      {
+        "name": "instagram",
+        "url": "https://www.instagram.com/jessybandya/",
+        "className": "fa fa-instagram"
+      },
+      {
+        "name": "github",
+        "url": "https://github.com/jessybandya",
+        "className": "fa fa-github"
+      }
+    ]
+  },
+  "resume": {
+    "skillmessage": "My Programming Language Proficiency",
+    "education": [
+      {
+        "school": "University of Nairobi - Kenya",
+        "degree": "Bachelor's Degree, Civil Engineering",
+        "graduated": "continuing",
+        "description": "..."
+      }
+    ],
+    "work": [
+      {
+        "company": "Real Biz Digital",
+        "title": "Software Developer",
+        "years": "Jan 2021 - Present",
+        "description": "Cloning all the apps possible. On the way to clone the world! || Building real world both web and mobile apps."
+      }
+    ],
+    "skills": [
+      {
+        "name": "ReactJs",
+        "level": "100%"
+      },
+      {
+        "name": "Python",
+        "level": "85%"
+      },
+      {
+        "name": "Git",
+        "level": "70%"
+      },
+      {
+        "name": "JavaScript",
+        "level": "99%"
+      },
+      {
+        "name": "Web Development",
+        "level": "95%"
+      },
+      {
+        "name": "C++",
+        "level": "80%"
+      },
+      {
+        "name": "C language",
+        "level": "80%"
+      },
+      {
+        "name": "HTML",
+        "level": "80%"
+      },
+      {
+        "name": "PHP",
+        "level": "70%"
+      },
+      {
+        "name": "SQL",
+        "level": "70%"
+      },
+      {
+        "name": "Java",
+        "level": "60%"
+      },
+      {
+        "name": "Kotlin",
+        "level": "60%"
+      },
+      {
+        "name": "Node.js",
+        "level": "85%"
+      },
+      {
+        "name": "Django",
+        "level": "85%"
+      }
+    ]
+  },
+
+  "testimonials": {
+    "testimonials": [
+      {
+        "text": "Talking is easy, just show me the codes.",
+        "user": "Jessy Bandya"
+      }
+    ]
+  }
+}

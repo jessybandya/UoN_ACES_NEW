@@ -7,22 +7,22 @@ export const footerSocialData = [
 	{
 		name: 'Facebook',
 		icon: iconStyle(FaFacebook),
-		link: "www.facebook.com"
+		link: "/www.facebook.com"
 	},
 	{
 		name: 'Instagram',
 		icon: iconStyle(FaInstagram),
-		link: "www.instagram.com"
+		link: "/www.instagram.com"
 	},
 	{
 		name: 'YouTube',
 		icon: iconStyle(FaYoutube),
-		link: "www.youtube.com"
+		link: "/www.youtube.com"
 	},
 	{
 		name: 'Twitter',
 		icon: iconStyle(FaTwitter),
-		link: "www.twitter.com"
+		link: "/www.twitter.com"
 	},
 	{
 		name: 'LinkedIn',
