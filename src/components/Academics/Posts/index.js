@@ -10,19 +10,19 @@ function index() {
      </a>
 
         
-     <a href={`/home`}>
+     <a href={`/year2`}>
      <button style={{marginLeft: 10,marginTop:10}} class="custom-btn btn-3"><span style={{fontSize:13,fontWeight:"900"}}>YEAR 2</span></button>
      </a>
 
-     <a href={`/home`}>
+     <a href={`/year3`}>
      <button style={{marginLeft: 10,marginTop:10}} class="custom-btn btn-3"><span style={{fontSize:13,fontWeight:"900"}}>YEAR 3</span></button>
      </a>
 
-     <a href={`/home`}>
+     <a href={`/year4`}>
      <button style={{marginLeft: 10,marginTop:10}} class="custom-btn btn-3"><span style={{fontSize:13,fontWeight:"900"}}>YEAR 4</span></button>
      </a>
 
-     <a href={`/home`}>
+     <a href={`/year5`}>
      <button style={{marginLeft: 10,marginTop:10}} class="custom-btn btn-3"><span style={{fontSize:13,fontWeight:"900"}}>YEAR 5</span></button>
      </a>
     </div>

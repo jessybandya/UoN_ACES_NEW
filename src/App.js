@@ -22,6 +22,12 @@ import Notificationspage from './components/Notificationspage1';
 import Profileview from './components/Profileview1';
 import Academics from './components/Academics';
 import Year1 from "./components/Years/Year1"
+import Year2 from "./components/Years/Year2"
+import Year3 from "./components/Years/Year3"
+import Year4 from "./components/Years/Year4"
+import Year5 from "./components/Years/Year5"
+
+
 function App() {
 	const [user, setUser] = useState([]);
 	useEffect(() => {
@@ -75,6 +81,22 @@ function App() {
 
 			 <Route exact path="/year1">
               <Year1 user={user}/>
+             </Route>
+
+			 <Route exact path="/year2">
+              <Year2 user={user}/>
+             </Route>
+
+			 <Route exact path="/year3">
+              <Year3 user={user}/>
+             </Route>
+
+			 <Route exact path="/year4">
+              <Year4 user={user}/>
+             </Route>
+
+			 <Route exact path="/year5">
+              <Year5 user={user}/>
              </Route>
 			</Switch>
 			{/* <Footer /> */}
