@@ -1,0 +1,13 @@
+[debug] [2021-11-26T20:35:49.691Z] ----------------------------------------------------------------------
+[debug] [2021-11-26T20:35:49.695Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\User\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2021-11-26T20:35:49.695Z] CLI Version:   9.18.0
+[debug] [2021-11-26T20:35:49.695Z] Platform:      win32
+[debug] [2021-11-26T20:35:49.696Z] Node Version:  v14.17.6
+[debug] [2021-11-26T20:35:49.697Z] Time:          Fri Nov 26 2021 12:35:49 GMT-0800 (Pacific Standard Time)
+[debug] [2021-11-26T20:35:49.697Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-11-26T20:35:49.789Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-11-26T20:35:49.789Z] > authorizing via signed-in user (jessy.bandya5@gmail.com)
+[debug] [2021-11-26T20:35:49.790Z] [iam] checking project odero-85bdb for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2021-11-26T20:35:49.793Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/odero-85bdb:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
