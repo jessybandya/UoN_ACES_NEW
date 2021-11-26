@@ -5,7 +5,7 @@ function index() {
     <div className="login1">
     <div className="loginForm">
    
-     <a href="/home">
+     <a href="/year1">
      <button style={{marginLeft: 10,marginTop:10}} class="custom-btn btn-3"><span style={{fontSize:13,fontWeight:"900"}}>YEAR 1</span></button>
      </a>
 

@@ -21,7 +21,7 @@ import ChatDm from './components/ChatDm1';
 import Notificationspage from './components/Notificationspage1';
 import Profileview from './components/Profileview1';
 import Academics from './components/Academics';
-
+import Year1 from "./components/Years/Year1"
 function App() {
 	const [user, setUser] = useState([]);
 	useEffect(() => {
@@ -71,6 +71,10 @@ function App() {
              </Route>
 			 <Route exact path="/academics">
               <Academics user={user}/>
+             </Route>
+
+			 <Route exact path="/year1">
+              <Year1 user={user}/>
              </Route>
 			</Switch>
 			{/* <Footer /> */}
