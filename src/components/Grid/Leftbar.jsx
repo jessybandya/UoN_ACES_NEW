@@ -94,7 +94,7 @@ const logout = () => {
         </a>
       </div>
       <div className={classes.item} className="leftNav" style={{display: "flex",alignItems:"center",height:50,cursor:"pointer",borderRadius:10}}>
-        <a style={{display: "flex"}} className="port" href={`/friends`}>
+        <a style={{display: "flex"}} className="port" href={`/academics`}>
         <MenuBookIcon className={classes.icon} />
         <Typography className={classes.text}>Academics</Typography>
         </a>

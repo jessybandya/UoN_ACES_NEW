@@ -20,7 +20,7 @@ import MainMessagesPage from './components/MainMessagesPage';
 import ChatDm from './components/ChatDm1';
 import Notificationspage from './components/Notificationspage1';
 import Profileview from './components/Profileview1';
-
+import Academics from './components/Academics';
 
 function App() {
 	const [user, setUser] = useState([]);
@@ -68,6 +68,9 @@ function App() {
 			 
              <Route exact path="/profileview">
               <Profileview user={user}/>
+             </Route>
+			 <Route exact path="/academics">
+              <Academics user={user}/>
              </Route>
 			</Switch>
 			{/* <Footer /> */}
