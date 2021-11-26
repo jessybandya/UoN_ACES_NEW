@@ -79,23 +79,23 @@ function App() {
               <Academics user={user}/>
              </Route>
 
-			 <Route exact path="/year1">
+			 <Route exact path="/academics/year1">
               <Year1 user={user}/>
              </Route>
 
-			 <Route exact path="/year2">
+			 <Route exact path="/academics/year2">
               <Year2 user={user}/>
              </Route>
 
-			 <Route exact path="/year3">
+			 <Route exact path="/academics/year3">
               <Year3 user={user}/>
              </Route>
 
-			 <Route exact path="/year4">
+			 <Route exact path="/academics/year4">
               <Year4 user={user}/>
              </Route>
 
-			 <Route exact path="/year5">
+			 <Route exact path="/academics/year5">
               <Year5 user={user}/>
              </Route>
 			</Switch>
