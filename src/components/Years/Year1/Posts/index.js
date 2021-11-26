@@ -48,7 +48,7 @@ function Year1() {
   };
 
   return (
-    <div style={{marginTop:80}}>
+    <div style={{marginTop:65}}>
           <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs style={{flex: 1}} value={value} onChange={handleChange} aria-label="basic tabs example">
