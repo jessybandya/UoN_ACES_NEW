@@ -2,7 +2,7 @@ import React from 'react'
 import "../styles.css"
 function index() {
   return (
-    <div className="login">
+    <div className="login1">
     <div className="loginForm">
    
      <a href="/home">

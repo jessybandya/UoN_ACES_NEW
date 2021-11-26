@@ -1,3 +1,13 @@
+.login1 {
+  height: calc(100vh - 0px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: 
+    url("https://i.pinimg.com/originals/3f/af/92/3faf92b0ec8e7803f92e24068d04734e.jpg");
+  background-size: cover;
+}
 .post {
     max-width: 50%;
     background-color: rgb(36, 37, 38);
@@ -632,7 +642,7 @@ background: linear-gradient(0deg, #3f51b5 0%, #3f51b5 100%);
 background: linear-gradient(0deg, rgba(2,126,251,1) 0%, rgba(2,126,251,1) 100%);
 }
 .btn-5:hover {
-  color: #3f51b5;;
+  color: #fff;;
   background: transparent;
    box-shadow:none;
 }
