@@ -208,7 +208,7 @@ function Addpost() {
      open={open2}
      onClick={handleClose2}
    >
-     <div style={{display: "flex",padding:10,justifyContent:"space-between",width:250,backgroundColor:"#fff",borderRadius:40}}>
+     <div style={{display: "flex",padding:10,justifyContent:"space-between",width:250,borderRadius:40}}>
 
      <div>
        <EmailShareButton
