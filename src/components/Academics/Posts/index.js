@@ -3,7 +3,7 @@ import "../styles.css"
 function index() {
   return (
     <div className="login">
-    <form className="loginForm">
+    <div className="loginForm">
    
      <a href="/home">
      <button style={{marginLeft: 10,marginTop:10}} class="custom-btn btn-3"><span style={{fontSize:13,fontWeight:"900"}}>YEAR 1</span></button>
@@ -25,7 +25,7 @@ function index() {
      <a href={`/home`}>
      <button style={{marginLeft: 10,marginTop:10}} class="custom-btn btn-3"><span style={{fontSize:13,fontWeight:"900"}}>YEAR 5</span></button>
      </a>
-    </form>
+    </div>
   </div>
   )
 }
