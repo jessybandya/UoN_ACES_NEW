@@ -4,7 +4,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: 
+  
+  background: linear-gradient(
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0.5)
+  ),
     url("https://i.pinimg.com/originals/3f/af/92/3faf92b0ec8e7803f92e24068d04734e.jpg");
   background-size: cover;
 }
