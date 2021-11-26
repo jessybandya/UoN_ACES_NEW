@@ -49,11 +49,11 @@ function Login() {
         
       </Backdrop>
       <div className="login">
-                        <span className="loginTitle" style={{color: "#3f51b5"}}>UoN_ACES</span>
+                        {/* <span className="loginTitle" style={{color: "#fff"}}>UoN_ACES</span> */}
                         <form className="loginForm">
-                          <label>School Email</label>
+                          <label></label>
                           <input className="loginInput" type="text" onChange={(e) => setEmail(e.target.value)} placeholder="Enter your school email..." />
-                          <label>Password</label>
+                          <label></label>
                           <input className="loginInput" type="password" onChange={(e) => setPassword(e.target.value)} placeholder="Enter your password..." />
                           <button onClick={login} className="loginButton">Login</button>
                         </form>
@@ -62,11 +62,11 @@ function Login() {
       </>
                       ):(
                         <div className="login">
-                        <span className="loginTitle" style={{color: "#3f51b5"}}>UoN_ACES</span>
+                        {/* <span className="loginTitle" style={{color: "#fff"}}>UoN_ACES</span> */}
                         <form className="loginForm">
-                          <label>School Email</label>
+                          <label style={{color: "#fff"}}></label>
                           <input className="loginInput" type="text" onChange={(e) => setEmail(e.target.value)} placeholder="Enter your school email..." />
-                          <label>Password</label>
+                          <label style={{color: "#3f51b5"}}></label>
                           <input className="loginInput" type="password" onChange={(e) => setPassword(e.target.value)} placeholder="Enter your password..." />
                           <button onClick={login} className="loginButton">Login</button>
                         </form>
