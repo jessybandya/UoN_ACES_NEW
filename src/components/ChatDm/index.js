@@ -80,11 +80,11 @@ function ChatDm({ user }) {
     message: text,
     timestamp:  Date.now(),
     
-    chat: post,
-    read: false,
-    read1:false,
-    toId: id1,
-    fromId: uid,
+    // chat: post,
+    // read: false,
+    // read1:false,
+    // toId: id1,
+    // fromId: uid,
 
     
   }).then(
@@ -145,7 +145,7 @@ function ChatDm({ user }) {
               <div style={{height:10,width:10,borderRadius:10/2,backgroundColor:"#00FF00",marginTop:-20}}>
 
 </div>
-              <p style={{marginLeft:5}}>Jessy Bandya</p>
+              <p style={{marginLeft:5}}>jaby {text &&(<>typing...</>)}</p>
             </div>
           </div>
 
@@ -171,14 +171,15 @@ function ChatDm({ user }) {
               <i className="fa fa-plus"></i>
             </button>
             <TextField 
+            value={text} onChange={(e) => setText(e.target.value)}
                               multiline
                               rows={2}
                               variant="outlined"
                               label="Write Text"
                               style={{ width: "100%" }}
-            style={{ width: '78%', fontSize: '15px', fontWeight: '550', marginLeft: '5px', marginBottom: '-3px' }} placeholder='Message...' type="text" value={text} onChange={(e) => setText(e.target.value)}  />
+            style={{ width: '78%', fontSize: '15px', fontWeight: '550', marginLeft: '5px', marginBottom: '-3px' }} placeholder='Message...' type="text"   />
 
-            <button onClick={addTodo} style={{marginLeft:5,marginTop:8}} className="btnSendMsg" id="sendMsgBtn">
+            <button  style={{marginLeft:5,marginTop:8}} className="btnSendMsg" id="sendMsgBtn">
               <i className="fa fa-paper-plane"></i>
             </button>
           </div>
