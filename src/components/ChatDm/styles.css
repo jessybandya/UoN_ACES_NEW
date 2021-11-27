@@ -249,12 +249,12 @@
   
 
   .fixed-header, .fixed-footer{
-    width: 100%;
+    width: 84%;
     position: fixed;        
     background: rgb(252, 240, 240);
     color: #000;
     height: 80px;
-    padding: 20px;
+    padding: 30px;
     top: 0;
     z-index: 2;
     border: "1px solid #000";

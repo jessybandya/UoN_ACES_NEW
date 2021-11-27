@@ -8,6 +8,8 @@ import Messages from "../ChatDm/Messages"
 import {useParams,Link} from 'react-router-dom'
 import {Avatar, Badge, TextField} from '@material-ui/core';
 import ScrollableFeed from 'react-scrollable-feed'
+import CallIcon from '@mui/icons-material/Call';
+import VideocamIcon from '@mui/icons-material/Videocam';
 
 function ChatDm({ user }) {
     const [post, setPost] = useState(null)
@@ -135,7 +137,7 @@ function ChatDm({ user }) {
         <div ref={messageRef}>
 
 <div style={{marginTop:50}} className="fixed-header">
-          <div className="blocks">
+          {/* <div className="blocks">
             <div className="current-chatting-user">
                 
               <Avatar style={{marginLeft:5}}
@@ -143,10 +145,26 @@ function ChatDm({ user }) {
                 src="http://c.files.bbci.co.uk/C870/production/_112921315_gettyimages-876284806.jpg"
               />
               <div style={{height:10,width:10,borderRadius:10/2,backgroundColor:"#00FF00",marginTop:-20}}>
-
-</div>
+              </div>
               <p style={{marginLeft:5}}>Jessy Bandya </p>
             </div>
+            <span style={{marginRight:20}}>hey</span>
+          </div> */}
+          <div style={{alignItems:"center",justifyContent:"space-between",display:"flex",maxWith:500}}>
+            <div>
+            <div className="current-chatting-user">
+                
+                <Avatar style={{marginLeft:5}}
+                  isOnline="active"
+                  src="http://c.files.bbci.co.uk/C870/production/_112921315_gettyimages-876284806.jpg"
+                />
+                <div style={{height:10,width:10,borderRadius:10/2,backgroundColor:"#00FF00",marginTop:-20}}>
+                </div>
+                <p style={{marginLeft:5,color: "#3f51b5"}}>Jessy Bandya </p>
+              </div>
+            </div>
+            <div></div>
+            <div><CallIcon style={{marginRight:20,color:"#3f51b5"}}/>  <VideocamIcon style={{color:"#3f51b5"}}/></div>
           </div>
 
         </div>
