@@ -41,10 +41,9 @@ useEffect(() => {
                         <li class="in">
 																	<>
 
-						<div class="chat-img">
-							{/* <img class="card-img-top navbar-brand user_img  rounded-circle" alt="Avtar" src="" style={{objectFit: "cover"}}/> */}
+						{/* <div class="chat-img">
 							<Avatar src="http://c.files.bbci.co.uk/C870/production/_112921315_gettyimages-876284806.jpg" alt=""/>
-						</div>
+						</div> */}
 						<div class="chat-body">
 							<div class="chat-message">
                                  <div style={{marginBottom:5,fontWeight:"700"}}>@jessybandya</div>
@@ -56,53 +55,20 @@ useEffect(() => {
 						
 					</li>
 
-					                        <li class="in">
-																	<>
 
-						<div class="chat-img">
-							{/* <img class="card-img-top navbar-brand user_img  rounded-circle" alt="Avtar" src="" style={{objectFit: "cover"}}/> */}
-							<Avatar src="http://c.files.bbci.co.uk/C870/production/_112921315_gettyimages-876284806.jpg" alt=""/>
-						</div>
-						<div class="chat-body">
-							<div class="chat-message">
-                                 <div style={{marginBottom:5,fontWeight:"700"}}>@jessybandya</div>
-								 <div>Hello here guys I have a suggestion to help me out plz. Hello here guys I have a suggestion to help me out plz. Hello here guys I have a suggestion to help me out plz</div>
-								 <div style={{marginTop:10,color: "#C5C5C5"}}>{parseTimestamp(timestamp)}</div>
-							</div>
-						</div>
-						</>
-						
-					</li>
-					                        <li class="in">
-																	<>
-
-						<div class="chat-img">
-							{/* <img class="card-img-top navbar-brand user_img  rounded-circle" alt="Avtar" src="" style={{objectFit: "cover"}}/> */}
-							<Avatar src="http://c.files.bbci.co.uk/C870/production/_112921315_gettyimages-876284806.jpg" alt=""/>
-						</div>
-						<div class="chat-body">
-							<div class="chat-message">
-                                 <div style={{marginBottom:5,fontWeight:"700"}}>@jessybandya</div>
-								 <div>Hello here guys I have a suggestion to help me out plz. Hello here guys I have a suggestion to help me out plz. Hello here guys I have a suggestion to help me out plz</div>
-								 <div style={{marginTop:10,color: "#C5C5C5"}}>{parseTimestamp(timestamp)}</div>
-							</div>
-						</div>
-						</>
-						
-					</li>
+					                       
 					</>
 						)}
         				{fromId == user?.uid  &&(
                         <li style={{marginBottom: 50}} class="out">
-						<div class="chat-img">
-							{/* <img class="card-img-top navbar-brand user_img  rounded-circle" alt="Avtar" src="" style={{objectFit: "cover"}}/> */}
+						{/* <div class="chat-img">
 							<Avatar src="" alt=""/>
-						</div>
+						</div> */}
 						<div  class="chat-body">
 							<div  class="chat-message1">
 							<div style={{justifyContent:"space-between"}}>
 								<div style={{marginBottom:5,fontWeight:"700"}}></div>
-								<div><MoreVertIcon/></div>								
+								{/* <div><MoreVertIcon/></div>								 */}
 								</div>
 								<div>Hello Bro man hope you peple are out here feeling good. Hello Bro man hope you peple are out here feeling good. Hello Bro man hope you peple are out here feeling good</div>
 								<div style={{marginTop:10,color: "#C5C5C5"}}>{parseTimestamp(timestamp)}</div>
