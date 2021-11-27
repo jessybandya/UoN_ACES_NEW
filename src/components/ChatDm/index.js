@@ -145,7 +145,7 @@ function ChatDm({ user }) {
               <div style={{height:10,width:10,borderRadius:10/2,backgroundColor:"#00FF00",marginTop:-20}}>
 
 </div>
-              <p style={{marginLeft:5}}>jaby {text &&(<>typing...</>)}</p>
+              <p style={{marginLeft:5}}>Jessy Bandya </p>
             </div>
           </div>
 
