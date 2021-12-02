@@ -53,7 +53,7 @@ function Year1() {
     <div style={{marginTop:65}}>
           <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs style={{flex: 1}} value={value} onChange={handleChange} aria-label="basic tabs example">
+        <Tabs style={{flex: 1,position: "sticky",zIndex:2}} value={value} onChange={handleChange} aria-label="basic tabs example">
           <Tab style={{flex: 0.5}} label="Semester 1" {...a11yProps(0)} />
           <Tab style={{flex: 0.5}} label="Semester 2" {...a11yProps(1)} />
         </Tabs>
