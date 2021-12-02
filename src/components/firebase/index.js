@@ -23,6 +23,15 @@ export default firebase;
   export  {storage};
 
 
+firebase.firestore().settings({
+    timestampsInSnapshots: true
+})
+
+export const myFirebase = firebase
+export const myFirestore = firebase.firestore()
+export const myStorage = firebase.storage()
+
+
 
 
 

@@ -26,7 +26,7 @@ import Year2 from "./components/Years/Year2"
 import Year3 from "./components/Years/Year3"
 import Year4 from "./components/Years/Year4"
 import Year5 from "./components/Years/Year5"
-
+import Root from "./Messagetest/Component/Root/Root"
 
 function App() {
 	const [user, setUser] = useState([]);
@@ -51,6 +51,7 @@ function App() {
 				<Route exact path="/login"  component={Login} />
 				<Route exact path="/register"  component={Register} />
 				<Route exact path="/postview">
+					
               <Postview user={user}/>
              </Route> 
 			 <Route exact path="/addpost">
@@ -97,6 +98,10 @@ function App() {
 
 			 <Route exact path="/academics/year5">
               <Year5 user={user}/>
+             </Route>
+
+			 <Route exact path="/mesagetest">
+              <Root user={user}/>
              </Route>
 			</Switch>
 			{/* <Footer /> */}

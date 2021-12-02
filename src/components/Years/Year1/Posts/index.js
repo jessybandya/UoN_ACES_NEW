@@ -4,6 +4,8 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import Semester1 from "../semester1"
+import Semester2 from "../semester2"
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -57,10 +59,10 @@ function Year1() {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        Semester I
+        <Semester1/>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Semester II
+        <Semester2 />
       </TabPanel>
 
     </Box>
