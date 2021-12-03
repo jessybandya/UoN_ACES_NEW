@@ -123,10 +123,10 @@ function Login() {
                                                          exit="exit"                     
                         >
 
-                          <label style={{color: "#3f51b5"}}>Username</label>
-                          <input className="loginInput" type="text" onChange={(e) => setEmail(e.target.value)} placeholder="Enter your school email..." />
-                          <label style={{color: "#3f51b5"}}>Password</label>
-                          <input className="loginInput" type="password" onChange={(e) => setPassword(e.target.value)} placeholder="Enter your password..." />
+                          <label style={{color: "#3f51b5"}}></label>
+                          <input className="loginInput" type="text" onChange={(e) => setEmail(e.target.value)} placeholder="School E-mail..." />
+                          <label style={{color: "#3f51b5"}}></label>
+                          <input className="loginInput" type="password" onChange={(e) => setPassword(e.target.value)} placeholder="Password..." />
                           <button onClick={login} className="loginButton"
 
                           >Login</button>

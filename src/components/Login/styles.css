@@ -8,7 +8,7 @@
       rgba(255, 255, 255, 0.5),
       rgba(255, 255, 255, 0.5)
     ),
-      url("https://thumbs.dreamstime.com/b/innovative-architecture-civil-engineering-plan-building-construction-project-creative-graphic-design-showing-concept-174256682.jpg");
+      url("https://damassets.autodesk.net/content/dam/autodesk/www/solutions/bim/fy22/civil-engineering/how-is-bim-used-in-civil-engineering-thumb-1172x660.jpg");
     background-size: cover;
     filter: brightness(90%);
 
@@ -31,7 +31,6 @@
   
   .loginInput {
     padding: 10px;
-    background-color: white;
     border: none;
     border-radius: 10px;
   }
