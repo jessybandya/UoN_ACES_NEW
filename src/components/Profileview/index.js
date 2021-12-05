@@ -90,7 +90,7 @@ function abbrNum(number, decPlaces) {
               <div class="card">
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
-                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150"/>
+                    <img src="https://media-exp1.licdn.com/dms/image/C4D03AQGDUX1VtyLM1Q/profile-displayphoto-shrink_800_800/0/1608232974636?e=1644451200&v=beta&t=uuPBUIcpbhP1ivBDW1ayyI_I46dmdER84IPuMYzYHBg" alt="Admin" class="rounded-circle" width="150"/>
                     <div class="mt-3">
                       <h4>Jessy Bandya</h4>
                       <span style={{fontSize: 18,color: "#808080"}} >@jessybandya</span>
@@ -101,21 +101,21 @@ function abbrNum(number, decPlaces) {
                       <div style={{margin: 5}}>                   
                       <div style={{color: "#3f51b5"}}><b>Follower(s)</b></div>
                       <div style={{fontWeight: "700",color: "#808080"}}>
-                      {abbrNum(123456789,2)}
+                      {abbrNum(123456789,1)}
                       </div>
                       </div>
 
                       <div style={{margin: 5}}>                   
                       <div style={{color: "#3f51b5"}}><b>Following</b></div>
                       <div style={{fontWeight: "700",color: "#808080"}}>
-                      {abbrNum(1200000,2)}
+                      {abbrNum(1200000,1)}
                       </div>
                       </div>
 
                       <div style={{margin: 5}}>                   
                       <div style={{color: "#3f51b5"}}><b>Post(s)</b></div>
                       <div style={{fontWeight: "700",color: "#808080"}}>
-                      {abbrNum(1500,2)}
+                      {abbrNum(1500,1)}
                       </div>
                       </div>
                       </span>

@@ -173,12 +173,12 @@ function Addpost() {
 
 <div class="card1 p-3">
         <div class="d-flex align-items-center">
-            <div class="image"> <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80" class="rounded" width="155"/> </div>
+            <div class="image"> <img src="https://media-exp1.licdn.com/dms/image/C4D03AQGDUX1VtyLM1Q/profile-displayphoto-shrink_800_800/0/1608232974636?e=1644451200&v=beta&t=uuPBUIcpbhP1ivBDW1ayyI_I46dmdER84IPuMYzYHBg"  style={{borderRadius:155/2,height:155,width:155}}/> </div>
             <div class="ml-3 w-100">
                 <h4 class="mb-0 mt-0">Jessy Bandya</h4> <span>@jessybandya</span>
                 <div class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
-                    <div class="d-flex flex-column"> <span class="followers">Followers</span> <span class="number2">{abbrNum(1200,2)}</span> </div>
-                    <div class="d-flex flex-column"> <span class="rating">Following</span> <span class="number3">{abbrNum(2200,2)}</span> </div>
+                    <div class="d-flex flex-column"> <span class="followers">Followers</span> <span class="number2">{abbrNum(1200,1)}</span> </div>
+                    <div class="d-flex flex-column"> <span class="rating">Following</span> <span class="number3">{abbrNum(2200,1)}</span> </div>
                 </div>
                 <div class="button mt-2 d-flex flex-row align-items-center"> <button class="btn btn-sm btn-outline-primary w-100">Chat</button> <button class="btn btn-sm btn-primary w-100 ml-2">Follow</button> </div>
             </div>
@@ -188,7 +188,21 @@ function Addpost() {
 
     <div class="card1 p-3">
         <div class="d-flex align-items-center">
-            <div class="image"> <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80" class="rounded" width="155"/> </div>
+            <div class="image"> <img src="https://media-exp1.licdn.com/dms/image/C4D03AQGDUX1VtyLM1Q/profile-displayphoto-shrink_800_800/0/1608232974636?e=1644451200&v=beta&t=uuPBUIcpbhP1ivBDW1ayyI_I46dmdER84IPuMYzYHBg"  style={{borderRadius:155/2,height:155,width:155}}/> </div>
+            <div class="ml-3 w-100">
+                <h4 class="mb-0 mt-0">Jessy Bandya</h4> <span>@jessybandya</span>
+                <div style={{justifyContent:"space-between"}} class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
+                <div class="d-flex flex-column"> <span class="followers">Followers</span> <span class="number2">{abbrNum(1200,2)}</span> </div>
+                    <div class="d-flex flex-column"> <span class="rating">Following</span> <span class="number3">{abbrNum(2200,2)}</span> </div>
+                </div>
+                <div class="button mt-2 d-flex flex-row align-items-center"> <button class="btn btn-sm btn-outline-primary w-100">Chat</button> <button class="btn btn-sm btn-primary w-100 ml-2">Follow</button> </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card1 p-3">
+        <div class="d-flex align-items-center">
+            <div class="image"> <img src="https://media-exp1.licdn.com/dms/image/C4D03AQGDUX1VtyLM1Q/profile-displayphoto-shrink_800_800/0/1608232974636?e=1644451200&v=beta&t=uuPBUIcpbhP1ivBDW1ayyI_I46dmdER84IPuMYzYHBg"  style={{borderRadius:155/2,height:155,width:155}}/> </div>
             <div class="ml-3 w-100">
                 <h4 class="mb-0 mt-0">Jessy Bandya</h4> <span>@jessybandya</span>
                 <div style={{justifyContent:"space-between"}} class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
@@ -201,6 +215,21 @@ function Addpost() {
     </div>
 
 
+        <div class="card1 p-3">
+        <div class="d-flex align-items-center">
+            <div class="image"> <img src="https://media-exp1.licdn.com/dms/image/C4D03AQGDUX1VtyLM1Q/profile-displayphoto-shrink_800_800/0/1608232974636?e=1644451200&v=beta&t=uuPBUIcpbhP1ivBDW1ayyI_I46dmdER84IPuMYzYHBg"  style={{borderRadius:155/2,height:155,width:155}}/> </div>
+            <div class="ml-3 w-100">
+                <h4 class="mb-0 mt-0">Jessy Bandya</h4> <span>@jessybandya</span>
+                <div style={{justifyContent:"space-between"}} class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
+                <div class="d-flex flex-column"> <span class="followers">Followers</span> <span class="number2">{abbrNum(1200,2)}</span> </div>
+                    <div class="d-flex flex-column"> <span class="rating">Following</span> <span class="number3">{abbrNum(2200,2)}</span> </div>
+                </div>
+                <div class="button mt-2 d-flex flex-row align-items-center"> <button class="btn btn-sm btn-outline-primary w-100">Chat</button> <button class="btn btn-sm btn-primary w-100 ml-2">Follow</button> </div>
+            </div>
+        </div>
+    </div>
+
+    
         </div>
 
 
