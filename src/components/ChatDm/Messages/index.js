@@ -41,12 +41,12 @@ useEffect(() => {
                         <li class="in">
 																	<>
 
-						{/* <div class="chat-img">
-							<Avatar src="http://c.files.bbci.co.uk/C870/production/_112921315_gettyimages-876284806.jpg" alt=""/>
-						</div> */}
+						<div class="chat-img">
+							<Avatar src="https://www.afritechmedia.com/wp-content/uploads/2021/01/Tech-Entrepreneur-Elon-Musk-overtakes-Bezos-as-worlds-richest-person.jpg" alt=""/>
+						</div>
 						<div class="chat-body">
 							<div class="chat-message">
-                                 <div style={{marginBottom:5,fontWeight:"700"}}>@jessybandya</div>
+                                 {/* <div style={{marginBottom:5,fontWeight:"700"}}>@jessybandya</div> */}
 								 <div>Hello here guys I have a suggestion to help me out plz. Hello here guys I have a suggestion to help me out plz. Hello here guys I have a suggestion to help me out plz</div>
 								 <div style={{marginTop:10,color: "#C5C5C5"}}>{parseTimestamp(timestamp)}</div>
 							</div>
@@ -61,9 +61,9 @@ useEffect(() => {
 						)}
         				{fromId == user?.uid  &&(
                         <li style={{marginBottom: 50}} class="out">
-						{/* <div class="chat-img">
-							<Avatar src="" alt=""/>
-						</div> */}
+						<div class="chat-img">
+							<Avatar src="https://media-exp1.licdn.com/dms/image/C4D03AQGDUX1VtyLM1Q/profile-displayphoto-shrink_800_800/0/1608232974636?e=1644451200&v=beta&t=uuPBUIcpbhP1ivBDW1ayyI_I46dmdER84IPuMYzYHBg" alt=""/>
+						</div>
 						<div  class="chat-body">
 							<div  class="chat-message1">
 							<div style={{justifyContent:"space-between"}}>

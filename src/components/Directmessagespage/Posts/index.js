@@ -26,14 +26,14 @@ function Posts() {
 
 </div>
             <Avatar
-              alt="Jessy Bandya"
-              src="http://c.files.bbci.co.uk/C870/production/_112921315_gettyimages-876284806.jpg"
+              alt="Elon Musk"
+              src="https://www.afritechmedia.com/wp-content/uploads/2021/01/Tech-Entrepreneur-Elon-Musk-overtakes-Bezos-as-worlds-richest-person.jpg"
             />
   </div>
 
             <div style={{marginLeft:20,borderBottom: "1px solid #C5C5C5"}}>
                 <div style={{display: "flex",justifyContent:"space-between",width:200,alignItems:"center"}}>
-                <div style={{marginTop:-10,fontWeight:"600"}}>Jessy Bandya</div>
+                <div style={{marginTop:-10,fontWeight:"600"}}>Elon Musk</div>
                 {/* <div style={{marginTop:-10,color:"#979797",fontWeight:"600"}}>9:06 PM</div>  */}
                 </div>
         <Badge badgeContent={1} color="secondary">

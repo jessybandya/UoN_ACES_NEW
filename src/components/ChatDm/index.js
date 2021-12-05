@@ -156,11 +156,11 @@ function ChatDm({ user }) {
                 
                 <Avatar style={{marginLeft:5}}
                   isOnline="active"
-                  src="http://c.files.bbci.co.uk/C870/production/_112921315_gettyimages-876284806.jpg"
+                  src="https://www.afritechmedia.com/wp-content/uploads/2021/01/Tech-Entrepreneur-Elon-Musk-overtakes-Bezos-as-worlds-richest-person.jpg"
                 />
                 <div style={{height:10,width:10,borderRadius:10/2,backgroundColor:"#00FF00",marginTop:-20}}>
                 </div>
-                <p style={{marginLeft:5,color: "#3f51b5"}}>Jessy Bandya </p>
+                <p style={{marginLeft:5,color: "#3f51b5"}}>Elon Musk</p>
               </div>
             </div>
             <div></div>
