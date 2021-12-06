@@ -217,8 +217,8 @@ function Register() {
             <div  class="row justify-content-center mt-0">
                 <div  class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-2">
                     <div  class="card px-0 pt-4 pb-0 mt-3 mb-3">
-                        <h2><strong>Create UoN_ACES account</strong></h2>
-                        <p>Fill all form fields to go to next step</p>
+                        {/* <h2><strong>Create UoN_ACES account</strong></h2> */}
+                        {/* <p>Fill all form fields to go to next step</p> */}
                         <div  class="row">
                             <div  class="col-md-12 mx-0">
                                 <div  id="msform">
@@ -570,8 +570,8 @@ function Register() {
             <div  class="row justify-content-center mt-0">
                 <div  class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-2">
                     <div  class="card px-0 pt-4 pb-0 mt-3 mb-3">
-                        <h2><strong>Create UoN_ACES account</strong></h2>
-                        <p>Fill all form fields to go to next step</p>
+                        <h2><strong></strong></h2>
+                        <p></p>
                         <div  class="row">
                             <div  class="col-md-12 mx-0">
                                 <div  id="msform">
@@ -583,7 +583,8 @@ function Register() {
                                     </ul> 
                                     <fieldset>
                                         <div  class="form-card" style={{border: "1px solid #3f51b5",borderRadius:10}}>
-                                            <h2 class="fs-title">Account Information</h2> 
+                                            <h2 class="fs-title">CREATE UoN_ACES ACCOUNT</h2> 
+                                            <br/>
                                             <div class="d-flex flex-column" style={{marginBottom:0}}> 
                 <label style={{background: "white",color:"#3f51b5",fontWeight: "600"}} for="text">First Name</label> 
                 <input  type="text" onChange={(e) => {

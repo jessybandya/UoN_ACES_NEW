@@ -26,7 +26,7 @@ import Year2 from "./components/Years/Year2"
 import Year3 from "./components/Years/Year3"
 import Year4 from "./components/Years/Year4"
 import Year5 from "./components/Years/Year5"
-import Root from "./Messagetest/Component/Root/Root"
+import Root from "./components/Testhome"
 
 function App() {
 	const [user, setUser] = useState([]);
