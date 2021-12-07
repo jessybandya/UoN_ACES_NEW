@@ -260,18 +260,21 @@ const Form = () => {
     <Paper className={classes.upload}>
       <div className={classes.upload__header}>
         <Avatar src={photoURL} />
-        <form className={classes.header__form} onSubmit={handleSubmitButton}>
-          <input
+        <form className={classes.header__form}>
+
+          
+          {/* <input
             placeholder={`What's on your mind, ${displayName}?`}
             onClick={handleExpandClick}
             style={{cursor: "pointer"}}
+            onkeydown = "return false;"
             onkeypress="return false;"
-            onkeydown="return false;"
-            maxlength="0"
-            readonly
             // value={uploadData.description}
             // onChange={(e) => setUploadData({ ...uploadData, description: e.target.value })}
-          />
+          /> */}
+          <div style={{cursor: "pointer"}} onClick={handleExpandClick}>
+            <span style={{marginLeft:5}}>{`What's on your mind, ${displayName}?`}</span>
+          </div>
           <input
             id="upload-image"
             type="file"
@@ -346,7 +349,7 @@ const Form = () => {
               </TextField>
               
             </div>
-            <div style={{marginLeft:"40%",marginRight:"60%",justifyContent:"center"}}><Button variant="outlined">Post</Button></div>
+            <div style={{marginLeft:"40%",marginRight:"60%",justifyContent:"center",marginTop:20}}><Button variant="outlined">Post</Button></div>
             <div style={{marginTop:15}}>
             {uploadData.file.name && !progress && (
         <div className={classes.selectedFile}>
