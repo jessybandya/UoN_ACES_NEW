@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Chip, Paper, Divider, LinearProgress } from "@material-ui/core";
 import imageCompression from "browser-image-compression";
@@ -8,7 +8,7 @@ import PhotoRoundedIcon from "@material-ui/icons/PhotoRounded";
 import EmojiEmotionsOutlinedIcon from "@material-ui/icons/EmojiEmotionsOutlined";
 import firebase from "firebase";
 import { v4 as uuid } from "uuid";
-import {db, storage } from "../../firebase";
+import {db, storage, auth } from "../../firebase";
 import Styles from "./Style";
 import swal from "@sweetalert/with-react";
 import "react-responsive-modal/styles.css";
@@ -79,7 +79,7 @@ const Form = () => {
   const [descriptions, setDescriptions] = useState("");
   const [imageURL, setImageURL] = useState('');
   const [uploadData, setUploadData] = useState({
-    description: "",
+    // description: "",
     file: {
       type: "",
       name: "",
@@ -100,22 +100,26 @@ const Form = () => {
     // uploading to collection called posts
     db.collection("posts")
       .add({
-        profile: photoURL,
-        username: displayName,
+        ownerId: auth?.currentUser?.uid,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-        description: uploadData.description,
+        description: descriptions,
         fileType: uploadData.file.type,
+        title,
         fileName: uploadData.file.name,
         fileData: fileData,
       })
       .then(() => resetState());
+      swal("✔️ successfully added the post");
+      setDescriptions("")
+      setTitle("")
+      setExpanded(false)
   };
 
   const handleSubmitButton = (e) => {
     e.preventDefault();
 
     // verify atleast one of the input fields are not empyt
-    if (uploadData.description || uploadData.file.data) {
+    if (title || uploadData.file.data) {
       // if file input is true...upload the file to Fire-Store
       if (uploadData.file.data) {
         const id = uuid();
@@ -146,7 +150,7 @@ const Form = () => {
       // if not file input provided
       uploadToFirebaseDB(uploadData.file.data);
     } else {
-      swal("😕 Input field can not be empty");
+      swal("😕 Title input field can not be empty");
     }
   };
 
@@ -162,7 +166,12 @@ const Form = () => {
     }
     return fileName;
   };
-
+  const [profileUserData, setProfileUserData] = useState();
+  useEffect(() => {
+    db.collection('users').doc(`${auth?.currentUser?.uid}`).onSnapshot((doc) => {
+        setProfileUserData(doc.data());
+    });
+}, [])
   const imageUploadHandler = async (e, type) => {
     const inputFile = e.target.files[0];
     const _inputFile = inputFile.type.split("/");
@@ -245,7 +254,8 @@ const Form = () => {
 
   const resetState = () => {
     setUploadData({
-      description: "",
+      descriptions: "",
+      title: "",
       file: {
         type: "",
         name: "",
@@ -259,21 +269,13 @@ const Form = () => {
     <>
     <Paper className={classes.upload}>
       <div className={classes.upload__header}>
-        <Avatar src={photoURL} />
-        <form className={classes.header__form}>
+        <Avatar src={profileUserData?.photoURL} />
+        <form className={classes.header__form}  style={{cursor: "pointer"}}>
 
           
-          {/* <input
-            placeholder={`What's on your mind, ${displayName}?`}
-            onClick={handleExpandClick}
-            style={{cursor: "pointer"}}
-            onkeydown = "return false;"
-            onkeypress="return false;"
-            // value={uploadData.description}
-            // onChange={(e) => setUploadData({ ...uploadData, description: e.target.value })}
-          /> */}
+
           <div style={{cursor: "pointer"}} onClick={handleExpandClick}>
-            <span style={{marginLeft:5}}>{`What's on your mind, ${displayName}?`}</span>
+            <span style={{marginLeft:10}}>{`Add post...`}</span>
           </div>
           <input
             id="upload-image"
@@ -298,7 +300,6 @@ const Form = () => {
       >
         <ExpandMoreIcon />
       </ExpandMore>
-      {/* <button type="submit">Post</button>  */}
 
 
 
@@ -338,18 +339,8 @@ const Form = () => {
                 style={{ width: "100%" }}
               />
             </div>
-            <div className={classes.item}>
-              <TextField select label="Visibility" value={visible} style={{width:100}}
-            onChange={(e) => setVisible(e.target.value)} type="text" 
-              >
-                <MenuItem value="Public">Public</MenuItem>
-                <MenuItem value="Private">Private</MenuItem>
-                {/* <MenuItem value="Unlisted">Unlisted</MenuItem> */}
 
-              </TextField>
-              
-            </div>
-            <div style={{marginLeft:"40%",marginRight:"60%",justifyContent:"center",marginTop:20}}><Button variant="outlined">Post</Button></div>
+            <div style={{marginLeft:"40%",marginRight:"60%",justifyContent:"center",marginTop:20}}><Button onClick={handleSubmitButton} variant="outlined">Post</Button></div>
             <div style={{marginTop:15}}>
             {uploadData.file.name && !progress && (
         <div className={classes.selectedFile}>

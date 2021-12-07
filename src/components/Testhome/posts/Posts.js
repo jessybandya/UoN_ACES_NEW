@@ -23,8 +23,8 @@ const Posts = () => {
         {Array.from(posts).map((post) => (
           <Post
             key={post.id}
-            profile={post.data.profile}
-            username={post.data.username}
+            ownerId={post.data.ownerId}
+            title={post.data.title}
             timestamp={post.data.timestamp}
             description={post.data.description}
             fileType={post.data.fileType}

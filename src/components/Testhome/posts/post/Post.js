@@ -11,6 +11,7 @@ import Care from "../../../assets/images/care.png";
 import ReactPlayer from "react-player";
 import ReactTimeago from "react-timeago";
 import Style from "./Style";
+import { db } from "../../../firebase"
 import "./styles.css"
 import {
   Button,
@@ -24,7 +25,7 @@ import {
 } from "@material-ui/core";
 
 const Post = forwardRef(
-  ({ profile, username, timestamp, description, fileType, fileData,noLikes }, ref) => {
+  ({ ownerId, title, timestamp, description, fileType, fileData,noLikes }, ref) => {
     const classes = Style();
 
     const [likesCount, setLikesCount] = useState(1);
@@ -33,7 +34,7 @@ const Post = forwardRef(
     const [likeIconOrder, setLikeIconOrder] = useState(1);
     const [loveIconOrder, setLoveIconOrder] = useState(1);
     const [careIconOrder, setCareIconOrder] = useState(1);
-
+    const [profileUserData, setProfileUserData] = useState();
     const [comments, setComments] = useState([]);
     const [comment, setComment] = useState('');
     const [show, setShow] = useState('like2');
@@ -41,6 +42,12 @@ const Post = forwardRef(
     const [posterImage, setPosterImage] = useState('')
 
     const [postUser, setPostUser] = useState();
+
+    useEffect(() => {
+      db.collection('users').doc(`${ownerId}`).onSnapshot((doc) => {
+          setProfileUserData(doc.data());
+      });
+  }, [])
 
     useEffect(() => {
       setLikesCount(Math.floor(Math.random() * 1000) + 1);
@@ -71,9 +78,9 @@ const Post = forwardRef(
     return (
       <Paper ref={ref} className={classes.post}>
         <div className={classes.post__header}>
-          <Avatar src={profile} style={{marginTop:-30}}/>
+          <Avatar src={profileUserData?.photoURL} style={{marginTop:-30}}/>
           <div className={classes.header__info}>
-            <h4>{username}</h4>
+            <h4>{profileUserData?.firstName} {profileUserData?.lastName}</h4>
             <p style={{marginLeft:-3}}>
               <ReactTimeago date={new Date(timestamp?.toDate()).toUTCString()} units="minute" />
             </p>
@@ -85,16 +92,10 @@ const Post = forwardRef(
             <p>{description}</p>
           </div> */}
                 <CardContent>
-        <Typography paragraph style={{fontWeight:"600"}}>Title</Typography>
+        <Typography paragraph style={{fontWeight:"600"}}>{title}</Typography>
        <hr/>
         <Typography paragraph>
-          Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over
-          medium-high heat. Add chicken, shrimp and chorizo, and cook, stirring
-          occasionally until lightly browned, 6 to 8 minutes. Transfer shrimp to a
-          large plate and set aside, leaving chicken and chorizo in the pan. Add
-          pimentón, bay leaves, garlic, tomatoes, onion, salt and pepper, and cook,
-          stirring often until thickened and fragrant, about 10 minutes. Add
-          saffron broth and remaining 4 1/2 cups chicken broth; bring to a boil.
+         {description}
         </Typography>
 
       </CardContent>
