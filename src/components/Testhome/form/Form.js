@@ -265,6 +265,10 @@ const Form = () => {
             placeholder={`What's on your mind, ${displayName}?`}
             onClick={handleExpandClick}
             style={{cursor: "pointer"}}
+            onkeypress="return false;"
+            onkeydown="return false;"
+            maxlength="0"
+            readonly
             // value={uploadData.description}
             // onChange={(e) => setUploadData({ ...uploadData, description: e.target.value })}
           />
