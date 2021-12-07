@@ -210,7 +210,6 @@ const Form = () => {
             placeholder={`What's on your mind, ${displayName}?`}
             value={uploadData.description}
             // onChange={(e) => setUploadData({ ...uploadData, description: e.target.value })}
-            onClick={onOpenModal}
           />
           <input
             id="upload-image"
@@ -250,7 +249,7 @@ const Form = () => {
       )}
       <Divider />
 
-      {/* <div className={classes.upload__media}>
+      <div className={classes.upload__media}>
         <label htmlFor="upload-video" className={classes.media__options}>
           <VideocamRoundedIcon style={{ color: "red" }} />
           <span style={{fontSize:20,fontWeight:"700"}}>Video</span>
@@ -263,7 +262,7 @@ const Form = () => {
           <EmojiEmotionsOutlinedIcon style={{ color: "orange" }} />
           <span style={{fontSize:20,fontWeight:"700"}}>Feeling/Activity</span>
         </div>
-      </div> */}
+      </div>
 
 
     </Paper>
