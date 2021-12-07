@@ -11,9 +11,10 @@ import Care from "../../../assets/images/care.png";
 import ReactPlayer from "react-player";
 import ReactTimeago from "react-timeago";
 import Style from "./Style";
+import "./styles.css"
 
 const Post = forwardRef(
-  ({ profile, username, timestamp, description, fileType, fileData }, ref) => {
+  ({ profile, username, timestamp, description, fileType, fileData,noLikes }, ref) => {
     const classes = Style();
 
     const [likesCount, setLikesCount] = useState(1);
@@ -22,6 +23,14 @@ const Post = forwardRef(
     const [likeIconOrder, setLikeIconOrder] = useState(1);
     const [loveIconOrder, setLoveIconOrder] = useState(1);
     const [careIconOrder, setCareIconOrder] = useState(1);
+
+    const [comments, setComments] = useState([]);
+    const [comment, setComment] = useState('');
+    const [show, setShow] = useState('like2');
+    const [show2, setShow2] = useState('textforlike');
+    const [posterImage, setPosterImage] = useState('')
+
+    const [postUser, setPostUser] = useState();
 
     useEffect(() => {
       setLikesCount(Math.floor(Math.random() * 1000) + 1);
@@ -37,10 +46,10 @@ const Post = forwardRef(
         <div className={classes.footer__stats}>
           <div>
             <img src={Like} style={{ order: `${likeIconOrder} ` }} alt="like-icon" />
-            <img src={Love} style={{ order: `${loveIconOrder} ` }} alt="love-icon" />
-            <img src={Care} style={{ order: `${careIconOrder} ` }} alt="care-icon" />
+            {/* <img src={Love} style={{ order: `${loveIconOrder} ` }} alt="love-icon" />
+            <img src={Care} style={{ order: `${careIconOrder} ` }} alt="care-icon" /> */}
           </div>
-          <h4>{likesCount}</h4>
+          <h4 style={{marginTop:10}}>{likesCount}</h4>
           <section>
             <h4>{commentsCount} Comments</h4>
             <h4>{sharesCount} Shares</h4>
@@ -59,7 +68,7 @@ const Post = forwardRef(
               <ReactTimeago date={new Date(timestamp?.toDate()).toUTCString()} units="minute" />
             </p>
           </div>
-          <MoreHorizOutlinedIcon />
+          {/* <MoreHorizOutlinedIcon /> */}
         </div>
         <div className={classes.post__body}>
           <div className={classes.body__description}>
@@ -75,7 +84,7 @@ const Post = forwardRef(
             </div>
           )}
         </div>
-        <div className={classes.post__footer}>
+        {/* <div className={classes.post__footer}>
           <Reactions />
           <div className={classes.footer__actions}>
             <div className={classes.action__icons}>
@@ -91,7 +100,28 @@ const Post = forwardRef(
               <h4>Share</h4>
             </div>
           </div>
-        </div>
+        </div> */}
+
+
+<div className={classes.post__footer}>
+          <Reactions />
+
+        </div> 
+
+            <div className="post__likeoptions">
+                <div className="like1" >
+                    <i className={show} />
+                    <h3 className={show2}>Like</h3>
+                </div>
+                <div className="comment1" style={{alignItems:"center"}}>
+                    <i className="comment2" />
+                    <h3 class="dope">Comment</h3>
+                </div>
+                <div className="share1" >
+                    <i className="share2" />
+                    <h3>Share</h3>
+                </div>
+            </div>
       </Paper>
     );
   }

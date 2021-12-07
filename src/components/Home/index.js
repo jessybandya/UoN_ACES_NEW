@@ -91,7 +91,6 @@ const Home = ({user}) => {
               <Grid item container  className={classes.body__feed} xs={12} sm={8} md={6}>
                 {/* ----Feed---- */}
                 <Grid item container className={classes.feed__stories}>
-                  {/* ----Stories---- */}
                   <Stories />
                 </Grid>
                 <Grid item container className={classes.feed__form}>

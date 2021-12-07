@@ -11,6 +11,14 @@ import { v4 as uuid } from "uuid";
 import {db, storage } from "../../firebase";
 import Styles from "./Style";
 import swal from "@sweetalert/with-react";
+import "react-responsive-modal/styles.css";
+import { Modal } from "react-responsive-modal";
+
+
+const styles = {
+  fontFamily: "sans-serif",
+  textAlign: "center"
+};
 
 const Form = () => {
   const classes = Styles();
@@ -24,6 +32,12 @@ const Form = () => {
       data: "",
     },
   });
+
+
+  const [open, setOpen] = useState(false);
+
+  const onOpenModal = () => setOpen(true);
+  const onCloseModal = () => setOpen(false);
 
   const [progress, setProgress] = useState("");
 
@@ -187,6 +201,7 @@ const Form = () => {
   };
 
   return (
+    <>
     <Paper className={classes.upload}>
       <div className={classes.upload__header}>
         <Avatar src={photoURL} />
@@ -194,7 +209,8 @@ const Form = () => {
           <input
             placeholder={`What's on your mind, ${displayName}?`}
             value={uploadData.description}
-            onChange={(e) => setUploadData({ ...uploadData, description: e.target.value })}
+            // onChange={(e) => setUploadData({ ...uploadData, description: e.target.value })}
+            onClick={onOpenModal}
           />
           <input
             id="upload-image"
@@ -234,21 +250,25 @@ const Form = () => {
       )}
       <Divider />
 
-      <div className={classes.upload__media}>
+      {/* <div className={classes.upload__media}>
         <label htmlFor="upload-video" className={classes.media__options}>
           <VideocamRoundedIcon style={{ color: "red" }} />
-          <h4>Video</h4>
+          <span style={{fontSize:20,fontWeight:"700"}}>Video</span>
         </label>
         <label htmlFor="upload-image" className={classes.media__options}>
           <PhotoRoundedIcon style={{ color: "green" }} />
-          <h4>Photo</h4>
+          <span style={{fontSize:20,fontWeight:"700"}}>Photo</span>
         </label>
         <div className={classes.media__options}>
           <EmojiEmotionsOutlinedIcon style={{ color: "orange" }} />
-          <h4>Feeling/Activity</h4>
+          <span style={{fontSize:20,fontWeight:"700"}}>Feeling/Activity</span>
         </div>
-      </div>
+      </div> */}
+
+
     </Paper>
+    
+    </>
   );
 };
 
