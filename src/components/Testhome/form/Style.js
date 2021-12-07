@@ -59,8 +59,8 @@ export default makeStyles((theme) => ({
       padding: "0 10px",
       border: 0,
       outlineWidth: 0,
-      backgroundColor: FacebookBlue,
-      color: "white",
+      // backgroundColor: FacebookBlue,
+      color: "#3f51b5",
       cursor: "pointer",
       fontWeight: 600,
       [theme.breakpoints.down("xs")]: {
@@ -90,7 +90,7 @@ export default makeStyles((theme) => ({
     borderRadius: 10,
     backgroundColor: theme.palette.type === "dark" ? darkSecondary : "lightgrey",
     "& > *": {
-      backgroundColor: FacebookBlue,
+      backgroundColor: "#3f51b5",
     },
   },
   upload__media: {
