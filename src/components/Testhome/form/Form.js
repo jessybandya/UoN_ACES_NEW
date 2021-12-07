@@ -22,6 +22,8 @@ import {
   CardMedia,
   makeStyles,
   Typography,
+  MenuItem,
+  TextField,
 } from "@material-ui/core";
 import { styled } from '@mui/material/styles';
 import CardHeader from '@mui/material/CardHeader';
@@ -37,7 +39,6 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import ThumbUpAltOutlinedIcon from '@mui/icons-material/ThumbUpAltOutlined';
 import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
-
 
 
 const useStyles = makeStyles((theme) => ({
@@ -71,7 +72,12 @@ const styles = {
 const Form = () => {
   const classes = Styles();
   const { displayName, photoURL } = useSelector((state) => state.user);
-
+  const [image, setImage] = useState("");
+  const [whoToComment, setWhoToComment] = useState("");
+  const [visible, setVisible] = useState("");
+  const [title, setTitle] = useState("");
+  const [descriptions, setDescriptions] = useState("");
+  const [imageURL, setImageURL] = useState('');
   const [uploadData, setUploadData] = useState({
     description: "",
     file: {
@@ -285,9 +291,60 @@ const Form = () => {
       >
         <ExpandMoreIcon />
       </ExpandMore>
+      {/* <button type="submit">Post</button>  */}
+
+
+
+      
         </form>
       </div>
-      {uploadData.file.name && !progress && (
+
+
+
+<Collapse in={expanded} timeout="auto" unmountOnExit>
+      <CardContent>
+      <div className={classes.item}>
+              <TextField
+                id="standard-basic"
+                label="Title"
+                value={title}
+                size="small"
+                style={{ width: "100%" }}
+                onChange={(e) => {
+                  setTitle(e.target.value)
+              }}
+              />
+            </div>
+            <div className={classes.item} style={{marginTop:10}}>
+              <TextField
+                id="outlined-multiline-static"
+                multiline
+                rows={4}
+                placeholder="Tell your story..."
+                variant="outlined"
+                label="Description"
+                value={descriptions}
+                size="small"
+                onChange={(e) => {
+                  setDescriptions(e.target.value)
+              }}
+                style={{ width: "100%" }}
+              />
+            </div>
+            <div className={classes.item}>
+              <TextField select label="Visibility" value={visible} style={{width:100}}
+            onChange={(e) => setVisible(e.target.value)} type="text" 
+              >
+                <MenuItem value="Public">Public</MenuItem>
+                <MenuItem value="Private">Private</MenuItem>
+                {/* <MenuItem value="Unlisted">Unlisted</MenuItem> */}
+
+              </TextField>
+              
+            </div>
+            <div style={{marginLeft:"40%",marginRight:"60%",justifyContent:"center"}}><Button variant="outlined">Post</Button></div>
+            <div style={{marginTop:15}}>
+            {uploadData.file.name && !progress && (
         <div className={classes.selectedFile}>
           <Chip
             color="primary"
@@ -298,7 +355,7 @@ const Form = () => {
           />
         </div>
       )}
-      {progress ? (
+            {progress ? (
         <div className={classes.uploading}>
           <LinearProgress variant="determinate" value={progress} className={classes.progress} />
           <p>{progress} %</p>
@@ -306,38 +363,21 @@ const Form = () => {
       ) : (
         ""
       )}
-
-<Collapse in={expanded} timeout="auto" unmountOnExit>
-      <CardContent>
-        <Typography paragraph style={{fontWeight:"600"}}>Title</Typography>
-       <hr/>
-        <Typography paragraph>
-          Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over
-          medium-high heat. Add chicken, shrimp and chorizo, and cook, stirring
-          occasionally until lightly browned, 6 to 8 minutes. Transfer shrimp to a
-          large plate and set aside, leaving chicken and chorizo in the pan. Add
-          pimentón, bay leaves, garlic, tomatoes, onion, salt and pepper, and cook,
-          stirring often until thickened and fragrant, about 10 minutes. Add
-          saffron broth and remaining 4 1/2 cups chicken broth; bring to a boil.
-        </Typography>
-
+      </div>
       </CardContent>
     </Collapse>
       <Divider />
 
       <div className={classes.upload__media}>
         <label htmlFor="upload-video" className={classes.media__options}>
-          <VideocamRoundedIcon style={{ color: "red" }} />
+          <VideocamRoundedIcon style={{ color: "#3f51b5" }} />
           <span style={{fontSize:20,fontWeight:"700"}}>Video</span>
         </label>
         <label htmlFor="upload-image" className={classes.media__options}>
-          <PhotoRoundedIcon style={{ color: "green" }} />
+          <PhotoRoundedIcon style={{ color: "#3f51b5" }} />
           <span style={{fontSize:20,fontWeight:"700"}}>Photo</span>
         </label>
-        <div className={classes.media__options}>
-          <EmojiEmotionsOutlinedIcon style={{ color: "orange" }} />
-          <span style={{fontSize:20,fontWeight:"700"}}>Feeling/Activity</span>
-        </div>
+
       </div>
 
 

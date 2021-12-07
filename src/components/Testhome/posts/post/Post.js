@@ -12,6 +12,16 @@ import ReactPlayer from "react-player";
 import ReactTimeago from "react-timeago";
 import Style from "./Style";
 import "./styles.css"
+import {
+  Button,
+  Card,
+  CardActionArea,
+  CardActions,
+  CardContent,
+  CardMedia,
+  makeStyles,
+  Typography,
+} from "@material-ui/core";
 
 const Post = forwardRef(
   ({ profile, username, timestamp, description, fileType, fileData,noLikes }, ref) => {
@@ -61,19 +71,33 @@ const Post = forwardRef(
     return (
       <Paper ref={ref} className={classes.post}>
         <div className={classes.post__header}>
-          <Avatar src={profile} />
+          <Avatar src={profile} style={{marginTop:-30}}/>
           <div className={classes.header__info}>
             <h4>{username}</h4>
-            <p>
+            <p style={{marginLeft:-3}}>
               <ReactTimeago date={new Date(timestamp?.toDate()).toUTCString()} units="minute" />
             </p>
           </div>
-          {/* <MoreHorizOutlinedIcon /> */}
+          <MoreHorizOutlinedIcon style={{marginTop:-40}}/>
         </div>
         <div className={classes.post__body}>
-          <div className={classes.body__description}>
+          {/* <div className={classes.body__description}>
             <p>{description}</p>
-          </div>
+          </div> */}
+                <CardContent>
+        <Typography paragraph style={{fontWeight:"600"}}>Title</Typography>
+       <hr/>
+        <Typography paragraph>
+          Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over
+          medium-high heat. Add chicken, shrimp and chorizo, and cook, stirring
+          occasionally until lightly browned, 6 to 8 minutes. Transfer shrimp to a
+          large plate and set aside, leaving chicken and chorizo in the pan. Add
+          pimentón, bay leaves, garlic, tomatoes, onion, salt and pepper, and cook,
+          stirring often until thickened and fragrant, about 10 minutes. Add
+          saffron broth and remaining 4 1/2 cups chicken broth; bring to a boil.
+        </Typography>
+
+      </CardContent>
           {fileData && (
             <div className={classes.body__image}>
               {fileType === "image" ? (
@@ -84,23 +108,7 @@ const Post = forwardRef(
             </div>
           )}
         </div>
-        {/* <div className={classes.post__footer}>
-          <Reactions />
-          <div className={classes.footer__actions}>
-            <div className={classes.action__icons}>
-              <ThumbUpAltOutlinedIcon />
-              <h4>Like</h4>
-            </div>
-            <div className={classes.action__icons}>
-              <ChatBubbleOutlineOutlinedIcon />
-              <h4>Comment</h4>
-            </div>
-            <div className={classes.action__icons}>
-              <ReplyOutlinedIcon style={{ transform: "scaleX(-1)" }} />
-              <h4>Share</h4>
-            </div>
-          </div>
-        </div> */}
+
 
 
 <div className={classes.post__footer}>

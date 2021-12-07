@@ -47,7 +47,7 @@ export default makeStyles((theme) => ({
     "& > h4": {
       fontSize: 16,
       fontWeight: 600,
-      marginBottom: 3,
+      marginBottom: 0,
     },
     "& > p": {
       color: "grey",
@@ -59,6 +59,7 @@ export default makeStyles((theme) => ({
     width: "100%",
     display: "flex",
     flexDirection: "column",
+    marginTop: "-20px",
   },
 
   body__description: {
