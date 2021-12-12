@@ -8,7 +8,6 @@ import InstagramIcon from "@material-ui/icons/Instagram";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import Logo from "./../../assets/images/fb_text.png";
 import Style from "./Style";
-
 const Login = () => {
   const classes = Style();
 

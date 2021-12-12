@@ -43,7 +43,7 @@ function App() {
     <div className="App">
 		<Router>
 			<GlobalStyle />
-			<Navbar />
+			{/* <Navbar /> */}
 			<ToastContainer />
 			<Switch>
 				<Route exact path="/" component={Home1} />

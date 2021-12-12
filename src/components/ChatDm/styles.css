@@ -212,7 +212,6 @@
     margin-left: -5px;
     padding: 10px;
     padding-bottom: 30px;
-    background-color: #fafafa;
   }
   .sendNewMessage button {
     width: 36px;
@@ -251,11 +250,11 @@
   .fixed-header, .fixed-footer{
     width: 84%;
     position: fixed;        
-    background: rgb(252, 240, 240);
     color: #000;
     height: 80px;
     padding: 20px;
     top: 0;
     z-index: 2;
     border: "1px solid #000";
+    z-index: "999px";
 }

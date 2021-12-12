@@ -160,7 +160,7 @@ function ChatDm({ user }) {
                 />
                 <div style={{height:10,width:10,borderRadius:10/2,backgroundColor:"#00FF00",marginTop:-20}}>
                 </div>
-                <p style={{marginLeft:5,color: "#3f51b5"}}>Elon Musk</p>
+                <span style={{marginLeft:5}}>Elon Musk</span>
               </div>
             </div>
             <div></div>

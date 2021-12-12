@@ -41,7 +41,6 @@ const Home = ({user}) => {
   const muiTheme = createMuiTheme({
     palette: {
       type: mode ? "dark" : "light",
-      type: mode ? "dark" : "light",
     },
   });
 
@@ -59,21 +58,10 @@ const Home = ({user}) => {
 
   return (
     <div>
+     <Navbar />
       {auth?.currentUser?.uid &&(
        <>
-      {/* <Grid container>
-        <Grid item sm={2} xs={2}>
-          <Leftbar user={user}/>
-        </Grid>
-        <Grid item sm={7} xs={10}>
-          <Feed />
-        </Grid>
-        <Grid item sm={3} className={classes.right}>
-          <Rightbar />
-        </Grid>
-      </Grid> */}
-
-
+  
 <ThemeProvider theme={muiTheme}>
       <Paper
         elevation={0}

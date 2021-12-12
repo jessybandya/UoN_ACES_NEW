@@ -30,7 +30,6 @@ const useStyles = makeStyles((theme) => ({
   },
   link: {
     marginRight: theme.spacing(2),
-    color: "#555",
     fontSize: 16,
   },
 }));
@@ -74,7 +73,7 @@ function abbrNum(number, decPlaces) {
 }
 
     return (
-<div class="container">
+<div  class="container">
     <div class="main-body">
     
           <nav aria-label="breadcrumb" class="main-breadcrumb">
@@ -87,7 +86,7 @@ function abbrNum(number, decPlaces) {
     
           <div class="row gutters-sm">
             <div class="col-md-4 mb-3">
-              <div class="card">
+              <div class="">
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
                     <img src="https://media-exp1.licdn.com/dms/image/C4D03AQGDUX1VtyLM1Q/profile-displayphoto-shrink_800_800/0/1608232974636?e=1644451200&v=beta&t=uuPBUIcpbhP1ivBDW1ayyI_I46dmdER84IPuMYzYHBg" alt="Admin" class="rounded-circle" width="150"/>
@@ -128,7 +127,7 @@ function abbrNum(number, decPlaces) {
                   </div>
                 </div>
               </div>
-              <div class="card mt-3">
+              {/* <div class="mt-3">
                 <ul class="list-group list-group-flush">
 
                   <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
@@ -148,10 +147,10 @@ function abbrNum(number, decPlaces) {
                     <span class="text-secondary">Jessy Alex</span>
                   </li>
                 </ul>
-              </div>
+              </div> */}
             </div>
             <div class="col-md-8">
-              <div class="card mb-3">
+              <div class="mb-3">
                 <div class="card-body">
                   <div class="row">
                     <div class="col-sm-3">
@@ -218,7 +217,7 @@ function abbrNum(number, decPlaces) {
               
 
                 <div class="col-sm-612 mb-3">
-                  <div class="card h-100">
+                  <div class=" h-100">
                     <div class="card-body">
                       <small>Posts</small>
                       <div class="progress mb-3" style={{height: 5}}>

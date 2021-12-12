@@ -5,7 +5,7 @@ import Features from '../components/Features/Features';
 import Hero from '../components/Hero/Hero';
 import Footer from '../components/Footer/Footer';
 import { heroOne, heroTwo, heroThree } from '../data/HeroData';
-
+import Navbar from '../components/../../Grid/Navbar'
 // Hero Feature Content Carousel
 
 const Home = () => {
@@ -20,6 +20,7 @@ const Home = () => {
 	}, []);
 	return (
 		<>
+		<Navbar />
 			<Hero />
 			<Features />
 			<Content {...heroOne} />

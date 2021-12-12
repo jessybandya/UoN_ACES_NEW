@@ -11,6 +11,7 @@ import Alert from '@mui/material/Alert';
 import {  toast } from 'react-toastify';
 import Backdrop from '@mui/material/Backdrop';
 import Footer from './../Firstpage/components/Footer/Footer';
+import Navbar from "../Grid/Navbar"
 
 
 function Register() {
@@ -202,6 +203,7 @@ function Register() {
 
     return (
         <>
+        <Navbar />
        {loading ?(
            <>
                         <Backdrop

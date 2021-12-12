@@ -46,6 +46,7 @@
     "react-slick": "^0.28.1",
     "react-timeago": "^6.2.1",
     "react-toastify": "^8.1.0",
+    "react-transition-group": "^4.4.2",
     "react-typewriter": "^0.4.1",
     "reactstrap": "^9.0.1",
     "redux": "^4.1.2",

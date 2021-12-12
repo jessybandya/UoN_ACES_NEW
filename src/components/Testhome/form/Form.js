@@ -368,11 +368,11 @@ const Form = () => {
 
       <div className={classes.upload__media}>
         <label htmlFor="upload-video" className={classes.media__options}>
-          <VideocamRoundedIcon style={{ color: "dark" }} />
+          <VideocamRoundedIcon style={{ color: "#3f51b5" }} />
           <span style={{fontSize:20,fontWeight:"700"}}>Video</span>
         </label>
         <label htmlFor="upload-image" className={classes.media__options}>
-          <PhotoRoundedIcon style={{ color: "#000" }} />
+          <PhotoRoundedIcon style={{ color: "#3f51b5" }} />
           <span style={{fontSize:20,fontWeight:"700"}}>Photo</span>
         </label>
 

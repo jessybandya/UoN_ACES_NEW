@@ -60,6 +60,7 @@ useEffect(() => {
 					</>
 						)}
         				{fromId == user?.uid  &&(
+							<>
                         <li style={{marginBottom: 50}} class="out">
 						<div class="chat-img">
 							<Avatar src="https://media-exp1.licdn.com/dms/image/C4D03AQGDUX1VtyLM1Q/profile-displayphoto-shrink_800_800/0/1608232974636?e=1644451200&v=beta&t=uuPBUIcpbhP1ivBDW1ayyI_I46dmdER84IPuMYzYHBg" alt=""/>
@@ -75,6 +76,38 @@ useEffect(() => {
 							</div>
 						</div>
 					</li>
+					<li style={{marginBottom: 50}} class="out">
+						<div class="chat-img">
+							<Avatar src="https://media-exp1.licdn.com/dms/image/C4D03AQGDUX1VtyLM1Q/profile-displayphoto-shrink_800_800/0/1608232974636?e=1644451200&v=beta&t=uuPBUIcpbhP1ivBDW1ayyI_I46dmdER84IPuMYzYHBg" alt=""/>
+						</div>
+						<div  class="chat-body">
+							<div  class="chat-message1">
+							<div style={{justifyContent:"space-between"}}>
+								<div style={{marginBottom:5,fontWeight:"700"}}></div>
+								{/* <div><MoreVertIcon/></div>								 */}
+								</div>
+								<div>Hello Bro man hope you peple are out here feeling good. Hello Bro man hope you peple are out here feeling good. Hello Bro man hope you peple are out here feeling good</div>
+								<div style={{marginTop:10,color: "#C5C5C5"}}>{parseTimestamp(timestamp)}</div>
+							</div>
+						</div>
+					</li>
+
+					<li style={{marginBottom: 50}} class="out">
+						<div class="chat-img">
+							<Avatar src="https://media-exp1.licdn.com/dms/image/C4D03AQGDUX1VtyLM1Q/profile-displayphoto-shrink_800_800/0/1608232974636?e=1644451200&v=beta&t=uuPBUIcpbhP1ivBDW1ayyI_I46dmdER84IPuMYzYHBg" alt=""/>
+						</div>
+						<div  class="chat-body">
+							<div  class="chat-message1">
+							<div style={{justifyContent:"space-between"}}>
+								<div style={{marginBottom:5,fontWeight:"700"}}></div>
+								{/* <div><MoreVertIcon/></div>								 */}
+								</div>
+								<div>Hello Bro man hope you peple are out here feeling good. Hello Bro man hope you peple are out here feeling good. Hello Bro man hope you peple are out here feeling good</div>
+								<div style={{marginTop:10,color: "#C5C5C5"}}>{parseTimestamp(timestamp)}</div>
+							</div>
+						</div>
+					</li>
+					</>
 						)}
         				
         				

@@ -32,7 +32,7 @@ const Rightbar = () => {
   const classes = useStyles();
   return (
     <Container className={classes.container}>
-
+      
       <Typography className={classes.title} gutterBottom>
         Categories
       </Typography>

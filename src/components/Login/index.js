@@ -8,7 +8,7 @@ import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Footer from './../Firstpage/components/Footer/Footer';
 import { motion } from "framer-motion"
-
+import Navbar from "../Grid/Navbar"
 
 const buttonVariants = {
 
@@ -86,6 +86,7 @@ function Login() {
     
     return (
         <>
+        <Navbar />
         {loading ?(
             <>
                         <Backdrop
