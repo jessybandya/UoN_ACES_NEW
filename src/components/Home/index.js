@@ -41,6 +41,7 @@ const Home = ({user}) => {
   const muiTheme = createMuiTheme({
     palette: {
       type: mode ? "dark" : "light",
+      type: mode ? "dark" : "light",
     },
   });
 
@@ -85,7 +86,7 @@ const Home = ({user}) => {
             <Grid item  className={classes.app__body}>
               {/* ----Body---- */}
               <Hidden smDown>
-                <Grid container className={classes.body__right} item sm={2} xs={2}>
+                <Grid item container className={classes.body__right}  sm={2} xs={2}>
                   {/* ----Sidebar---- */}
                   <Leftbar user={user}/>
                 </Grid>

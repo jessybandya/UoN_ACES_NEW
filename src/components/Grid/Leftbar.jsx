@@ -25,15 +25,11 @@ import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 const useStyles = makeStyles((theme) => ({
   container: {
     height: "100vh",
-    color: "white",
     zIndex:2,
     paddingTop: theme.spacing(10),
-    backgroundColor: theme.palette.primary.main,
     position: "sticky",
     top: 0,
     [theme.breakpoints.up("sm")]: {
-      backgroundColor: "white",
-      color: "#555",
       border: "1px solid #ece7e7",
     },
   },
@@ -78,7 +74,7 @@ const logout = () => {
     history.push("/");
 }
   return (
-    <Container className="container" className={classes.container}>
+    <Container   className={classes.container}>
       <div className={classes.item} className="leftNav" style={{display: "flex",alignItems:"center",height:50,cursor:"pointer",borderRadius:10}}>
       {/* <Badge badgeContent={411} color="error" className={classes.badge}> */}
       <a style={{display: "flex"}} className="port" href="/home">

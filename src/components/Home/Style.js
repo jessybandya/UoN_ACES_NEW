@@ -17,7 +17,10 @@ export default makeStyles((theme) => ({
     justifyContent: "center",
     overflow: "hidden",
   },
-
+  body__left: {
+    width: "100%",
+    height: "100%",
+  },
   body__feed: {
     width: "100%",
     height: "100%",

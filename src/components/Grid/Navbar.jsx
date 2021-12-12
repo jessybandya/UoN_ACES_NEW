@@ -15,7 +15,10 @@ import { useParams } from "react-router";
 import "./styles.css"
 // import NumberFormat from 'react-number-format';
 import MenuIcon from '@mui/icons-material/Menu';
-
+import { ToggleTheme } from "../../store/actions/util";
+import { useDispatch, useSelector } from "react-redux";
+import Brightness4Icon from "@material-ui/icons/Brightness4";
+import BrightnessHighIcon from "@material-ui/icons/BrightnessHigh";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -74,6 +77,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Navbar = () => {
+  const dispatch = useDispatch();
+  const mode = useSelector((state) => state.util);
+
+  const changeTheme = () => {
+    dispatch(ToggleTheme());
+  };
+
   function kFormatter(num) {
     return Math.abs(num) > 999 ? Math.sign(num)*((Math.abs(num)/1000).toFixed(1)) + 'K' : Math.sign(num)*Math.abs(num)
 }
@@ -186,6 +196,9 @@ auth.onAuthStateChanged((authUser) =>{
             src={`${auth?.currentUser?.photoURL}`}
           />
           </a>
+          <div className={classes.nav__links} onClick={changeTheme}>
+            {mode ? <Brightness4Icon /> : <BrightnessHighIcon />}
+          </div>
             </>
           )}
       {!auth?.currentUser?.uid &&(
