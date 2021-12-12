@@ -12,14 +12,12 @@ export default makeStyles((theme) => ({
     zIndex: 100,
   },
   app__body: {
-    height: "100vh",
+    height: "92vh",
     display: "flex",
+    justifyContent: "center",
     overflow: "hidden",
   },
-  body__left: {
-    width: "100%",
-    height: "100%",
-  },
+
   body__feed: {
     width: "100%",
     height: "100%",
@@ -34,7 +32,6 @@ export default makeStyles((theme) => ({
 
   feed__stories: {
     width: "85%",
-    marginTop: "12%",
     [theme.breakpoints.down("md")]: {
       width: "90%",
     },

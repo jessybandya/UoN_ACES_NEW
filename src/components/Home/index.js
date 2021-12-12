@@ -80,14 +80,16 @@ const Home = ({user}) => {
         style={{ backgroundColor: !mode && lightPrimary }}
       >
 
-          <Grid className={classes.app}>
+          <Grid  className={classes.app}>
 
             <Grid item  className={classes.app__body}>
               {/* ----Body---- */}
-                <Grid container className={classes.body__left} item sm={2} xs={2}>
+              <Hidden smDown>
+                <Grid container className={classes.body__right} item sm={2} xs={2}>
                   {/* ----Sidebar---- */}
                   <Leftbar user={user}/>
                 </Grid>
+                </Hidden>
               <Grid item container  className={classes.body__feed} xs={12} sm={8} md={6}>
                 {/* ----Feed---- */}
                 <Grid item container className={classes.feed__stories}>
@@ -103,7 +105,7 @@ const Home = ({user}) => {
                 </Grid>
               </Grid>
               <Hidden smDown>
-                <Grid item container className={classes.body__right} md={3}>
+                <Grid item container className={classes.body__right} md={3} >
                   {/* ----Right sidebar---- */}
                   <Rightbar />
                 </Grid>

@@ -14,6 +14,7 @@ import { db,auth } from "../firebase"
 import { useParams } from "react-router";
 import "./styles.css"
 // import NumberFormat from 'react-number-format';
+import MenuIcon from '@mui/icons-material/Menu';
 
 
 
@@ -127,27 +128,28 @@ auth.onAuthStateChanged((authUser) =>{
     <AppBar position="fixed">
       <Toolbar className={classes.toolbar}>
         <Typography variant="h6" className={classes.logoLg}>
-        {!auth?.currentUser?.uid &&(
         <a href="/">
         <div style={{fontWeight: "500",color: "#fff"}}>UoN_ACES</div>
         </a>
-          )}
-            {auth?.currentUser?.uid &&(
-        <a href={`/`}>
-        <div style={{fontWeight: "500",color: "#fff"}}>UoN_ACES</div>
-        </a>
-          )}
+           
         </Typography>
         <Typography variant="h6" className={classes.logoSm}>
           {!auth?.currentUser?.uid &&(
+            <div style={{display: "flex",alignItems: "center"}}>
+
         <a href="/">
         <div style={{fontWeight: "500",color: "#fff"}}>UoN_ACES</div>
         </a>
+        </div>
           )}
-            {auth?.currentUser?.uid &&(
-        <a href={`/`}>
-        <div style={{fontWeight: "500",color: "#fff"}}>UoN_ACES</div>
+          {auth?.currentUser?.uid &&(
+            <div style={{display: "flex",alignItems: "center"}}>
+                    <MenuIcon />
+
+        <a href="/">
+        <div style={{fontWeight: "500",color: "#fff",marginLeft:5}}>UoN_ACES</div>
         </a>
+        </div>
           )}
 
         </Typography>
