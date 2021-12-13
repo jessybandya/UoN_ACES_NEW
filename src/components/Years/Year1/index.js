@@ -1,10 +1,19 @@
 import { Grid, makeStyles } from "@material-ui/core";
+import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import {  Hidden, Paper } from "@material-ui/core";
 import Feed from "../Year1/Posts";
 import Leftbar from "../../Grid/Leftbar";
 import Navbar from "../../Grid/Navbar";
 import Rightbar from "../../Grid/Rightbar";
 import { auth } from "../../firebase"
 import { useHistory } from "react-router";
+
+import Posts from "../../Testhome/posts/Posts";
+import { LoginAction, LogoutAction } from "../../Testhome/store/actions/auth";
+import { lightPrimary } from "../../assets/Colors";
+import Style from "../../Testhome"
 const useStyles = makeStyles((theme) => ({
   right: {
     [theme.breakpoints.down("sm")]: {
@@ -15,31 +24,72 @@ const useStyles = makeStyles((theme) => ({
 
 const Home = ({user}) => {
   const history = useHistory("")
-  const classes = useStyles();
+  // const classes = useStyles();
+  const dispatch = useDispatch();
 
-  
+  const { displayName } = useSelector((state) => state.user);
+
+  const mode = useSelector((state) => state.util);
+
+  const muiTheme = createMuiTheme({
+    palette: {
+      type: mode ? "dark" : "light",
+    },
+  });
+
+  useEffect(() => {
+    auth.onAuthStateChanged((authUser) => {
+      if (authUser) {
+        dispatch(LoginAction(authUser));
+      } else {
+        dispatch(LogoutAction());
+      }
+    });
+  }, [dispatch]);
+
+  const classes = Style();
 
   return (
     <div>
+      <Navbar />
+
       {auth?.currentUser?.uid &&(
        <>
-        <Navbar user={user}/>
+       <ThemeProvider theme={muiTheme}>
+      <Paper
+        elevation={0}
+        className={classes.root}
+        style={{ backgroundColor: !mode && lightPrimary }}
+      >
       <Grid container>
+      <Hidden smDown>
         <Grid item sm={2} xs={2}>
           <Leftbar user={user}/>
         </Grid>
-        <Grid item sm={7} xs={10}>
-          <Feed />
-        </Grid>
+        </Hidden>
+ 
+        <Grid item container  className={classes.body__feed} sm={7} xs={20}>
+
+
+<Grid item container >
+  {/* ----Posts---- */}
+  <Feed/>
+</Grid>
+</Grid>
+        <Hidden smDown>
         <Grid item sm={3} className={classes.right}>
           <Rightbar />
         </Grid>
+        </Hidden>
       </Grid>
+      </Paper>
+    </ThemeProvider>
        </>
       )}
+
+
       {!auth?.currentUser?.uid &&(
        <>
-        <Navbar user={user}/>
       <Grid container>
         <Grid item sm={2} xs={2}>
           {/* <Leftbar user={user}/> */}
