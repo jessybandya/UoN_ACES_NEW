@@ -159,9 +159,9 @@ return number;
         <Typography className={classes.text}>Market Place</Typography>
       </div>
       <div className={classes.item} className="leftNav" style={{display: "flex",alignItems:"center",height:50,cursor:"pointer",borderRadius:10}}>
-        <a style={{display: "flex"}} className="port" href={`/addpost`}>
+        <a style={{display: "flex"}} className="port" href={`/manageposts`}>
         <PostAddIcon className={classes.icon} />
-        <Typography className={classes.text}>Add Post</Typography>
+        <Typography className={classes.text}>Manage Posts</Typography>
         </a>
       </div>
       <div className={classes.item} className="leftNav" style={{display: "flex",alignItems:"center",height:50,cursor:"pointer",borderRadius:10}}>

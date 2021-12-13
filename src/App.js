@@ -54,7 +54,7 @@ function App() {
 					
               <Postview user={user}/>
              </Route> 
-			 <Route exact path="/addpost">
+			 <Route exact path="/manageposts">
               <Addpost user={user}/>
              </Route> 
 
