@@ -13,6 +13,7 @@ import Styles from "./Style";
 import swal from "@sweetalert/with-react";
 import "react-responsive-modal/styles.css";
 import { Modal } from "react-responsive-modal";
+
 import {
   Button,
   Card,
@@ -78,6 +79,7 @@ const Form = () => {
   const [title, setTitle] = useState("");
   const [descriptions, setDescriptions] = useState("");
   const [imageURL, setImageURL] = useState('');
+  const [noLikes, setNoLikes] = useState(0);
   const [uploadData, setUploadData] = useState({
     // description: "",
     file: {
@@ -105,6 +107,7 @@ const Form = () => {
         description: descriptions,
         fileType: uploadData.file.type,
         title,
+        noLikes,
         fileName: uploadData.file.name,
         fileData: fileData,
       })

@@ -24,11 +24,13 @@ const Posts = () => {
           <Post
             key={post.id}
             ownerId={post.data.ownerId}
+            postId={post.id}
             title={post.data.title}
             timestamp={post.data.timestamp}
             description={post.data.description}
             fileType={post.data.fileType}
             fileData={post.data.fileData}
+            noLikes={post.data.noLikes}
           />
         ))}
       </FlipMove>

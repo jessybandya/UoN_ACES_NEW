@@ -32,7 +32,6 @@ user-select: none;
 
 .comments__show .container__comments {
     display: flex;
-    flex-direction: column;
     background-color: #3A3B3C;
     border-radius: 15px;
     height: auto;
@@ -48,8 +47,8 @@ user-select: none;
 
 .comments__show {
     display: flex;
-    flex-direction: row;
     margin-top: -10px;
+    width: 100% ;
 }
 
 
@@ -240,10 +239,10 @@ user-select: none;
     justify-content: center;
     padding-top: 6px;
     color: #9A9DA1;
+    align-items: center;
 }
 
 .like1:hover {
-        color:#fff !important;
     border-radius: 5px;
 }
 
