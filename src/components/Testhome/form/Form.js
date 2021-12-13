@@ -103,7 +103,7 @@ const Form = () => {
     db.collection("posts")
       .add({
         ownerId: auth?.currentUser?.uid,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        timestamp: Date.now(),
         description: descriptions,
         fileType: uploadData.file.type,
         title,

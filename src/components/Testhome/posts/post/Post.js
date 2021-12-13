@@ -24,6 +24,7 @@ import {
   makeStyles,
   Typography,
 } from "@material-ui/core";
+import moment from 'moment'
 import ReadMoreReact from 'read-more-react';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
@@ -161,7 +162,7 @@ const likeHandle = (event) => {
       );
     };
 
-    var str="wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
+    var str="";
     var cleanStr=str.trim();
     const text = str;
     const [isReadMore, setIsReadMore] = useState(true);
@@ -177,7 +178,8 @@ const likeHandle = (event) => {
             <h4>{profileUserData?.firstName} {profileUserData?.lastName}</h4>
             <p style={{marginLeft:-3}}>
 
-                <ReactTimeago date={new Date(timestamp?.toDate()).toUTCString()} units="minute" />
+                {/* <ReactTimeago date={new Date(timestamp?.toDate()).toUTCString()} units="minute" /> */}
+                {moment(timestamp).format()}
             </p>
           </div>
           <MoreHorizOutlinedIcon style={{marginTop:-40}}/>
@@ -186,13 +188,15 @@ const likeHandle = (event) => {
           {/* <div className={classes.body__description}>
             <p>{description}</p>
           </div> */}
+                            <a href={`/postview/${postId}/${ownerId}`}>
+
                 <CardContent>
         <Typography paragraph style={{fontWeight:"600"}}>{title}</Typography>
        <hr/>
         <Typography paragraph>
          {description}
         </Typography>
-
+    
       </CardContent>
           {fileData && (
             <div className={classes.body__image}>
@@ -203,6 +207,8 @@ const likeHandle = (event) => {
               )}
             </div>
           )}
+                  </a>
+
         </div>
 
 
@@ -221,10 +227,12 @@ const likeHandle = (event) => {
                     )}
                     <h3 className={show2}>Like</h3>
                 </div>
+                <a href={`/postview/${postId}/${ownerId}`}>
                 <div className="comment1" style={{alignItems:"center"}}>
                     <i className="comment2" />
                     <h3 class="dope">Comment</h3>
                 </div>
+                </a>
                 <div className="share1" >
                     <i className="share2" />
                     <h3>Share</h3>
