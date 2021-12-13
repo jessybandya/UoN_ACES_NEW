@@ -77,14 +77,10 @@ function abbrNum(number, decPlaces) {
     <div class="main-body">
     
           <nav aria-label="breadcrumb" class="main-breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-              <li class="breadcrumb-item"><a href="javascript:void(0)">User</a></li>
-              <li class="breadcrumb-item active" aria-current="page">User Profile</li>
-            </ol>
+
           </nav>
     
-          <div class="row gutters-sm">
+          <div class="row gutters-sm" style={{marginTop:15}}>
             <div class="col-md-4 mb-3">
               <div class="">
                 <div class="card-body">

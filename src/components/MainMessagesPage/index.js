@@ -19,6 +19,7 @@ import Posts from "../Testhome/posts/Posts";
 import { LoginAction, LogoutAction } from "../Testhome/store/actions/auth";
 import { lightPrimary } from "../assets/Colors";
 import Style from "../Testhome/Style"
+import Testhome from  "../Testhome"
 
 
 const useStyles = makeStyles((theme) => ({
@@ -59,10 +60,9 @@ const Home = ({user}) => {
 
   return (
     <div>
-     <Navbar />
       {auth?.currentUser?.uid &&(
        <>
-  
+   <Testhome />
 <ThemeProvider theme={muiTheme}>
       <Paper
         elevation={0}

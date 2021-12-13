@@ -19,6 +19,7 @@ import Posts from "../Testhome/posts/Posts";
 import { LoginAction, LogoutAction } from "../Testhome/store/actions/auth";
 import { lightPrimary } from "../assets/Colors";
 import Style from "../Testhome/Style"
+import Testhome from  "../Testhome"
 
 
 const useStyles = makeStyles((theme) => ({
@@ -59,10 +60,9 @@ const Home = ({user}) => {
 
   return (
     <div>
-     <Navbar />
       {auth?.currentUser?.uid &&(
        <>
-  
+  <Testhome />
 <ThemeProvider theme={muiTheme}>
       <Paper
         elevation={0}
@@ -75,7 +75,7 @@ const Home = ({user}) => {
             <Grid item  className={classes.app__body}>
               {/* ----Body---- */}
               <Hidden smDown>
-                <Grid item container className={classes.body__right}  sm={2} xs={2}>
+                <Grid item container className={classes.body__right} style={{marginTop:-50}}  sm={2} xs={2}>
                   {/* ----Sidebar---- */}
                   <Leftbar user={user}/>
                 </Grid>
@@ -91,7 +91,7 @@ const Home = ({user}) => {
                 </Grid>
               </Grid>
               <Hidden smDown>
-                <Grid item container className={classes.body__right} md={3} >
+                <Grid item container className={classes.body__right} style={{marginTop:-50}} md={3} >
                   {/* ----Right sidebar---- */}
                   <Rightbar />
                 </Grid>

@@ -19,6 +19,7 @@ import Posts from "../Testhome/posts/Posts";
 import { LoginAction, LogoutAction } from "../Testhome/store/actions/auth";
 import { lightPrimary } from "../assets/Colors";
 import Style from "../Testhome/Style"
+import Testhome from  "../Testhome"
 
 
 const useStyles = makeStyles((theme) => ({
@@ -59,18 +60,17 @@ const Home = ({user}) => {
 
   return (
     <div>
-     <Navbar />
       {auth?.currentUser?.uid &&(
        <>
-  
-<ThemeProvider theme={muiTheme}>
+  <Testhome />
+<ThemeProvider  theme={muiTheme}>
       <Paper
         elevation={0}
         className={classes.root}
         style={{ backgroundColor: !mode && lightPrimary }}
       >
 
-          <Grid  className={classes.app}>
+          <Grid style={{marginTop:-50}}  className={classes.app}>
 
             <Grid item  className={classes.app__body}>
               {/* ----Body---- */}

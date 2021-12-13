@@ -9,6 +9,7 @@ import Navbar from "../../Grid/Navbar";
 import Rightbar from "../../Grid/Rightbar";
 import { auth } from "../../firebase"
 import { useHistory } from "react-router";
+import Testhome from  "../../Testhome"
 
 import Posts from "../../Testhome/posts/Posts";
 import { LoginAction, LogoutAction } from "../../Testhome/store/actions/auth";
@@ -51,10 +52,10 @@ const Home = ({user}) => {
 
   return (
     <div>
-      <Navbar />
 
       {auth?.currentUser?.uid &&(
        <>
+       <Testhome />
        <ThemeProvider theme={muiTheme}>
       <Paper
         elevation={0}
