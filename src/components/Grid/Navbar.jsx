@@ -99,7 +99,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Navbar = () => {
+function Navbar({ handleDrawerOpen }){
   const dispatch = useDispatch();
   const mode = useSelector((state) => state.util);
 
@@ -177,7 +177,7 @@ auth.onAuthStateChanged((authUser) =>{
           )}
           {auth?.currentUser?.uid &&(
             <div style={{display: "flex",alignItems: "center"}}>
-                    <MenuIcon />
+                    <MenuIcon onClick={handleDrawerOpen}/>
 
         <a href="/">
         <div style={{fontWeight: "500",color: "#fff",marginLeft:5}}>UoN_ACES</div>

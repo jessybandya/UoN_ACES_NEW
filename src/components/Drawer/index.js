@@ -17,9 +17,8 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
-import Navbar from "../Grid/Navbar"
+import Navbar from "../Drawer"
 import { Container, makeStyles, Badge } from "@material-ui/core";
-import App from "../../../src/App"
 import {
   Bookmark,
   ExitToApp,
@@ -102,16 +101,20 @@ export default function PersistentDrawerLeft() {
     <>
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
+      <AppBar position="fixed" open={open}>
+        <Toolbar>
           <IconButton
             color="inherit"
             aria-label="open drawer"
             onClick={handleDrawerOpen}
             edge="start"
-            sx={{ mr: 2, ...(open && { display: 'none' }),marginTop:-100, }}
+            sx={{ mr: 2, ...(open && { display: 'none' }) }}
           >
             <MenuIcon />
           </IconButton>
     <Navbar handleDrawerOpen={(handleDrawerOpen)}/>
+        </Toolbar>
+      </AppBar>
       <Drawer
         sx={{
           width: drawerWidth,
