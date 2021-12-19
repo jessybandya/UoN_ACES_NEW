@@ -38,6 +38,8 @@ import PostAddIcon from '@mui/icons-material/PostAdd';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import { Cancel, Mail, Notifications, Search } from "@material-ui/icons";
+import { Link } from "react-router-dom"
+
 
 
 const drawerWidth = 210;
@@ -133,7 +135,7 @@ export default function PersistentDrawerLeft() {
         </DrawerHeader>
         <Divider />
         <List>
-        <a style={{display: "flex"}} className="port" href="/home">
+        <Link style={{display: "flex"}} className="port" to="/home">
             <ListItem button>
               <ListItemIcon>
                 <Home />
@@ -141,10 +143,10 @@ export default function PersistentDrawerLeft() {
               <ListItemText primary={"Homepage"} />
               
             </ListItem>
-            </a>
+            </Link>
             <Divider />
 
-            <a style={{display: "flex"}} className="port" href="/friends">
+            <Link style={{display: "flex"}} className="port" to="/friends">
             <ListItem button>
               <ListItemIcon>
                 <PeopleAltIcon />
@@ -152,11 +154,11 @@ export default function PersistentDrawerLeft() {
               <ListItemText primary={"Friends"} />
               
             </ListItem>
-            </a>
+            </Link>
 
             <Divider />
 
-            <a style={{display: "flex"}} className="port" href="/academics">
+            <Link style={{display: "flex"}} className="port" to="/academics">
             <ListItem button>
               <ListItemIcon>
                 <MenuBookIcon />
@@ -164,11 +166,11 @@ export default function PersistentDrawerLeft() {
               <ListItemText primary={"Academics"} />
               
             </ListItem>
-            </a>
+            </Link>
 
 <Divider />
 
-<a style={{display: "flex"}} className="port" href="/mainmessagespage">
+<Link style={{display: "flex"}} className="port" to="/mainmessagespage">
             <ListItem button>
               <ListItemIcon>
               <Badge badgeContent={200} color="secondary">
@@ -180,11 +182,11 @@ export default function PersistentDrawerLeft() {
               <ListItemText primary={"Messages"} />
               
             </ListItem>
-    </a>
+    </Link>
 
 <Divider />
 {/* Extra to be added Here */}
-<a style={{display: "flex"}} className="port" href="/manageposts">
+<Link style={{display: "flex"}} className="port" to="/manageposts">
             <ListItem button>
               <ListItemIcon>
                 <PostAddIcon />
@@ -192,11 +194,11 @@ export default function PersistentDrawerLeft() {
               <ListItemText primary={"Manage Posts"} />
               
             </ListItem>
-            </a>
+            </Link>
 
 <Divider />
 
-<a style={{display: "flex"}} className="port" href="/manageposts">
+<Link style={{display: "flex"}} className="port" to="/manageposts">
             <ListItem button>
               <ListItemIcon>
                 <PostAddIcon />
@@ -204,7 +206,7 @@ export default function PersistentDrawerLeft() {
               <ListItemText primary={"Manage Posts"} />
               
             </ListItem>
-            </a>
+            </Link>
         </List>
         <Divider />
 

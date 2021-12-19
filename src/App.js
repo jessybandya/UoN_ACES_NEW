@@ -40,8 +40,8 @@ function App() {
 	  })
 	}, [])
   return (
-    <div className="App">
-		<Router>
+    <div  className="App">
+		<Router >
 			<GlobalStyle />
 			{/* <Navbar /> */}
 			<ToastContainer />

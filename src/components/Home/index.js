@@ -199,7 +199,7 @@ const Home = ({user}) => {
       )}
       {!auth?.currentUser?.uid &&(
        <>
-
+  <Navbar />
       {/* <Add /> */}
       <Grid container className="mobile">
 

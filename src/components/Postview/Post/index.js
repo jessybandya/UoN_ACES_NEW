@@ -282,7 +282,6 @@ import Moment from 'react-moment';
       <>
 
 
-
 <Paper  className={classes.post}>
         <div className={classes.post__header}>
           <Avatar src={profileUserData?.photoURL} style={{marginTop:-30}}/>
@@ -324,6 +323,7 @@ import Moment from 'react-moment';
         </div> 
 
             <div className="post__likeoptions">
+            {auth?.currentUser &&(
                 <div className="like1" onClick={likeHandle}>
                     {show2 ==! "textforlike" ?(
                     <ThumbUpOutlinedIcon className={show} />
@@ -332,6 +332,8 @@ import Moment from 'react-moment';
                     )}
                     <h3 className={show2}>Like</h3>
                 </div>
+            )}
+
                 <div className="comment1" style={{alignItems:"center"}}>
                     <i className="comment2" expand={comments} onClick={handleExpandClick1} />
                     <h3 class="dope">Comment</h3>
@@ -343,6 +345,7 @@ import Moment from 'react-moment';
             </div>
             
       </Paper>
+      {auth?.currentUser &&(
       <div style={{display:"flex",marginTop:10,alignItems:"center",justifyContent:"space-between",width: "100%"}}>
       <div>
       <Avatar src={profile?.photoURL} alt={profile?.username}/>    
@@ -357,6 +360,8 @@ import Moment from 'react-moment';
             /></div>
             <div><SendIcon style={{color: "#3f51b5",cursor:"pointer"}}/></div>
   </div>
+      )}
+
 
   <Collapse in={comments} timeout="auto" unmountOnExit>
         <CardContent style={{marginTop:20}}>

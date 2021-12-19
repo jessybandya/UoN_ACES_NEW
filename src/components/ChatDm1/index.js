@@ -90,12 +90,7 @@ const Home = ({user}) => {
                   <Feed/>
                 </Grid>
               </Grid>
-              <Hidden smDown>
-                <Grid item container className={classes.body__right} md={3} >
-                  {/* ----Right sidebar---- */}
-                  <Rightbar />
-                </Grid>
-              </Hidden>
+
             </Grid>
           </Grid>
   

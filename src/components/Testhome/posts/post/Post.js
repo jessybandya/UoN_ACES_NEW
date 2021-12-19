@@ -219,6 +219,7 @@ const likeHandle = (event) => {
         </div> 
 
             <div className="post__likeoptions">
+            {auth?.currentUser &&(
                 <div className="like1" onClick={likeHandle}>
                     {show2 ==! "textforlike" ?(
                     <ThumbUpOutlinedIcon className={show} />
@@ -227,6 +228,8 @@ const likeHandle = (event) => {
                     )}
                     <h3 className={show2}>Like</h3>
                 </div>
+            )}
+
                 <a href={`/postview/${postId}/${ownerId}`}>
                 <div className="comment1" style={{alignItems:"center"}}>
                     <i className="comment2" />
