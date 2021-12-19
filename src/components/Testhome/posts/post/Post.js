@@ -14,6 +14,8 @@ import Style from "./Style";
 import { db, auth } from "../../../firebase"
 import "./styles.css"
 import LinesEllipsis from 'react-lines-ellipsis'
+import dayjs from 'dayjs';
+
 import {
   Button,
   Card,
@@ -179,7 +181,7 @@ const likeHandle = (event) => {
             <p style={{marginLeft:-3}}>
 
                 {/* <ReactTimeago date={new Date(timestamp?.toDate()).toUTCString()} units="minute" /> */}
-                {moment(timestamp).format()}
+                 {moment(timestamp).fromNow()}
             </p>
           </div>
           <MoreHorizOutlinedIcon style={{marginTop:-40}}/>
