@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from 'react'
+import React, {useState,useEffect, useContext} from 'react'
 import "./styles.css"
 import {auth,db} from './../firebase';
 import { useHistory, Link } from 'react-router-dom';
@@ -12,6 +12,9 @@ import {  toast } from 'react-toastify';
 import Backdrop from '@mui/material/Backdrop';
 import Footer from './../Firstpage/components/Footer/Footer';
 import Navbar from "../Grid/Navbar"
+import * as CONSTANTS from "../../constants/constants"
+import context from './Context'
+import { CometChat } from "@cometchat-pro/chat";
 
 
 function Register() {
@@ -31,12 +34,19 @@ function Register() {
     const [gender, setGender] = useState('');
     const [loading,setLoading] = useState(false)
     const [open2, setOpen2] = React.useState(true);
+
+
     const handleClose2 = () => {
       setOpen2(false);
     };
     const handleToggle = () => {
       setOpen2(true);
     };
+
+
+
+    let authKey = CONSTANTS.AUTH_KEY;
+
 
 
 
@@ -173,6 +183,21 @@ function Register() {
                                                         toast.success("Succesfully created an account.")
                                                         history.push(`/home`)
                                                     })
+                                            }).then(() =>{
+                                                    var uid = auth.user.uid;
+                                                    var name = auth.user.displayName;
+                                                    
+                                                    var user = new CometChat.User(uid);
+                                                    user.setName(name);
+                                                    CometChat.createUser(user, authKey).then(
+                                                        user => {
+                                                            console.log("user created", user);
+                                                        },error => {
+                                                            console.log("error", error);
+                                                        }
+                                                    )
+        
+        
                                             })
                                         }
                                     })

@@ -9,7 +9,7 @@ import Navbar from './components/Grid/Navbar';
 import Home from "./components/Home"
 import Register from './components/Register';
 import Login from './components/Login';
-import { useState,useEffect } from 'react';
+import { useState,useEffect, useContext } from 'react';
 import {auth} from "./components/firebase"
 import Postview from './components/Postview';
 import 'react-toastify/dist/ReactToastify.css';
@@ -27,9 +27,18 @@ import Year3 from "./components/Years/Year3"
 import Year4 from "./components/Years/Year4"
 import Year5 from "./components/Years/Year5"
 import Root from "./components/Testhome"
+// import { CometChat } from "@cometchat-pro/chat";
+import * as CONSTANTS from "../src/constants/constants"
+import Context from './components/Register/Context';
+
+
+
+
 
 function App() {
 	const [user, setUser] = useState([]);
+  const [cometChat, setCometChat] = useState(null);
+
 	useEffect(() => {
 	  auth.onAuthStateChanged((authUser) =>{
 		if(authUser){
@@ -39,6 +48,41 @@ function App() {
 		}
 	  })
 	}, [])
+
+
+    // user state contains authenticated user.
+    // comet chat.
+  
+    useEffect(() => {
+      initAuthUser();
+      initCometChat();
+    }, []);
+  
+    /**
+     * init auth user
+     */
+    const initAuthUser = () => { 
+      const authenticatedUser = localStorage.getItem('auth');
+      if (authenticatedUser) { 
+        setUser(JSON.parse(authenticatedUser));
+      }
+    };
+  
+ 
+
+  const initCometChat = async () => {
+    const { CometChat } = await import('@cometchat-pro/chat');
+    const appID = `${CONSTANTS.APP_ID}`;
+    const region = `${CONSTANTS.APP_REGION}`;
+    const appSetting = new CometChat.AppSettingsBuilder().subscribePresenceForAllUsers().setRegion(region).build();
+    CometChat.init(appID, appSetting).then(
+      () => {
+        setCometChat(() => CometChat);
+      },
+      error => {
+      }
+    );
+  }
   return (
     <div  className="App">
 		<Router >
