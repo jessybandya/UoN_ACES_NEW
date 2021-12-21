@@ -30,7 +30,9 @@ import Root from "./components/Testhome"
 // import { CometChat } from "@cometchat-pro/chat";
 import * as CONSTANTS from "../src/constants/constants"
 import Context from './components/Register/Context';
-
+import { createBrowserHistory } from 'history';
+// import {CometChatUI} from "./cometchat-pro-react-ui-kit/CometChatWorkspace/src";
+import MessagePage from "./defaultPages/App"
 
 
 
@@ -107,7 +109,7 @@ function App() {
              </Route> 
 
 		      <Route exact path="/mainmessagespage">
-              <MainMessagesPage user={user}/>
+              <MessagePage user={user}/>
              </Route> 
              <Route exact path="/messages">
               <ChatDm user={user}/>

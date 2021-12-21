@@ -28,7 +28,7 @@ import { useParams } from "react-router";
 import "./styles.css"
 // import NumberFormat from 'react-number-format';
 import MenuIcon from '@mui/icons-material/Menu';
-import { ToggleTheme } from "../../store/actions/util";
+import { ToggleTheme } from "../../store1/actions/util";
 import { useDispatch, useSelector } from "react-redux";
 import Brightness4Icon from "@material-ui/icons/Brightness4";
 import BrightnessHighIcon from "@material-ui/icons/BrightnessHigh";

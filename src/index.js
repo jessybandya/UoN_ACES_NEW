@@ -4,9 +4,10 @@ import './index.css';
 import { Provider } from "react-redux";
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import store from "./store";
+import store from "./store1";
 import * as CONSTANTS from "../src/constants/constants"
 import { CometChat } from "@cometchat-pro/chat";
+import App1 from './defaultPages/App';
 
 
 const appID = CONSTANTS.APP_ID;
