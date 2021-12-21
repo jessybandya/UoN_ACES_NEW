@@ -26,7 +26,7 @@ export const authFail = (error) => {
 export const logoutSuccess = () => {
     return {
         type: actionTypes.AUTH_LOGOUT,
-        authRedirectPath: "/login"
+        authRedirectPath: "/"
     };
 }
 

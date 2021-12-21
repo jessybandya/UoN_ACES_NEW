@@ -11,7 +11,12 @@ import { motion } from "framer-motion"
 import Navbar from "../Grid/Navbar"
 import * as CONSTANTS from "../../constants/constants"
 import { CometChat } from "@cometchat-pro/chat";
+import * as actions from '../../store/action';
+import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 
+import { CometChatAvatar } from '../../cometchat-pro-react-ui-kit/CometChatWorkspace/src';
+import { COMETCHAT_CONSTANTS } from '../../consts';
 
 
 const buttonVariants = {
@@ -61,6 +66,8 @@ const containerVariants={
 
 
 function Login() {
+
+
     const {currentUser} = auth
     const [email, setEmail] = useState('');
     const history = useHistory('');
@@ -81,31 +88,9 @@ function Login() {
         auth.signInWithEmailAndPassword(email,password)
         .then((auth) =>{
            setLoading(false)
-           const val = auth;
-           if (auth) {
-            const keys = Object.keys(auth);
-            const user = val[keys[0]];
-            // login cometchat.
-            CometChat.login(user.id, `${CONSTANTS.AUTH_KEY}`).then(
-              User => {
-                // User loged in successfully.
-                // save authenticated user to local storage.
-                localStorage.setItem('auth', JSON.stringify(user));
-                // save authenticated user to context.
-                // hide loading.
-                setUser(auth?.currentUser?.uid);
-                setLoading(false);
-                // redirect to home page.
-                history.push('/home');
-              },
-              error => {
-                // User login failed, check error and take appropriate action.
-              }
-            );
-          }
-          console.log("User: ",user)
-
-          history.push('/home');
+           var uid = auth?.currentUser?.uid;
+          const onLogin = (uid, COMETCHAT_CONSTANTS.AUTH_KEY);
+           history.push('/home');
 
         })
         .catch((e) =>{
@@ -177,4 +162,19 @@ function Login() {
     )
 }
 
-export default Login
+
+const mapStateToProps = state => {
+  return {
+    loading: state.loading,
+    error: state.error,
+    isLoggedIn: state.isLoggedIn
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onLogin: ( uid, authKey ) => dispatch( actions.auth( uid, authKey ) )
+  };
+};
+
+export default connect( mapStateToProps, mapDispatchToProps )( Login )

@@ -23,6 +23,7 @@ import {
     CometChatGroupListWithMessages,
     CometChatMessages
 } from '../../cometchat-pro-react-ui-kit/CometChatWorkspace/src';
+import Testhome from "../../components/Testhome"
 
 import {
     wrapperStyle
@@ -42,6 +43,7 @@ function App () {
 
         return (
             <div css={wrapperStyle()}>
+                <Testhome />
                 <CometChatUI/>
                 {/* <Router history={history}>
                     <Switch>

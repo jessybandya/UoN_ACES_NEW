@@ -42,7 +42,6 @@ import { ReactComponent as ChevronIcon } from './icons/chevron.svg';
 import { ReactComponent as ArrowIcon } from './icons/arrow.svg';
 import { ReactComponent as BoltIcon } from './icons/bolt.svg';
 import { useHistory } from "react-router";
-
 import { Link } from "react-router-dom"
 const useStyles = makeStyles((theme) => ({
   toolbar: {

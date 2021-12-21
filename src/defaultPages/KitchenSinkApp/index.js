@@ -22,7 +22,7 @@ import {
   inputWrapperStyle,
   loginBtn,
 } from "./style";
-
+import Testhome from "../../components/Testhome"
 import { loaderStyle } from "./loader";
 
 import * as actions from '../../store/action';
@@ -65,6 +65,7 @@ class KitchenSinkApp extends React.PureComponent {
     return (
       <React.Fragment>
       <Global styles={loaderStyle} />
+      <Testhome />
       <div css={wrapperStyle()}>
           {authRedirect}
           {loader}
