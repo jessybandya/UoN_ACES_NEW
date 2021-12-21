@@ -9,7 +9,6 @@ import { ConversationListManager } from "./controller";
 
 import { CometChatConfirmDialog, CometChatToastNotification } from "../../Shared";
 import { CometChatConversationListItem } from "../";
-import { auth } from "../../../../../../components/firebase"
 
 import { CometChatContextProvider, CometChatContext } from "../../../util/CometChatContext";
 import * as enums from "../../../util/enums.js";
@@ -56,7 +55,7 @@ class CometChatConversationList extends React.Component {
 		this.toastRef = React.createRef();
 
 		CometChat.getLoggedinUser()
-			.then(user => (auth.currentUser = user))
+			.then(user => (this.loggedInUser = user))
 			.catch(error => this.setState({ decoratorMessage: Translator.translate("SOMETHING_WRONG", this.props.lang) }));
 	}
 

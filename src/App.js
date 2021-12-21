@@ -33,10 +33,22 @@ import Context from './components/Register/Context';
 import { createBrowserHistory } from 'history';
 // import {CometChatUI} from "./cometchat-pro-react-ui-kit/CometChatWorkspace/src";
 import MessagePage from "./defaultPages/App"
+import {
+  CometChatUI,
+  CometChatConversationList,
+  CometChatConversationListWithMessages,
+  CometChatUserList,
+  CometChatUserListWithMessages,
+  CometChatGroupList,
+  CometChatGroupListWithMessages,
+  CometChatMessages
+} from './cometchat-pro-react-ui-kit/CometChatWorkspace/src';
+import { connect } from 'react-redux';
+import PrivateRoute from './PrivateRoute';
+import KitchenSinkApp from './defaultPages/KitchenSinkApp';
+import HomePage from './defaultPages/HomePage';
 
-
-
-
+import  App1 from "./defaultPages/App"
 function App() {
 	const [user, setUser] = useState([]);
   const [cometChat, setCometChat] = useState(null);
@@ -85,9 +97,11 @@ function App() {
       }
     );
   }
+  const history = createBrowserHistory();
+
   return (
-    <div  className="App">
-		<Router >
+    <div className="App">
+		<Router history={history}>
 			<GlobalStyle />
 			{/* <Navbar /> */}
 			<ToastContainer />
@@ -108,9 +122,9 @@ function App() {
               <Friends user={user}/>
              </Route> 
 
-		      <Route exact path="/mainmessagespage">
+		      {/* <Route exact path="/mainmessagespage">
               <MessagePage user={user}/>
-             </Route> 
+             </Route>  */}
              <Route exact path="/messages">
               <ChatDm user={user}/>
              </Route>
@@ -149,6 +163,10 @@ function App() {
 			 <Route exact path="/mesagetest">
               <Root user={user}/>
              </Route>
+
+                   <PrivateRoute path="/embedded-app" component={App1} />
+
+                  <Route path="/mainmessagespage" component={KitchenSinkApp} />
 			</Switch>
 			{/* <Footer /> */}
 		</Router>

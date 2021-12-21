@@ -7,7 +7,6 @@ import {CometChatContext} from "../../../util/CometChatContext";
 import * as enums from "../../../util/enums.js";
 
 import Translator from "../../../resources/localization/translator";
-import { auth } from "../../../../../../components/firebase"
 
 import {conversationActionStyle, groupButtonStyle} from "./style.js";
 

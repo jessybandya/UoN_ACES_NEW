@@ -54,6 +54,12 @@ class CometChatUserProfile extends React.Component {
 
 	render() {
 
+	// 	<div css={logoutBtn()}>
+	// 	<button type="button" onClick={this.props.onLogout}>
+	// 		Logout
+	// 	</button>
+	// </div>
+
 		let userProfile = null;
 		if(this.state.loggedInUser) {
 
@@ -109,8 +115,10 @@ class CometChatUserProfile extends React.Component {
 								</div>
 							</div>
 							<div css={optionStyle(reportIcon)} className="option option-report">
-								<div css={optionNameStyle()} className="option_name">
-									{Translator.translate("REPORT_PROBLEM", this.props.lang)}
+								<div css={optionNameStyle()} onClick={this.props.onLogout} className="option_name">
+									<span onClick={this.props.onLogout}>
+									{Translator.translate("LOGOUT", this.props.lang)}
+									</span>
 								</div>
 							</div>
 						</div>

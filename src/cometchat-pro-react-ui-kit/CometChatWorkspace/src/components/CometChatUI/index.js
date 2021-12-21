@@ -8,7 +8,7 @@ import { CometChat } from "@cometchat-pro/chat";
 import { CometChatNavBar } from "./CometChatNavBar";
 import { CometChatMessages } from "../Messages";
 import { CometChatIncomingCall, CometChatIncomingDirectCall } from "../Calls";
-import { auth } from "../../../../../components/firebase"
+
 import { CometChatContextProvider } from "../../util/CometChatContext";
 import * as enums from "../../util/enums.js";
 import { theme } from "../../resources/theme";
@@ -106,7 +106,7 @@ class CometChatUI extends React.Component {
 				
 				if (this.contextProviderRef.state.type === CometChat.ACTION_TYPE.TYPE_GROUP
 				&& this.contextProviderRef.state.item.guid === group.guid
-				&& options.user.uid === auth?.currentUser?.uid) {
+				&& options.user.uid === this.loggedInUser.uid) {
 
 					const newObject = Object.assign({}, this.contextProviderRef.state.item, { "scope": options["scope"] })
 					this.contextProviderRef.setItem(newObject);
