@@ -9,6 +9,10 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import Footer from './../Firstpage/components/Footer/Footer';
 import { motion } from "framer-motion"
 import Navbar from "../Grid/Navbar"
+import * as CONSTANTS from "../../constants/constants"
+import { CometChat } from "@cometchat-pro/chat";
+
+
 
 const buttonVariants = {
 
@@ -75,8 +79,30 @@ function Login() {
        setLoading(true)
         auth.signInWithEmailAndPassword(email,password)
         .then((auth) =>{
-            setLoading(false)
-          history.push(`/home`);
+           setLoading(false)
+           const val = auth;
+           if (auth) {
+            const keys = Object.keys(auth);
+            const user = val[keys[0]];
+            // login cometchat.
+            CometChat.login(user.id, `${CONSTANTS.AUTH_KEY}`).then(
+              User => {
+                // User loged in successfully.
+                // save authenticated user to local storage.
+                localStorage.setItem('auth', JSON.stringify(user));
+                // save authenticated user to context.
+                // hide loading.
+                setLoading(false);
+                // redirect to home page.
+                history.push('/home');
+              },
+              error => {
+                // User login failed, check error and take appropriate action.
+              }
+            );
+          }
+          history.push('/home');
+
         })
         .catch((e) =>{
                 toast.error(e.message)      
