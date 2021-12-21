@@ -67,6 +67,7 @@ function Login() {
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false)
     const [open2, setOpen2] = React.useState(true);
+    const [user, setUser ] = useState(null)
     const handleClose2 = () => {
       setOpen2(false);
     };
@@ -92,6 +93,7 @@ function Login() {
                 localStorage.setItem('auth', JSON.stringify(user));
                 // save authenticated user to context.
                 // hide loading.
+                setUser(auth?.currentUser?.uid);
                 setLoading(false);
                 // redirect to home page.
                 history.push('/home');
@@ -101,6 +103,8 @@ function Login() {
               }
             );
           }
+          console.log("User: ",user)
+
           history.push('/home');
 
         })
