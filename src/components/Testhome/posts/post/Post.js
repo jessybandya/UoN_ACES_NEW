@@ -15,7 +15,7 @@ import { db, auth1 } from "../../../firebase"
 import "./styles.css"
 import LinesEllipsis from 'react-lines-ellipsis'
 import dayjs from 'dayjs';
-
+import { Link } from 'react-router-dom'
 import {
   Button,
   Card,
@@ -190,7 +190,7 @@ const likeHandle = (event) => {
           {/* <div className={classes.body__description}>
             <p>{description}</p>
           </div> */}
-                            <a href={`/postview/${postId}/${ownerId}`}>
+                <Link to={`/postview/${postId}/${ownerId}`}>
 
                 <CardContent>
         <Typography paragraph style={{fontWeight:"600"}}>{title}</Typography>
@@ -209,7 +209,7 @@ const likeHandle = (event) => {
               )}
             </div>
           )}
-                  </a>
+                  </Link>
 
         </div>
 
@@ -232,12 +232,12 @@ const likeHandle = (event) => {
                 </div>
             )}
 
-                <a href={`/postview/${postId}/${ownerId}`}>
+                <Link to={`/postview/${postId}/${ownerId}`}>
                 <div className="comment1" style={{alignItems:"center"}}>
                     <i className="comment2" />
                     <h3 class="dope">Comment</h3>
                 </div>
-                </a>
+                </Link>
                 <div className="share1" >
                     <i className="share2" />
                     <h3>Share</h3>

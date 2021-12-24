@@ -19,7 +19,7 @@ import PostAddIcon from '@mui/icons-material/PostAdd';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import { styled, useTheme } from '@mui/material/styles';
-
+import { Link } from "react-router-dom"
 import { Cancel, Mail, Notifications, Search } from "@material-ui/icons";
 import MuiAppBar from '@mui/material/AppBar';
 
@@ -169,27 +169,27 @@ return number;
     <Container   className={classes.container}>
       <div className={classes.item} className="leftNav" style={{display: "flex",alignItems:"center",height:50,cursor:"pointer",borderRadius:10}}>
       {/* <Badge badgeContent={411} color="error" className={classes.badge}> */}
-      <a style={{display: "flex"}} className="port" href="/home">
+      <Link style={{display: "flex"}} className="port" to="/home">
         <Home className={classes.icon} />
         {/* </Badge> */}
         <Typography className={classes.text}>Homepage</Typography>
-        </a>
+        </Link>
       </div>
       <div className={classes.item} className="leftNav" style={{display: "flex",alignItems:"center",height:50,cursor:"pointer",borderRadius:10}}>
-        <a style={{display: "flex"}} className="port" href={`/friends`}>
+        <Link style={{display: "flex"}} className="port" to={`/friends`}>
         <PeopleAltIcon className={classes.icon} />
         <Typography className={classes.text}>Friends</Typography>
-        </a>
+        </Link>
       </div>
       <div className={classes.item} className="leftNav" style={{display: "flex",alignItems:"center",height:50,cursor:"pointer",borderRadius:10}}>
-        <a style={{display: "flex"}} className="port" href={`/academics`}>
+        <Link style={{display: "flex"}} className="port" to={`/academics`}>
         <MenuBookIcon className={classes.icon} />
         <Typography className={classes.text}>Academics</Typography>
-        </a>
+        </Link>
       </div>
       <div className={classes.item} className="leftNav" style={{display: "flex",alignItems:"center",height:50,cursor:"pointer",borderRadius:10}}>
 
-      <a href={`/mainmessagespage`} style={{display: "flex",alignItems:"center"}}>
+      <Link to={`/mainmessagespage`} style={{display: "flex",alignItems:"center"}}>
           <Badge badgeContent={200} color="secondary" className={classes.badge}>
             
             <Mail className={classes.icon}/>
@@ -197,7 +197,7 @@ return number;
           </Badge>
           <Typography className={classes.text}>Messages</Typography>
 
-          </a>
+          </Link>
       </div>
       <div className={classes.item} className="leftNav" style={{display: "flex",alignItems:"center",height:50,cursor:"pointer",borderRadius:10}}>
         <PlayCircleOutline className={classes.icon} />
@@ -216,10 +216,10 @@ return number;
         <Typography className={classes.text}>Market Place</Typography>
       </div>
       <div className={classes.item} className="leftNav" style={{display: "flex",alignItems:"center",height:50,cursor:"pointer",borderRadius:10}}>
-        <a style={{display: "flex"}} className="port" href={`/manageposts`}>
+        <Link style={{display: "flex"}} className="port" to={`/manageposts`}>
         <PostAddIcon className={classes.icon} />
         <Typography className={classes.text}>Manage Posts</Typography>
-        </a>
+        </Link>
       </div>
       <div className={classes.item} className="leftNav" style={{display: "flex",alignItems:"center",height:50,cursor:"pointer",borderRadius:10}}>
         <ExitToApp onClick={logout} className={classes.icon} />

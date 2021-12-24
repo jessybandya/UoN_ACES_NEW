@@ -50,6 +50,7 @@ export default makeStyles((theme) => ({
 
   feed__form: {
     width: "85%",
+    marginTop: "10%",
     [theme.breakpoints.down("md")]: {
       width: "90%",
     },

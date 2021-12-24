@@ -161,27 +161,27 @@ auth1.onAuthStateChanged((authUser) =>{
     <AppBar position="fixed">
       <Toolbar className={classes.toolbar}>
         <Typography variant="h6" className={classes.logoLg}>
-        <a href="/">
+        <Link to="/">
         <div style={{fontWeight: "500",color: "#fff"}}>UoN_ACES</div>
-        </a>
+        </Link>
            
         </Typography>
         <Typography variant="h6" className={classes.logoSm}>
           {!auth1?.currentUser?.uid &&(
             <div style={{display: "flex",alignItems: "center"}}>
 
-        <a href="/">
+        <Link to="/">
         <div style={{fontWeight: "500",color: "#fff"}}>UoN_ACES</div>
-        </a>
+        </Link>
         </div>
           )}
           {auth1?.currentUser?.uid &&(
             <div style={{display: "flex",alignItems: "center"}}>
                     <MenuIcon onClick={handleDrawerOpen}/>
 
-        <a href="/">
+        <Link to="/">
         <div style={{fontWeight: "500",color: "#fff",marginLeft:5}}>UoN_ACES</div>
-        </a>
+        </Link>
         </div>
           )}
 
@@ -208,11 +208,11 @@ auth1.onAuthStateChanged((authUser) =>{
            
           </Badge>
           </a> */}
-          <a href={`/notifications`}>
+          <Link to={`/notifications`}>
           <Badge badgeContent={200} color="secondary" className={classes.badge}>
             <Notifications style={{color: "#fff"}} />
           </Badge>
-          </a>
+          </Link>
           {/* <a href={`/profileview`}>
           <Avatar
             alt={`${profileUserData?.username}`}
@@ -229,15 +229,15 @@ auth1.onAuthStateChanged((authUser) =>{
           )}
       {!auth1?.currentUser?.uid &&(
         <div style={{display: "flex",justifyContent: "space-between",width: 150}}>
-                      <a href="/home">
+                      <Link to="/home">
           <div style={{fontWeight: "500",color: "#fff"}}>Home</div>
-          </a>
-          <a href="/register">
+          </Link>
+          <Link to="/register">
           <div style={{fontWeight: "500",marginLeft:10,color: "#fff"}}>Register</div>
-          </a>
-          <a href="/login">
+          </Link>
+          <Link to="/login">
           <div style={{fontWeight: "500",marginLeft:10,marginRight:0,color: "#fff"}}>Login</div>
-          </a>
+          </Link>
         </div>
       )}
         </div>

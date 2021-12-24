@@ -171,10 +171,10 @@ const Home = ({user}) => {
                 </Hidden>
               <Grid item container  className={classes.body__feed} xs={12} sm={8} md={6}>
                 {/* ----Feed---- */}
-                <Grid item container className={classes.feed__stories}>
+                {/* <Grid item container className={classes.feed__stories}>
                   <Stories />
-                </Grid>
-                <Grid item container className={classes.feed__form}>
+                </Grid> */}
+                <Grid item style={{marginTop:"10%",position:"relative",zIndex: 999}} container className={classes.feed__form}>
                   {/* ----Upload Form---- */}
                   <Form />
                 </Grid>
