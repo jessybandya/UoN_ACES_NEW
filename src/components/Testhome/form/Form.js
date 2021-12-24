@@ -8,7 +8,7 @@ import PhotoRoundedIcon from "@material-ui/icons/PhotoRounded";
 import EmojiEmotionsOutlinedIcon from "@material-ui/icons/EmojiEmotionsOutlined";
 import firebase from "firebase";
 import { v4 as uuid } from "uuid";
-import {db, storage, auth } from "../../firebase";
+import {db, storage, auth1 } from "../../firebase";
 import Styles from "./Style";
 import swal from "@sweetalert/with-react";
 import "react-responsive-modal/styles.css";
@@ -72,7 +72,6 @@ const styles = {
 
 const Form = () => {
   const classes = Styles();
-  const { displayName, photoURL } = useSelector((state) => state.user);
   const [image, setImage] = useState("");
   const [whoToComment, setWhoToComment] = useState("");
   const [visible, setVisible] = useState("");
@@ -102,7 +101,7 @@ const Form = () => {
     // uploading to collection called posts
     db.collection("posts")
       .add({
-        ownerId: auth?.currentUser?.uid,
+        ownerId: auth1?.currentUser?.uid,
         timestamp: Date.now(),
         description: descriptions,
         fileType: uploadData.file.type,
@@ -171,7 +170,7 @@ const Form = () => {
   };
   const [profileUserData, setProfileUserData] = useState();
   useEffect(() => {
-    db.collection('users').doc(`${auth?.currentUser?.uid}`).onSnapshot((doc) => {
+    db.collection('users').doc(`${auth1?.currentUser?.uid}`).onSnapshot((doc) => {
         setProfileUserData(doc.data());
     });
 }, [])

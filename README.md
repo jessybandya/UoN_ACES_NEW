@@ -1,70 +1,122 @@
-# Getting Started with Create React App
+<div style="width:100%">
+    <div style="width:50%;">
+        <div align="center">
+        <img align="center" width="180" height="180" alt="CometChat" src="./Screenshots/logo.png">    
+        </div>    
+    </div>    
+</div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<br/><br/>
 
-## Available Scripts
+# CometChat Kitchen Sink Sample App (React)
 
-In the project directory, you can run:
+<p align="left">
+    <a href="https://github.com/cometchat-pro/cometchat-pro-react-sample-app/releases/" alt="Releases">
+        <img src="https://img.shields.io/github/v/release/cometchat-pro/cometchat-pro-react-sample-app" />
+    </a>
+    <a href="https://img.shields.io/github/languages/top/cometchat-pro/cometchat-pro-react-sample-app">
+        <img src="https://img.shields.io/github/languages/top/cometchat-pro/cometchat-pro-react-sample-app" />
+    </a>
+    <a href="https://github.com/cometchat-pro/cometchat-pro-react-sample-app/stargazers">
+        <img src="https://img.shields.io/github/stars/cometchat-pro/cometchat-pro-react-sample-app?style=social" />
+    </a>
+    <a href="https://twitter.com/CometChat">
+        <img src="https://img.shields.io/twitter/follow/CometChat?label=CometChat&style=social" />
+    </a>
+</p>
 
-### `yarn start`
+![alt text](./Screenshots/main.png "Main")
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+CometChat Kitchen Sink Sample App (built using **CometChat UI Kit**) is a fully functional real-time messaging app capable of private (one-on-one), group messaging, voice & video calling.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Features
+- Login
+- Private(1-1) & Group Conversations
+- Voice & video calling & conferencing
+- Rich Media Attachments
+- Typing Indicators
+- Text, Media and Custom messages
+- Read receipts
+- Online Presence Indicators
+- Message History
+- Users & Friends List
+- Groups List
+- Search by users and groups
+- Conversations List
+- Threaded Conversations
+  
+ ## Extensions
 
-### `yarn test`
+ [Thumbnail Generation](https://www.cometchat.com/docs/extensions/thumbnail-generation) | [Link Preview](https://www.cometchat.com/docs/extensions/link-preview) | [Rich Media Preview](https://www.cometchat.com/docs/extensions/rich-media-preview) | [Smart Replies](https://www.cometchat.com/docs/extensions/smart-replies)| [Emojis](https://www.cometchat.com/docs/extensions/emojis) | [Polls](https://www.cometchat.com/docs/extensions/polls) | [Reactions](https://www.cometchat.com/docs/extensions/reactions) | [Stickers](https://www.cometchat.com/docs/extensions/stickers)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<hr/> 
 
-### `yarn build`
+## Prerequisites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Before you begin, ensure you have met the following requirements:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- React `npm install react@17.0.2` 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- React DOM `npm install react-dom@17.0.2`
 
-### `yarn eject`
+- React scripts `npm install react-scripts@4.0.3`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+___
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Installing React Sample App
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1. Clone this repository `git clone https://github.com/cometchat-pro/javascript-react-chat-app.git`
+2. Navigate to the root directory and replace `APP_ID`, `REGION` and `AUTH_KEY` with your CometChat `App ID`, `Region` and `Auth Key` in src/consts.js file.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![alt text](./Screenshots/constants.png "Constants")
 
-## Learn More
+3. Install dependencies
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```javascript
+  npm install
+```
+___
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Running the sample app
 
-### Code Splitting
+```javascript
+  npm start
+```
+___
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Add UI Kit to your project
 
-### Analyzing the Bundle Size
+Learn more about how to integrate [UI Kit](https://github.com/cometchat-pro/cometchat-pro-react-ui-kit/) inside your app. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+# Troubleshooting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- To read the full dcoumentation on UI Kit integration visit our [Documentation](https://www.cometchat.com/docs/react-chat-ui-kit/overview).
 
-### Advanced Configuration
+- Facing any issues while integrating or installing the UI Kit please connect with us via real time support present in <a href="https://app.cometchat.com/">CometChat Dashboard.</a>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
+# Contributors
 
-### Deployment
+Thanks to the following people who have contributed to this project:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+[@priyadarshininadar](https://github.com/priyadarshininadar) <br>
+[@ajaygajra](https://github.com/ajaygajra) <br>
+[@prathamesh-majgaonkar](https://github.com/prathamesh-majgaonkar) <br>
+[@mayur-bhandari](https://github.com/mayur-bhandari)
 
-### `yarn build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+# Contact
+
+Contact us via real time support present in [CometChat Dashboard.](https://app.cometchat.com/)
+
+---
+
+# License
+
+---
+
+This project uses the following [license](https://github.com/cometchat-pro/javascript-react-chat-app/blob/master/LICENSE).

@@ -1,0 +1,63 @@
+.login {
+    height: calc(100vh - 50px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+      url("https://damassets.autodesk.net/content/dam/autodesk/www/solutions/bim/fy22/civil-engineering/how-is-bim-used-in-civil-engineering-thumb-1172x660.jpg");
+    background-size: cover;
+    filter: brightness(90%);
+
+    
+  }
+  
+  .loginTitle {
+    font-size: 50px;
+  }
+  
+  .loginForm {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .loginForm > label {
+    margin: 10px 0;
+  }
+  
+  .loginInput {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+  }
+  
+  .loginInput:focus {
+    outline: none;
+  }
+  
+  .loginButton {
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: #3f51b5;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .loginRegisterButton {
+    position: absolute;
+    top: 80px;
+    right: 0px;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 10px;
+    border: none;
+    color: #3f51b5;
+    border-radius: 10px;
+  }

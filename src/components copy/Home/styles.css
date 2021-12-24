@@ -1,0 +1,16 @@
+@media (max-width:480px){
+ 
+    .mobile{
+        width: 100%;
+        margin-top: 70px;
+    }
+}    
+
+@media (min-width:480px){
+ 
+    .mobile{
+        padding-left: 350px;
+        padding-right: 350px;
+        margin-top: 60px;
+    }
+}  
