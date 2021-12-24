@@ -248,13 +248,7 @@ auth1.onAuthStateChanged((authUser) =>{
 
 
 
-function Navbar1(props) {
-  return (
-    <nav className="navbar">
-      <ul className="navbar-nav">{props.children}</ul>
-    </nav>
-  );
-}
+
 
 function NavItem(props) {
   const [open, setOpen] = useState(false);
