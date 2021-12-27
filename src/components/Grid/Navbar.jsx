@@ -325,7 +325,7 @@ const logout1 = () => {
           <DropdownItem
           leftIcon={<Avatar
             alt={`${profileUserData?.username}`}
-            src={`${auth1?.currentUser?.photoURL}`}
+            src={`${profileUserData?.photoURL}`}
           />}
           >{`${profileUserData?.firstName}`} {`${profileUserData?.lastName}`}</DropdownItem>
           </Link>

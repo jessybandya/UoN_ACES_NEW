@@ -1,2 +1,0 @@
-(this["webpackJsonpjavascript-react-chat-app"]=this["webpackJsonpjavascript-react-chat-app"]||[]).push([[3],{943:function(a,c,t){"use strict";t.r(c),c.default=t.p+"static/media/incomingcall.a424547c.wav"}}]);
-//# sourceMappingURL=3.10c77aa5.chunk.js.map

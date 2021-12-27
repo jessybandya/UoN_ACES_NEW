@@ -91,7 +91,9 @@ import { useParams } from "react-router-dom"
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
 import Moment from 'react-moment';
-
+import Comments from "../Comments"
+import swal from "@sweetalert/with-react";
+import "react-responsive-modal/styles.css";
   const useStyles = makeStyles((theme) => ({
     card: {
       marginBottom: theme.spacing(5),
@@ -139,13 +141,13 @@ import Moment from 'react-moment';
       const classes = Style();
 
       const [likesCount, setLikesCount] = useState(1);
-      const [commentsCount, setCommentsCount] = useState(1);
+      const [commentsCount, setCommentsCount] = useState(0);
       const [sharesCount, setSharesCount] = useState(1);
       const [likeIconOrder, setLikeIconOrder] = useState(1);
       const [loveIconOrder, setLoveIconOrder] = useState(1);
       const [careIconOrder, setCareIconOrder] = useState(1);
       const [profileUserData, setProfileUserData] = useState();
-      // const [comments, setComments] = useState([]);
+      const [comments1, setComments1] = useState('');
       const [comment, setComment] = useState('');
       const [show, setShow] = useState('like2');
       const [show2, setShow2] = useState('textforlike');
@@ -153,6 +155,72 @@ import Moment from 'react-moment';
       const [post, setPost] = useState("")
       const [postUser, setPostUser] = useState();
       const [profile, setProfile] = useState("")
+      const [shares, setShares] = useState('');
+      const [shareCount, setShareCount] = useState(0);
+  
+      const share = (event) => {
+        event.preventDefault(); 
+  
+          db.collection("posts").doc(`${id}`).collection("shares").add({
+            ownerId: uid,
+            read: false,
+            count:false,
+            postId:id,
+            shared:true,
+            timestamp: Date.now(),
+        })
+        setExpanded(false)  
+  
+    }
+    useEffect(() => {
+      db.collection('posts').doc(id).collection("shares").where("shared", "==",true)
+     .onSnapshot(snapshot => (
+      setShareCount(snapshot.docs.length)
+     ))
+  }, []);
+
+  useEffect(() => {
+    db.collection('posts').doc(id).collection("comments").where("count", "==",false)
+   .onSnapshot(snapshot => (
+    setCommentsCount(snapshot.docs.length)
+   ))
+  }, []);
+
+  const commentPost = (event) => {
+    event.preventDefault(); 
+
+    if(!comments1){
+      swal("🔴 You cannot add an empty comment!")
+    }else{
+      db.collection("posts").doc(`${id}`).collection("comments").add({
+        ownerId: uid,
+        read: false,
+        count:false,
+        postId:id,
+        comment: comments1,
+        fromId:auth1?.currentUser?.uid,
+        timestamp: Date.now(),
+    }).then(() => setComments1(""));
+    setComment(true) 
+    db.collection("notifications").add({
+      ownerId: uid,
+      read: false,
+      count:false,
+      postId:id,
+      comment: comments1,
+      type:"comment",
+      fromId:auth1?.currentUser?.uid,
+      timestamp: Date.now(),
+  }).then(() => setComments1(""));
+    setComment(true) 
+    setComments1("")
+}
+
+setComment(true) 
+setComments1("")
+
+}
+
       useEffect(() => {
         db.collection('users').doc(`${auth1?.currentUser?.uid}`).onSnapshot((doc) => {
           setProfile(doc.data());
@@ -172,17 +240,17 @@ import Moment from 'react-moment';
         });
     }, [])
   
-  useEffect(() => {
-      let unsubscribe;
-      if (id) {
-          unsubscribe = db.collection("posts").doc(id).collection("comments").orderBy("timestamp", "desc").onSnapshot((snapshot) => {
-              setComments(snapshot.docs.map((doc) => doc.data()));
-          });
-      }
-      return () => {
-          unsubscribe();
-      }
-  }, [id]);
+  // useEffect(() => {
+  //     let unsubscribe;
+  //     if (id) {
+  //         unsubscribe = db.collection("posts").doc(id).collection("comments").orderBy("timestamp", "desc").onSnapshot((snapshot) => {
+  //             setComments(snapshot.docs.map((doc) => doc.data()));
+  //         });
+  //     }
+  //     return () => {
+  //         unsubscribe();
+  //     }
+  // }, [id]);
   
   useEffect(() => {
       db.collection("posts")
@@ -237,8 +305,7 @@ import Moment from 'react-moment';
                                   noLikes: data.noLikes + 1
                               });
                           }
-                      })
-  
+                      })  
               } else {
                   db.collection('posts').doc(id).collection('likes').doc(`${auth1?.currentUser?.uid}`).delete().then(function () {
                       db.collection('posts').doc(id).update({
@@ -250,14 +317,7 @@ import Moment from 'react-moment';
   
   }
   
-      useEffect(() => {
-        setLikesCount(Math.floor(Math.random() * 1000) + 1);
-        setCommentsCount(Math.floor(Math.random() * 100) + 1);
-        setSharesCount(Math.floor(Math.random() * 10) + 1);
-        setLikeIconOrder(Math.floor(Math.random() * (3 - 1 + 1)) + 1);
-        setLoveIconOrder(Math.floor(Math.random() * (3 - 1 + 1)) + 1);
-        setCareIconOrder(Math.floor(Math.random() * (3 - 1 + 1)) + 1);
-      }, []);
+
   
       const Reactions = () => {
   
@@ -271,7 +331,7 @@ import Moment from 'react-moment';
             <h4 style={{marginTop:10}}>{post?.noLikes} {post?.noLikes == 1 ? "Like" : "Likes"}</h4>
             <section>
               <h4>{commentsCount} Comments</h4>
-              <h4>{sharesCount} Shares</h4>
+              <h4>{shareCount} Shares</h4>
             </section>
           </div>
         );
@@ -339,11 +399,72 @@ import Moment from 'react-moment';
                     <h3 class="dope">Comment</h3>
                 </div>
                 <div className="share1" >
-                    <i className="share2" />
-                    <h3>Share</h3>
+                    <i onClick={handleExpandClick} className="share2" />
+                    <h3 onClick={handleExpandClick}>Share</h3>
                 </div>
             </div>
-            
+            <Collapse in={expanded} timeout="auto" unmountOnExit>
+      <CardContent>
+      <div style={{display: "flex",padding:10,justifyContent:"space-between"}}>
+
+<div>
+  <EmailShareButton
+   title={post?.title}
+   url={`https://odero-85bdb.web.app/postview/${id}/${uid}`}
+   hashtag={"#UoN_ACES"}
+   description={post?.description}
+ >
+   <EmailIcon onClick={share} size={32} round />
+ </EmailShareButton>
+  </div>
+
+  <div>
+  <FacebookShareButton
+   title={post?.title}
+   url={`https://odero-85bdb.web.app/postview/${id}/${uid}`}
+   // quote={"Talking is easy just show me the codes."}
+   hashtag={"#UoN_ACES"}
+   description={post?.description}
+   className=""
+ >
+   <FacebookIcon onClick={share} size={32} round />
+ </FacebookShareButton>
+  </div>
+  <div>
+  <TwitterShareButton
+   title={post?.title}
+   url={`https://odero-85bdb.web.app/postview/${id}/${uid}`}
+   hashtag={"#UoN_ACES"}
+   description={post?.description}
+ >
+   <TwitterIcon onClick={share} size={32} round />
+ </TwitterShareButton>
+  </div>
+  <div>
+  <WhatsappShareButton
+   title={post?.title}
+   url={`https://odero-85bdb.web.app/postview/${id}/${uid}`}
+   hashtag={"#UoN_ACES"}
+   description={post?.description}
+ >
+   <WhatsappIcon onClick={share} size={32} round />
+ </WhatsappShareButton>
+  </div>
+
+         <div>
+  <LinkedinShareButton
+   title={post?.title}
+   url={`https://odero-85bdb.web.app/postview/${id}/${uid}`}
+   hashtag={"#UoN_ACES"}
+   description={post?.description}
+ >
+   <LinkedinIcon onClick={share} size={32} round />
+ </LinkedinShareButton>
+  </div>  
+
+</div>
+      </CardContent>
+      </Collapse>
       </Paper>
       {auth1?.currentUser &&(
       <div style={{display:"flex",marginTop:10,alignItems:"center",justifyContent:"space-between",width: "100%"}}>
@@ -353,12 +474,15 @@ import Moment from 'react-moment';
       <div style={{marginLeft:0,display:"flex",alignItems:"center",justifyContent:"space-between"}}>            
               <TextField
               multiline
-              rows={2}
-              placeholder={`@${profile?.username} comment here!`}
+              rows={1}
+              placeholder={`@${profile?.username} comment here...`}
               size="small"
               style={{ width: 250 }}
+              onChange={(e) => {
+                setComments1(e.target.value)
+            }}
             /></div>
-            <div><SendIcon style={{color: "#3f51b5",cursor:"pointer"}}/></div>
+            <div><SendIcon onClick={commentPost} style={{color: "#3f51b5",cursor:"pointer"}}/></div>
   </div>
       )}
 
@@ -367,386 +491,11 @@ import Moment from 'react-moment';
         <CardContent style={{marginTop:20}}>
         <Typography paragraph style={{fontWeight:"600"}}>Comments</Typography>
          <hr/>
+     <Comments postId={id}/>
 
-          <Typography paragraph>
-          
-          <div style={{display: "flex",marginBottom:0,justifyContent:"space-between",padding:5,border: "2px solid #C5C5C5",borderRadius:5}}>
-            <div style={{display: "flex"}}>
-              <Avatar src="https://media-exp1.licdn.com/dms/image/C4D03AQGDUX1VtyLM1Q/profile-displayphoto-shrink_800_800/0/1608232974636?e=1644451200&v=beta&t=uuPBUIcpbhP1ivBDW1ayyI_I46dmdER84IPuMYzYHBg" alt="Jessy Bandya"/>
-              <div style={{marginLeft:10}}>
-              <div style={{fontWeight:"600"}}>Jessy Bandya <span style={{fontWeight:"100",color:"#AEAEAE"}}>@jessybandya</span></div>
-              <div style={{fontWeight:"600",color:"#808080",marginTop:5,fontSize:13,marginLeft:10}}>
-              <Typography paragraph>
-            Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over
-            medium-high heat. Add chicken, shrimp and chorizo, and cook, stirring
-            occasionally until lightly browned, 6 to 8 minutes. Transfer shrimp to a
-            large plate and set aside, leaving chicken and chorizo in the pan. Add
-            pimentón, bay leaves, garlic, tomatoes, onion, salt and pepper, and cook,
-            stirring often until thickened and fragrant, about 10 minutes. Add
-            saffron broth and remaining 4 1/2 cups chicken broth; bring to a boil.
-          </Typography>
-              </div>
-              <div style={{fontWeight:"400",color:"#696969",marginBottom:-15,marginTop:15,fontSize:13,marginLeft:10}}>30 mins ago</div>
-
-              <div style={{display:"flex",justifyContent:"space-between",padding:8,width:100}}>
-           <div style={{alignItems:"center",display:"flex"}}><ThumbUpAltOutlinedIcon style={{color: "#3f51b5"}}/><span style={{fontWeight:"500",marginLeft:0}}>4.5K</span></div>
-           <div style={{alignItems:"center",display:"flex",marginTop:10,marginLeft:15}}><a href={`#`}><ChatBubbleOutlineOutlinedIcon style={{color: "#3f51b5"}}/></a><span style={{fontWeight:"500",marginLeft:0,marginBottom:10}}>10K</span></div>
-         </div>
-            </div>
-            </div>
-
-            <div>
-              <MoreHorizIcon/>
-            </div>
-          </div>
-
-
-          <div style={{display: "flex",marginBottom:0,justifyContent:"space-between",padding:5,border: "2px solid #C5C5C5",borderRadius:5}}>
-            <div style={{display: "flex"}}>
-              <Avatar src="https://media-exp1.licdn.com/dms/image/C4D03AQGDUX1VtyLM1Q/profile-displayphoto-shrink_800_800/0/1608232974636?e=1644451200&v=beta&t=uuPBUIcpbhP1ivBDW1ayyI_I46dmdER84IPuMYzYHBg" alt="Jessy Bandya"/>
-              <div style={{marginLeft:10}}>
-              <div style={{fontWeight:"600"}}>Jessy Bandya <span style={{fontWeight:"100",color:"#AEAEAE"}}>@jessybandya</span></div>
-              <div style={{fontWeight:"600",color:"#808080",marginTop:5,fontSize:13,marginLeft:10}}>
-              <Typography paragraph>
-            Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over
-            medium-high heat. Add chicken, shrimp and chorizo, and cook, stirring
-            occasionally until lightly browned, 6 to 8 minutes. Transfer shrimp to a
-
-          </Typography>
-              </div>
-              <div style={{fontWeight:"400",color:"#696969",marginBottom:-15,marginTop:15,fontSize:13,marginLeft:10}}>30 mins ago</div>
-
-              <div style={{display:"flex",justifyContent:"space-between",padding:8,width:100}}>
-           <div style={{alignItems:"center",display:"flex"}}><ThumbUpAltOutlinedIcon style={{color: "#3f51b5"}}/><span style={{fontWeight:"500",marginLeft:0}}>4.5K</span></div>
-           <div style={{alignItems:"center",display:"flex",marginTop:10,marginLeft:15}}><a href={`#`}><ChatBubbleOutlineOutlinedIcon style={{color: "#3f51b5"}}/></a><span style={{fontWeight:"500",marginLeft:0,marginBottom:10}}>10K</span></div>
-         </div>
-            </div>
-            </div>
-
-            <div>
-              <MoreHorizIcon/>
-            </div>
-          </div>
-
-
-
-          <div style={{display: "flex",marginBottom:0,justifyContent:"space-between",padding:5,border: "2px solid #C5C5C5",borderRadius:5,marginTop:5}}>
-            <div style={{display: "flex"}}>
-              <Avatar src="https://media-exp1.licdn.com/dms/image/C4D03AQGDUX1VtyLM1Q/profile-displayphoto-shrink_800_800/0/1608232974636?e=1644451200&v=beta&t=uuPBUIcpbhP1ivBDW1ayyI_I46dmdER84IPuMYzYHBg" alt="Jessy Bandya"/>
-              <div style={{marginLeft:10}}>
-              <div style={{fontWeight:"600"}}>Jessy Bandya <span style={{fontWeight:"100",color:"#AEAEAE"}}>@jessybandya</span></div>
-              <div style={{fontWeight:"600",color:"#808080",marginTop:5,fontSize:13,marginLeft:10}}>
-              <Typography paragraph>
-            Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over
-            medium-high heat. Add chicken, shrimp and chorizo, and cook, stirring
-            occasionally until lightly browned, 6 to 8 minutes. Transfer shrimp to a
-
-          </Typography>
-              </div>
-              <div style={{fontWeight:"400",color:"#696969",marginBottom:-15,marginTop:15,fontSize:13,marginLeft:10}}>30 mins ago</div>
-
-              <div style={{display:"flex",justifyContent:"space-between",padding:8,width:100}}>
-           <div style={{alignItems:"center",display:"flex"}}><ThumbUpAltOutlinedIcon style={{color: "#3f51b5"}}/><span style={{fontWeight:"500",marginLeft:0}}>4.5K</span></div>
-           <div style={{alignItems:"center",display:"flex",marginTop:10,marginLeft:15}}><a href={`#`}><ChatBubbleOutlineOutlinedIcon style={{color: "#3f51b5"}}/></a><span style={{fontWeight:"500",marginLeft:0,marginBottom:10}}>10K</span></div>
-         </div>
-            </div>
-            </div>
-
-            <div>
-              <MoreHorizIcon/>
-            </div>
-          </div>
-
-
-          <div style={{display: "flex",marginBottom:0,justifyContent:"space-between",padding:5,border: "2px solid #C5C5C5",borderRadius:5,marginTop:5}}>
-            <div style={{display: "flex"}}>
-              <Avatar src="https://media-exp1.licdn.com/dms/image/C4D03AQGDUX1VtyLM1Q/profile-displayphoto-shrink_800_800/0/1608232974636?e=1644451200&v=beta&t=uuPBUIcpbhP1ivBDW1ayyI_I46dmdER84IPuMYzYHBg" alt="Jessy Bandya"/>
-              <div style={{marginLeft:10}}>
-              <div style={{fontWeight:"600"}}>Jessy Bandya <span style={{fontWeight:"100",color:"#AEAEAE"}}>@jessybandya</span></div>
-              <div style={{fontWeight:"600",color:"#808080",marginTop:5,fontSize:13,marginLeft:10}}>
-              <Typography paragraph>
-            Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over
-   
-          </Typography>
-              </div>
-              <div style={{fontWeight:"400",color:"#696969",marginBottom:-15,marginTop:15,fontSize:13,marginLeft:10}}>30 mins ago</div>
-              <div style={{display:"flex",justifyContent:"space-between",padding:8,width:100}}>
-           <div style={{alignItems:"center",display:"flex"}}><ThumbUpAltOutlinedIcon style={{color: "#3f51b5"}}/><span style={{fontWeight:"500",marginLeft:0}}>4.5K</span></div>
-           <div style={{alignItems:"center",display:"flex",marginTop:10,marginLeft:15}}><a href={`#`}><ChatBubbleOutlineOutlinedIcon style={{color: "#3f51b5"}}/></a><span style={{fontWeight:"500",marginLeft:0,marginBottom:10}}>10K</span></div>
-         </div>
-            </div>
-            </div>
-
-            <div>
-              <MoreHorizIcon/>
-            </div>
-          </div>
-          </Typography>
-        </CardContent>
-      </Collapse>
-{/*       
- <Card sx={{ maxWidth: 345 }} style={{marginBottom:5,borderTop: "1px solid #C5C5C5",marginTop:70,padding:10}}>
-      <CardHeader
-        avatar={
-          <Avatar src="https://media-exp1.licdn.com/dms/image/C4D03AQGDUX1VtyLM1Q/profile-displayphoto-shrink_800_800/0/1608232974636?e=1644451200&v=beta&t=uuPBUIcpbhP1ivBDW1ayyI_I46dmdER84IPuMYzYHBg" alt="Jessy Bandya"/>
-
-        }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
-        title="Jessy Bandya"
-        
-        subheader="@jessybandya"
-      />
-                    <div style={{fontWeight:"600",color:"#808080",marginBottom:10,fontSize:15,marginLeft:10}}>Fri, 02.09.2022 at 11:30 PM</div>
-                    <Typography gutterBottom variant="h5" style={{color: "#525252",marginLeft:10}}>
-              Title
-            </Typography>
-
-      <CardActions disableSpacing style={{alignItems: "center",border: "1px solid #AEAEAE",borderTopLeftRadius:5,borderTopRightRadius:5}}>
-      <div style={{display:"flex",justifyContent:"space-between",padding:8,width:"100%"}}>
-           <div style={{alignItems:"center"}}><div style={{fontWeight:"700",color: "#808080"}}>
-           <NumberFormat value={2555} displayType={'text'} thousandSeparator={true}  />
-            </div><ThumbUpAltOutlinedIcon style={{color: "#3f51b5",cursor:"pointer"}}/></div>
-           <div style={{alignItems:"center"}}><div style={{fontWeight:"700",color: "#808080"}}>
-           <NumberFormat value={188} displayType={'text'} thousandSeparator={true}  />
-             </div>        
-
-        <ChatBubbleOutlineOutlinedIcon expand={comments} onClick={handleExpandClick1} aria-expanded={comments} aria-label="show more" style={{color: "#3f51b5",marginRight:0,cursor:"pointer"}}/>
-        </div>
-           <div style={{alignItems:"center"}}><div style={{fontWeight:"600",color: "#808080"}}>share</div><ShareOutlinedIcon onClick={handleToggle} style={{color: "#3f51b5",cursor:"pointer"}}/></div>
-         
-        <div style={{alignItems:"center",color: "#808080"}}>
-        <div style={{fontWeight:"600"}}>view</div>
-          <ExpandMoreIcon aria-expanded={expanded} onClick={handleExpandClick} expand={expanded} style={{color: "#3f51b5",marginTop:0,cursor:"pointer"}}/>
-        </div>
-        </div>
-      </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-        <Typography paragraph style={{fontWeight:"600"}}>Title</Typography>
-         <hr/>
-
-          <Typography paragraph>
-            Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over
-            medium-high heat. Add chicken, shrimp and chorizo, and cook, stirring
-            occasionally until lightly browned, 6 to 8 minutes. Transfer shrimp to a
-            large plate and set aside, leaving chicken and chorizo in the pan. Add
-            pimentón, bay leaves, garlic, tomatoes, onion, salt and pepper, and cook,
-            stirring often until thickened and fragrant, about 10 minutes. Add
-            saffron broth and remaining 4 1/2 cups chicken broth; bring to a boil.
-          </Typography>
-        </CardContent>
-      </Collapse>
-      {auth1?.currentUser?.uid &&(
-      <div style={{display:"flex",marginTop:10,alignItems:"center",justifyContent:"space-between"}}>
-      <div>
-      <Avatar src="https://media-exp1.licdn.com/dms/image/C4D03AQGDUX1VtyLM1Q/profile-displayphoto-shrink_800_800/0/1608232974636?e=1644451200&v=beta&t=uuPBUIcpbhP1ivBDW1ayyI_I46dmdER84IPuMYzYHBg" alt="Jessy Bandya"/>    
-      </div>
-      <div style={{marginLeft:0,display:"flex",alignItems:"center",justifyContent:"space-between"}}>            
-              <TextField
-              multiline
-              rows={2}
-              placeholder="@jessybandya comment here"
-              size="small"
-              style={{ width: 200 }}
-            /></div>
-            <div><SendIcon style={{color: "#3f51b5",cursor:"pointer"}}/></div>
-  </div>
-      )}
-
-      <Collapse in={comments} timeout="auto" unmountOnExit>
-        <CardContent style={{marginTop:20}}>
-        <Typography paragraph style={{fontWeight:"600"}}>Comments</Typography>
-         <hr/>
-
-          <Typography paragraph>
-          
-          <div style={{display: "flex",marginBottom:0,justifyContent:"space-between",padding:5,border: "2px solid #C5C5C5",borderRadius:5}}>
-            <div style={{display: "flex"}}>
-              <Avatar src="https://media-exp1.licdn.com/dms/image/C4D03AQGDUX1VtyLM1Q/profile-displayphoto-shrink_800_800/0/1608232974636?e=1644451200&v=beta&t=uuPBUIcpbhP1ivBDW1ayyI_I46dmdER84IPuMYzYHBg" alt="Jessy Bandya"/>
-              <div style={{marginLeft:10}}>
-              <div style={{fontWeight:"600"}}>Jessy Bandya <span style={{fontWeight:"100",color:"#AEAEAE"}}>@jessybandya</span></div>
-              <div style={{fontWeight:"600",color:"#808080",marginTop:5,fontSize:13,marginLeft:10}}>
-              <Typography paragraph>
-            Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over
-            medium-high heat. Add chicken, shrimp and chorizo, and cook, stirring
-            occasionally until lightly browned, 6 to 8 minutes. Transfer shrimp to a
-            large plate and set aside, leaving chicken and chorizo in the pan. Add
-            pimentón, bay leaves, garlic, tomatoes, onion, salt and pepper, and cook,
-            stirring often until thickened and fragrant, about 10 minutes. Add
-            saffron broth and remaining 4 1/2 cups chicken broth; bring to a boil.
-          </Typography>
-              </div>
-              <div style={{fontWeight:"400",color:"#696969",marginBottom:-15,marginTop:15,fontSize:13,marginLeft:10}}>30 mins ago</div>
-
-              <div style={{display:"flex",justifyContent:"space-between",padding:8,width:100}}>
-           <div style={{alignItems:"center",display:"flex"}}><ThumbUpAltOutlinedIcon style={{color: "#3f51b5"}}/><span style={{fontWeight:"500",marginLeft:0}}>4.5K</span></div>
-           <div style={{alignItems:"center",display:"flex",marginTop:10,marginLeft:15}}><a href={`#`}><ChatBubbleOutlineOutlinedIcon style={{color: "#3f51b5"}}/></a><span style={{fontWeight:"500",marginLeft:0,marginBottom:10}}>10K</span></div>
-         </div>
-            </div>
-            </div>
-
-            <div>
-              <MoreHorizIcon/>
-            </div>
-          </div>
-
-
-          <div style={{display: "flex",marginBottom:0,justifyContent:"space-between",padding:5,border: "2px solid #C5C5C5",borderRadius:5}}>
-            <div style={{display: "flex"}}>
-              <Avatar src="https://media-exp1.licdn.com/dms/image/C4D03AQGDUX1VtyLM1Q/profile-displayphoto-shrink_800_800/0/1608232974636?e=1644451200&v=beta&t=uuPBUIcpbhP1ivBDW1ayyI_I46dmdER84IPuMYzYHBg" alt="Jessy Bandya"/>
-              <div style={{marginLeft:10}}>
-              <div style={{fontWeight:"600"}}>Jessy Bandya <span style={{fontWeight:"100",color:"#AEAEAE"}}>@jessybandya</span></div>
-              <div style={{fontWeight:"600",color:"#808080",marginTop:5,fontSize:13,marginLeft:10}}>
-              <Typography paragraph>
-            Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over
-            medium-high heat. Add chicken, shrimp and chorizo, and cook, stirring
-            occasionally until lightly browned, 6 to 8 minutes. Transfer shrimp to a
-
-          </Typography>
-              </div>
-              <div style={{fontWeight:"400",color:"#696969",marginBottom:-15,marginTop:15,fontSize:13,marginLeft:10}}>30 mins ago</div>
-
-              <div style={{display:"flex",justifyContent:"space-between",padding:8,width:100}}>
-           <div style={{alignItems:"center",display:"flex"}}><ThumbUpAltOutlinedIcon style={{color: "#3f51b5"}}/><span style={{fontWeight:"500",marginLeft:0}}>4.5K</span></div>
-           <div style={{alignItems:"center",display:"flex",marginTop:10,marginLeft:15}}><a href={`#`}><ChatBubbleOutlineOutlinedIcon style={{color: "#3f51b5"}}/></a><span style={{fontWeight:"500",marginLeft:0,marginBottom:10}}>10K</span></div>
-         </div>
-            </div>
-            </div>
-
-            <div>
-              <MoreHorizIcon/>
-            </div>
-          </div>
-
-
-
-          <div style={{display: "flex",marginBottom:0,justifyContent:"space-between",padding:5,border: "2px solid #C5C5C5",borderRadius:5,marginTop:5}}>
-            <div style={{display: "flex"}}>
-              <Avatar src="https://media-exp1.licdn.com/dms/image/C4D03AQGDUX1VtyLM1Q/profile-displayphoto-shrink_800_800/0/1608232974636?e=1644451200&v=beta&t=uuPBUIcpbhP1ivBDW1ayyI_I46dmdER84IPuMYzYHBg" alt="Jessy Bandya"/>
-              <div style={{marginLeft:10}}>
-              <div style={{fontWeight:"600"}}>Jessy Bandya <span style={{fontWeight:"100",color:"#AEAEAE"}}>@jessybandya</span></div>
-              <div style={{fontWeight:"600",color:"#808080",marginTop:5,fontSize:13,marginLeft:10}}>
-              <Typography paragraph>
-            Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over
-            medium-high heat. Add chicken, shrimp and chorizo, and cook, stirring
-            occasionally until lightly browned, 6 to 8 minutes. Transfer shrimp to a
-
-          </Typography>
-              </div>
-              <div style={{fontWeight:"400",color:"#696969",marginBottom:-15,marginTop:15,fontSize:13,marginLeft:10}}>30 mins ago</div>
-
-              <div style={{display:"flex",justifyContent:"space-between",padding:8,width:100}}>
-           <div style={{alignItems:"center",display:"flex"}}><ThumbUpAltOutlinedIcon style={{color: "#3f51b5"}}/><span style={{fontWeight:"500",marginLeft:0}}>4.5K</span></div>
-           <div style={{alignItems:"center",display:"flex",marginTop:10,marginLeft:15}}><a href={`#`}><ChatBubbleOutlineOutlinedIcon style={{color: "#3f51b5"}}/></a><span style={{fontWeight:"500",marginLeft:0,marginBottom:10}}>10K</span></div>
-         </div>
-            </div>
-            </div>
-
-            <div>
-              <MoreHorizIcon/>
-            </div>
-          </div>
-
-
-          <div style={{display: "flex",marginBottom:0,justifyContent:"space-between",padding:5,border: "2px solid #C5C5C5",borderRadius:5,marginTop:5}}>
-            <div style={{display: "flex"}}>
-              <Avatar src="https://media-exp1.licdn.com/dms/image/C4D03AQGDUX1VtyLM1Q/profile-displayphoto-shrink_800_800/0/1608232974636?e=1644451200&v=beta&t=uuPBUIcpbhP1ivBDW1ayyI_I46dmdER84IPuMYzYHBg" alt="Jessy Bandya"/>
-              <div style={{marginLeft:10}}>
-              <div style={{fontWeight:"600"}}>Jessy Bandya <span style={{fontWeight:"100",color:"#AEAEAE"}}>@jessybandya</span></div>
-              <div style={{fontWeight:"600",color:"#808080",marginTop:5,fontSize:13,marginLeft:10}}>
-              <Typography paragraph>
-            Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over
-   
-          </Typography>
-              </div>
-              <div style={{fontWeight:"400",color:"#696969",marginBottom:-15,marginTop:15,fontSize:13,marginLeft:10}}>30 mins ago</div>
-              <div style={{display:"flex",justifyContent:"space-between",padding:8,width:100}}>
-           <div style={{alignItems:"center",display:"flex"}}><ThumbUpAltOutlinedIcon style={{color: "#3f51b5"}}/><span style={{fontWeight:"500",marginLeft:0}}>4.5K</span></div>
-           <div style={{alignItems:"center",display:"flex",marginTop:10,marginLeft:15}}><a href={`#`}><ChatBubbleOutlineOutlinedIcon style={{color: "#3f51b5"}}/></a><span style={{fontWeight:"500",marginLeft:0,marginBottom:10}}>10K</span></div>
-         </div>
-            </div>
-            </div>
-
-            <div>
-              <MoreHorizIcon/>
-            </div>
-          </div>
-          </Typography>
         </CardContent>
       </Collapse>
 
-    </Card> */}
-
-
-
-    <Backdrop
-     sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-     open={open2}
-     onClick={handleClose2}
-   >
-     <div style={{display: "flex",padding:15,justifyContent:"space-between",width:250,backgroundColor:"#fff",borderRadius:30}}>
-
-     <div>
-       <EmailShareButton
-        title={`title`}
-        url={`#`}
-        hashtag={"#academicsurvey"}
-        description={`formdescription`}
-      >
-        <EmailIcon  size={32} round />
-      </EmailShareButton>
-       </div>
-
-       <div>
-       <FacebookShareButton
-        title={`title`}
-        url={`#`}
-        // quote={"Talking is easy just show me the codes."}
-        hashtag={"#academicsurvey"}
-        description={`formdescription`}
-        className=""
-      >
-        <FacebookIcon size={32} round />
-      </FacebookShareButton>
-       </div>
-       <div>
-       <TwitterShareButton
-        title={`title`}
-        url={`#`}
-        hashtag={"#academicsurvey"}
-        description={`formdescription`}
-      >
-        <TwitterIcon size={32} round />
-      </TwitterShareButton>
-       </div>
-       <div>
-       <WhatsappShareButton
-        title={`title`}
-        url={`#`}
-        hashtag={"#academicsurvey"}
-        description={`formdescription`}
-      >
-        <WhatsappIcon size={32} round />
-      </WhatsappShareButton>
-       </div>
-
-              <div>
-       <LinkedinShareButton
-        title={`title`}
-        url={`#`}
-        hashtag={"#academicsurvey"}
-        description={`formdescription`}
-      >
-        <LinkedinIcon size={32} round />
-      </LinkedinShareButton>
-       </div>  
-
-     </div>
-   </Backdrop>
       </>
     );
   };

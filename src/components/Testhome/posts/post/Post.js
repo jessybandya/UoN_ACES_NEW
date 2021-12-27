@@ -15,7 +15,8 @@ import { db, auth1 } from "../../../firebase"
 import "./styles.css"
 import LinesEllipsis from 'react-lines-ellipsis'
 import dayjs from 'dayjs';
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
+import Collapse from '@mui/material/Collapse';
 import {
   Button,
   Card,
@@ -30,12 +31,63 @@ import moment from 'moment'
 import ReadMoreReact from 'read-more-react';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
+import {
+  EmailShareButton,
+  FacebookShareButton,
+  HatenaShareButton,
+  InstapaperShareButton,
+  LineShareButton,
+  LinkedinShareButton,
+  LivejournalShareButton,
+  MailruShareButton,
+  OKShareButton,
+  PinterestShareButton,
+  PocketShareButton,
+  RedditShareButton,
+  TelegramShareButton,
+  TumblrShareButton,
+  TwitterShareButton,
+  ViberShareButton,
+  VKShareButton,
+  WhatsappShareButton,
+  WorkplaceShareButton
+} from "react-share";
+
+import {
+  EmailIcon,
+  FacebookIcon,
+  FacebookMessengerIcon,
+  HatenaIcon,
+  InstapaperIcon,
+  LineIcon,
+  LinkedinIcon,
+  LivejournalIcon,
+  MailruIcon,
+  OKIcon,
+  PinterestIcon,
+  PocketIcon,
+  RedditIcon,
+  TelegramIcon,
+  TumblrIcon,
+  TwitterIcon,
+  ViberIcon,
+  VKIcon,
+  WeiboIcon,
+  WhatsappIcon,
+  WorkplaceIcon
+} from "react-share";
+import { MailIcon } from 'react-mail-icon'
+
 const Post = forwardRef(
   ({ ownerId, title, timestamp, description, fileType, fileData,noLikes,postId }, ref) => {
     const classes = Style();
-
+    const [expanded, setExpanded] = React.useState(false);
+    const history = useHistory("")
+    const handleExpandClick = () => {
+      setExpanded(!expanded);
+    };
     const [likesCount, setLikesCount] = useState(1);
-    const [commentsCount, setCommentsCount] = useState(1);
+    const [commentsCount, setCommentsCount] = useState(0);
     const [sharesCount, setSharesCount] = useState(1);
     const [likeIconOrder, setLikeIconOrder] = useState(1);
     const [loveIconOrder, setLoveIconOrder] = useState(1);
@@ -46,9 +98,36 @@ const Post = forwardRef(
     const [show, setShow] = useState('like2');
     const [show2, setShow2] = useState('textforlike');
     const [posterImage, setPosterImage] = useState('')
+    const [shares, setShares] = useState('');
+    const [shareCount, setShareCount] = useState(0);
 
-    const [postUser, setPostUser] = useState();
+    const share = (event) => {
+      event.preventDefault(); 
 
+        db.collection("posts").doc(`${postId}`).collection("shares").add({
+          ownerId: ownerId,
+          read: false,
+          count:false,
+          postId:postId,
+          shared:true,
+          timestamp: Date.now(),
+      })
+      setExpanded(false)  
+
+  }
+  useEffect(() => {
+    db.collection('posts').doc(postId).collection("shares").where("shared", "==",true)
+   .onSnapshot(snapshot => (
+    setShareCount(snapshot.docs.length)
+   ))
+}, []);
+
+useEffect(() => {
+  db.collection('posts').doc(postId).collection("comments").where("count", "==",false)
+ .onSnapshot(snapshot => (
+  setCommentsCount(snapshot.docs.length)
+ ))
+}, []);
     useEffect(() => {
       db.collection('users').doc(`${ownerId}`).onSnapshot((doc) => {
           setProfileUserData(doc.data());
@@ -137,14 +216,7 @@ const likeHandle = (event) => {
 
 }
 
-    useEffect(() => {
-      setLikesCount(Math.floor(Math.random() * 1000) + 1);
-      setCommentsCount(Math.floor(Math.random() * 100) + 1);
-      setSharesCount(Math.floor(Math.random() * 10) + 1);
-      setLikeIconOrder(Math.floor(Math.random() * (3 - 1 + 1)) + 1);
-      setLoveIconOrder(Math.floor(Math.random() * (3 - 1 + 1)) + 1);
-      setCareIconOrder(Math.floor(Math.random() * (3 - 1 + 1)) + 1);
-    }, []);
+
 
     const Reactions = () => {
 
@@ -158,7 +230,7 @@ const likeHandle = (event) => {
           <h4 style={{marginTop:10}}>{noLikes} {noLikes == 1 ? "Like" : "Likes"}</h4>
           <section>
             <h4>{commentsCount} Comments</h4>
-            <h4>{sharesCount} Shares</h4>
+            <h4>{shareCount} Shares</h4>
           </section>
         </div>
       );
@@ -239,8 +311,8 @@ const likeHandle = (event) => {
                 </div>
                 </Link>
                 <div className="share1" >
-                    <i className="share2" />
-                    <h3>Share</h3>
+                    <i onClick={handleExpandClick} className="share2" />
+                    <h3 onClick={handleExpandClick}>Share</h3>
                 </div>
             </div>
             {/* <div style={{width:"100%",flex:1,alignItems: "center",border: "2px solid #88888888",borderRadius:15,height:100,padding:8,marginTop:5,marginBottom:5}} className={`comments__show `}>
@@ -264,8 +336,70 @@ const likeHandle = (event) => {
               </div>
 
             </div> */}
+      <Collapse in={expanded} timeout="auto" unmountOnExit>
+      <CardContent>
+      <div style={{display: "flex",padding:10,justifyContent:"space-between"}}>
 
+<div>
+  <EmailShareButton
+   title={title}
+   url={`https://odero-85bdb.web.app/postview/${postId}/${ownerId}`}
+   hashtag={"#UoN_ACES"}
+   description={description}
+ >
+   <EmailIcon onClick={share} size={32} round />
+ </EmailShareButton>
+  </div>
+
+  <div>
+  <FacebookShareButton
+   title={title}
+   url={`https://odero-85bdb.web.app/postview/${postId}/${ownerId}`}
+   // quote={"Talking is easy just show me the codes."}
+   hashtag={"#UoN_ACES"}
+   description={description}
+   className=""
+ >
+   <FacebookIcon onClick={share} size={32} round />
+ </FacebookShareButton>
+  </div>
+  <div>
+  <TwitterShareButton
+   title={title}
+   url={`https://odero-85bdb.web.app/postview/${postId}/${ownerId}`}
+   hashtag={"#UoN_ACES"}
+   description={description}
+ >
+   <TwitterIcon onClick={share} size={32} round />
+ </TwitterShareButton>
+  </div>
+  <div>
+  <WhatsappShareButton
+   title={title}
+   url={`https://odero-85bdb.web.app/postview/${postId}/${ownerId}`}
+   hashtag={"#UoN_ACES"}
+   description={description}
+ >
+   <WhatsappIcon onClick={share} size={32} round />
+ </WhatsappShareButton>
+  </div>
+
+         <div>
+  <LinkedinShareButton
+   title={title}
+   url={`https://odero-85bdb.web.app/postview/${postId}/${ownerId}`}
+   hashtag={"#UoN_ACES"}
+   description={description}
+ >
+   <LinkedinIcon onClick={share} size={32} round />
+ </LinkedinShareButton>
+  </div>  
+
+</div>
+      </CardContent>
+      </Collapse>
       </Paper>
+
       </>
     );
   }

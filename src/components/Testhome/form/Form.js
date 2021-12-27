@@ -41,7 +41,6 @@ import ThumbUpAltOutlinedIcon from '@mui/icons-material/ThumbUpAltOutlined';
 import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 
-
 const useStyles = makeStyles((theme) => ({
   card: {
     marginBottom: theme.spacing(5),
