@@ -99,12 +99,6 @@ function Register() {
             } else if (!/^[0-9]+/.test(year.trim())) {
                 setLoading(false)
                 errors.year = toast.error('Enter a valid academic Year');            
-            }else if(!member.trim()){
-                setLoading(false)
-                errors.member = toast.error('Membership field is required');
-            } else if (!/^[A-Za-z]+/.test(member.trim())) {
-                setLoading(false)
-                errors.member = toast.error('Enter a valid name');
             }else if(!cat.trim()){
                 setLoading(false)
                 errors.cat = toast.error('Category is required');
@@ -158,7 +152,7 @@ function Register() {
                                         if (auth.user) {
                                             auth.user.updateProfile({
                                                 displayName: username,
-                                                photoURL: "www.wuyidoric.com.au/WuYiDoric/media/images/Projects/UniversityOfNairobiTowersProject/UniversityOfNairobiTowersProject_banner.jpg"
+                                                photoURL: "https://www.seekpng.com/png/full/73-730482_existing-user-default-avatar.png"
                                             }).then((s) => {
                                                 db.collection('users').doc(auth.user.uid).set({
                                                     uid: auth.user.uid,
@@ -167,7 +161,7 @@ function Register() {
                                                     username: username,
                                                     reg: reg,
                                                     email: auth.user.email,
-                                                    photoURL: "www.wuyidoric.com.au/WuYiDoric/media/images/Projects/UniversityOfNairobiTowersProject/UniversityOfNairobiTowersProject_banner.jpg",
+                                                    photoURL: "https://www.seekpng.com/png/full/73-730482_existing-user-default-avatar.png",
                                                     birthday,
                                                     year:year,
                                                     gender,
@@ -175,7 +169,7 @@ function Register() {
                                                     read: true,
                                                     category: cat,
                                                     others: others,
-                                                    post: member,
+                                                    // post: member,
                                                     timestamp: Date.now()
                                                 })
                                                     .then((r) => {
@@ -320,7 +314,7 @@ function Register() {
                 name: "Mentee"
               }]}              onChange={(e) => setCat(e.target.value)} type="text" 
             />
-            <FormSelect
+            {/* <FormSelect
             style={{color: ""}}
               label="Membership"
               
@@ -333,7 +327,7 @@ function Register() {
                 name: "Member"
               }
             ]}              onChange={(e) => setMember(e.target.value)} type="text" 
-            />
+            /> */}
                     </div>
 
 
@@ -634,8 +628,8 @@ function Register() {
                                     <div  class="form-card" style={{border: "1px solid #3f51b5",borderRadius:10}}>
                                             <h2 class="fs-title">Personal Information</h2> 
                                             <div style={{display: "flex",color: "#3f51b5"}}>
-                    <FormSelect style={{color: ""}}
-                        
+                    <FormSelect 
+                        style={{border: "1px solid #88888888",borderRadius:10}}                      
                         
              label="Year"
               
@@ -662,7 +656,7 @@ function Register() {
               required=""             onChange={(e) => setYear(e.target.value)} type="text" 
             />
                         <FormSelect
-                        style={{color: ""}}
+                        style={{border: "1px solid #88888888",borderRadius:10}}
               label="Category"
               
               options={[{
@@ -674,7 +668,7 @@ function Register() {
                 name: "Mentee"
               }]}              onChange={(e) => setCat(e.target.value)} type="text" 
             />
-            <FormSelect
+            {/* <FormSelect
             style={{color: ""}}
               label="Membership"
               
@@ -687,7 +681,7 @@ function Register() {
                 name: "Member"
               }
             ]}              onChange={(e) => setMember(e.target.value)} type="text" 
-            />
+            /> */}
                     </div>
 
 

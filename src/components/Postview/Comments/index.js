@@ -23,7 +23,7 @@ function Comments({postId}) {
             commentId={post.id}
             postId={postId}
             timestamp={post.data.timestamp}
-            comment={post.data.comments1}
+            comment={post.data.comment}
 
           />
         ))}

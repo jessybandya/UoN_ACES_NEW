@@ -87,7 +87,7 @@ const Home = ({user}) => {
 
                 <Grid item container >
                   {/* ----Posts---- */}
-                  <Feed/>
+                  <Feed />
                 </Grid>
               </Grid>
               <Hidden smDown>
@@ -105,11 +105,11 @@ const Home = ({user}) => {
       )}
       {!auth1?.currentUser?.uid &&(
        <>
-
+   <Navbar />
       {/* <Add /> */}
       <Grid container className="mobile">
 
-      <Posts />
+      <Feed/>
 
       </Grid>
       {/* <Add /> */}

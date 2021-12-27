@@ -132,7 +132,7 @@ function App() {
               <Notificationspage user={user}/>
              </Route> 	 
 			 
-             <Route exact path="/profileview">
+             <Route exact path="/profileview/:uid">
               <Profileview user={user}/>
              </Route>
 			 <Route exact path="/academics">

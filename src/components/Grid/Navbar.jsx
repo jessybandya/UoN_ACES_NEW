@@ -48,6 +48,7 @@ const useStyles = makeStyles((theme) => ({
   toolbar: {
     display: "flex",
     justifyContent: "space-between",
+    backgroundColor: "#E8E8E8",
   },
   logoLg: {
     display: "none",
@@ -64,7 +65,7 @@ const useStyles = makeStyles((theme) => ({
   search: {
     display: "flex",
     alignItems: "center",
-    backgroundColor: alpha(theme.palette.common.white, 0.15),
+    backgroundColor: "#fff",
     "&:hover": {
       backgroundColor: alpha(theme.palette.common.white, 0.25),
     },
@@ -76,7 +77,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   input: {
-    color: "white",
+    color: "#3f51b5",
     marginLeft: theme.spacing(1),
   },
   cancel: {
@@ -93,6 +94,7 @@ const useStyles = makeStyles((theme) => ({
   icons: {
     alignItems: "center",
     display: (props) => (props.open ? "none" : "flex"),
+    
   },
   badge: {
     marginRight: theme.spacing(2),
@@ -162,7 +164,7 @@ auth1.onAuthStateChanged((authUser) =>{
       <Toolbar className={classes.toolbar}>
         <Typography variant="h6" className={classes.logoLg}>
         <Link to="/">
-        <div style={{fontWeight: "500",color: "#fff"}}>UoN_ACES</div>
+        <div style={{fontWeight: "500",color: "#3f51b5"}}>UoN_ACES</div>
         </Link>
            
         </Typography>
@@ -171,46 +173,46 @@ auth1.onAuthStateChanged((authUser) =>{
             <div style={{display: "flex",alignItems: "center"}}>
 
         <Link to="/">
-        <div style={{fontWeight: "500",color: "#fff"}}>UoN_ACES</div>
+        <div style={{fontWeight: "500",color: "#3f51b5"}}>UoN_ACES</div>
         </Link>
         </div>
           )}
           {auth1?.currentUser?.uid &&(
             <div style={{display: "flex",alignItems: "center"}}>
-                    <MenuIcon onClick={handleDrawerOpen}/>
+                    <MenuIcon style={{color: "#3f51b5"}} onClick={handleDrawerOpen}/>
 
         <Link to="/">
-        <div style={{fontWeight: "500",color: "#fff",marginLeft:5}}>UoN_ACES</div>
+        <div style={{fontWeight: "500",color: "#3f51b5",marginLeft:5}}>UoN_ACES</div>
         </Link>
         </div>
           )}
 
         </Typography>
         <div className={classes.search}>
-          <Search />
+          <Search style={{color: "#3f51b5"}}/>
           <InputBase placeholder="Search..." className={classes.input} />
-          <Cancel className={classes.cancel} onClick={() => setOpen(false)} />
+          <Cancel style={{color: "#3f51b5"}} className={classes.cancel} onClick={() => setOpen(false)} />
         </div>
         <div className={classes.icons}>
-          <Search
+          <Search style={{color: "#3f51b5"}}
             className={classes.searchButton}
             onClick={() => setOpen(true)}
           />
           {auth1?.currentUser?.uid &&(
             <>
                                     <a href={`/home`}>
-          <div style={{fontWeight: "600",color: "#fff",marginRight:10}}>Home</div>
+          <div style={{fontWeight: "600",color: "#3f51b5",marginRight:10}}>Home</div>
           </a>
           {/* <a href={`/mainmessagespage`}>
           <Badge badgeContent={5} color="secondary" className={classes.badge}>
             
-            <Mail style={{color: "#fff"}}/>
+            <Mail style={{color: "#3f51b5"}}/>
            
           </Badge>
           </a> */}
           <Link to={`/notifications`}>
           <Badge badgeContent={200} color="secondary" className={classes.badge}>
-            <Notifications style={{color: "#fff"}} />
+            <Notifications style={{color: "#3f51b5"}} />
           </Badge>
           </Link>
           {/* <a href={`/profileview`}>
@@ -230,13 +232,13 @@ auth1.onAuthStateChanged((authUser) =>{
       {!auth1?.currentUser?.uid &&(
         <div style={{display: "flex",justifyContent: "space-between",width: 150}}>
                       <Link to="/home">
-          <div style={{fontWeight: "500",color: "#fff"}}>Home</div>
+          <div style={{fontWeight: "500",color: "#3f51b5"}}>Home</div>
           </Link>
           <Link to="/register">
-          <div style={{fontWeight: "500",marginLeft:10,color: "#fff"}}>Register</div>
+          <div style={{fontWeight: "500",marginLeft:10,color: "#3f51b5"}}>Register</div>
           </Link>
           <Link to="/login">
-          <div style={{fontWeight: "500",marginLeft:10,marginRight:0,color: "#fff"}}>Login</div>
+          <div style={{fontWeight: "500",marginLeft:10,marginRight:0,color: "#3f51b5"}}>Login</div>
           </Link>
         </div>
       )}
@@ -312,7 +314,7 @@ const logout1 = () => {
 }
 
   return (
-    <div className="dropdown" style={{ height: 180, backgroundColor: "#3f51b5" }} ref={dropdownRef}>
+    <div className="dropdown" style={{ height: 180, backgroundColor: "#E8E8E8", border: "2px solid #3f51b5" }} ref={dropdownRef}>
 
       <CSSTransition
         in={activeMenu === 'main'}
@@ -321,13 +323,13 @@ const logout1 = () => {
         unmountOnExit
         onEnter={calcHeight}>
         <div className="menu">
-          <Link to="/profileview">
+          <Link to={`/profileview/${auth1?.currentUser?.uid}`}>
           <DropdownItem
           leftIcon={<Avatar
             alt={`${profileUserData?.username}`}
             src={`${profileUserData?.photoURL}`}
           />}
-          >{`${profileUserData?.firstName}`} {`${profileUserData?.lastName}`}</DropdownItem>
+          ><span style={{color: "#3f51b5"}}> {`${profileUserData?.firstName}`} {`${profileUserData?.lastName}`}</span></DropdownItem>
           </Link>
 
           <DropdownItem
@@ -335,13 +337,13 @@ const logout1 = () => {
             {mode ? <Brightness4Icon /> : <BrightnessHighIcon />}
           </div>}
             >
-            {mode ? "Dark Mode" : "Light Mode"}
+            <span style={{color: "#3f51b5"}}>{mode ? "Dark Mode" : "Light Mode"}</span>
           </DropdownItem>
 
           <DropdownItem
             leftIcon={<ExitToApp onClick={logout1}/>}
             >
-            <span onClick={logout1}>Logout</span>
+            <span style={{color: "#3f51b5"}} onClick={logout1}>Logout</span>
           </DropdownItem>
         </div>
       </CSSTransition>

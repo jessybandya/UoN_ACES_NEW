@@ -47,6 +47,7 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
     flexGrow: 1,
     padding: theme.spacing(3),
+    backgroundColor: "#E8E8E8",
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -83,6 +84,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   padding: theme.spacing(0, 1),
+  backgroundColor: "#E8E8E8",
   // necessary for content to be below app bar
   ...theme.mixins.toolbar,
   justifyContent: 'flex-end',
@@ -102,7 +104,8 @@ export default function PersistentDrawerLeft() {
 
   return (
     <>
-    <Box sx={{ display: 'flex' }}>
+    
+    <Box sx={{ display: 'flex'}}>
       <CssBaseline />
           <IconButton
             color="inherit"
@@ -134,7 +137,7 @@ export default function PersistentDrawerLeft() {
           
         </DrawerHeader>
         <Divider />
-        <List>
+        <List style={{backgroundColor: "#E8E8E8" }}>
         <Link style={{display: "flex"}} className="port" to="/home">
             <ListItem button>
               <ListItemIcon>
@@ -211,7 +214,7 @@ export default function PersistentDrawerLeft() {
         <Divider />
 
       </Drawer>
-      <Main open={open}>
+      <Main open={open} style={{backgroundColor: "#E8E8E8" }}>
   </Main>   
    </Box>
     </>

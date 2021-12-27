@@ -268,7 +268,7 @@ const Form = () => {
 
   return (
     <>
-    <Paper className={classes.upload}>
+    <Paper style={{backgroundColor: "#E8E8E8"}} className={classes.upload}>
       <div className={classes.upload__header}>
         <Avatar src={profileUserData?.photoURL} />
         <form className={classes.header__form}  style={{cursor: "pointer"}}>
@@ -293,14 +293,14 @@ const Form = () => {
             onChange={(e) => imageUploadHandler(e, "video")}
           />
           {/* <button type="submit">Post</button> */}
-          <ExpandMore
+          {/* <ExpandMore
         expand={expanded}
         onClick={handleExpandClick}
         aria-expanded={expanded}
         aria-label="show more"
       >
         <ExpandMoreIcon />
-      </ExpandMore>
+      </ExpandMore> */}
 
 
 

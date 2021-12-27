@@ -48,6 +48,7 @@ const useStyles = makeStyles((theme) => ({
   toolbar: {
     display: "flex",
     justifyContent: "space-between",
+    backgroundColor: "#E8E8E8",
   },
   logoLg: {
     display: "none",
@@ -64,7 +65,7 @@ const useStyles = makeStyles((theme) => ({
   search: {
     display: "flex",
     alignItems: "center",
-    backgroundColor: alpha(theme.palette.common.white, 0.15),
+    backgroundColor: "#fff",
     "&:hover": {
       backgroundColor: alpha(theme.palette.common.white, 0.25),
     },
@@ -76,7 +77,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   input: {
-    color: "white",
+    color: "#3f51b5",
     marginLeft: theme.spacing(1),
   },
   cancel: {
@@ -162,7 +163,7 @@ auth1.onAuthStateChanged((authUser) =>{
       <Toolbar className={classes.toolbar}>
         <Typography variant="h6" className={classes.logoLg}>
         <a href="/">
-        <div style={{fontWeight: "500",color: "#fff"}}>UoN_ACES</div>
+        <div style={{fontWeight: "500",color: "#3f51b5"}}>UoN_ACES</div>
         </a>
            
         </Typography>
@@ -171,7 +172,7 @@ auth1.onAuthStateChanged((authUser) =>{
             <div style={{display: "flex",alignItems: "center"}}>
 
         <a href="/">
-        <div style={{fontWeight: "500",color: "#fff"}}>UoN_ACES</div>
+        <div style={{fontWeight: "500",color: "#3f51b5"}}>UoN_ACES</div>
         </a>
         </div>
           )}
@@ -179,37 +180,37 @@ auth1.onAuthStateChanged((authUser) =>{
             <div style={{display: "flex",alignItems: "center"}}>
 
         <a href="/">
-        <div style={{fontWeight: "500",color: "#fff",marginLeft:5}}>UoN_ACES</div>
+        <div style={{fontWeight: "500",color: "#3f51b5",marginLeft:5}}>UoN_ACES</div>
         </a>
         </div>
           )}
 
         </Typography>
         <div className={classes.search}>
-          <Search />
+          <Search style={{color: "#3f51b5"}}/>
           <InputBase placeholder="Search..." className={classes.input} />
           <Cancel className={classes.cancel} onClick={() => setOpen(false)} />
         </div>
         <div className={classes.icons}>
-          <Search
+          <Search style={{color: "#3f51b5"}}
             className={classes.searchButton}
             onClick={() => setOpen(true)}
           />
           {auth1?.currentUser?.uid &&(
             <>
                                     <a href={`/home`}>
-          <div style={{fontWeight: "600",color: "#fff",marginRight:10}}>Home</div>
+          <div style={{fontWeight: "600",color: "#3f51b5",marginRight:10}}>Home</div>
           </a>
           {/* <a href={`/mainmessagespage`}>
           <Badge badgeContent={5} color="secondary" className={classes.badge}>
             
-            <Mail style={{color: "#fff"}}/>
+            <Mail style={{color: "#3f51b5"}}/>
            
           </Badge>
           </a> */}
           <a href={`/notifications`}>
           <Badge badgeContent={200} color="secondary" className={classes.badge}>
-            <Notifications style={{color: "#fff"}} />
+            <Notifications style={{color: "#3f51b5"}} />
           </Badge>
           </a>
           {/* <a href={`/profileview`}>
@@ -229,13 +230,13 @@ auth1.onAuthStateChanged((authUser) =>{
       {!auth1?.currentUser?.uid &&(
         <div style={{display: "flex",justifyContent: "space-between",width: 150}}>
                       <a href="/home">
-          <div style={{fontWeight: "500",color: "#fff"}}>Home</div>
+          <div style={{fontWeight: "500",color: "#3f51b5"}}>Home</div>
           </a>
           <a href="/register">
-          <div style={{fontWeight: "500",marginLeft:10,color: "#fff"}}>Register</div>
+          <div style={{fontWeight: "500",marginLeft:10,color: "#3f51b5"}}>Register</div>
           </a>
           <a href="/login">
-          <div style={{fontWeight: "500",marginLeft:10,marginRight:0,color: "#fff"}}>Login</div>
+          <div style={{fontWeight: "500",marginLeft:10,marginRight:0,color: "#3f51b5"}}>Login</div>
           </a>
         </div>
       )}

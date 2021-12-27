@@ -108,11 +108,11 @@ function Post({ fromId, commentId, postId, timestamp, comment}) {
             <div style={{display: "flex"}}>
               <Avatar src={profileUserData?.photoURL} alt={`${profileUserData?.firstName} ${profileUserData?.lastName}`}/>
               <div style={{marginLeft:10}}>
-              <div style={{fontWeight:"600"}}>Jessy Bandya <span style={{fontWeight:"100",color:"#AEAEAE"}}>@{profileUserData?.username}</span></div>
+              <div style={{fontWeight:"600"}}>{profileUserData?.firstName} {profileUserData?.lastName} <span style={{fontWeight:"100",color:"#AEAEAE"}}>@{profileUserData?.username}</span></div>
               <div style={{fontWeight:"600",color:"#808080",marginTop:5,fontSize:13,marginLeft:10}}>
               <Typography paragraph>
                 {comment}
-                <div style={{color: "white",marginTop:-10}}>
+                <div style={{color: "white",marginTop:-8}}>
                 UoN_ACES in a (14- to 16-inch) paella pan or a large, deep skillet over
             medium-high heat.
                 </div>

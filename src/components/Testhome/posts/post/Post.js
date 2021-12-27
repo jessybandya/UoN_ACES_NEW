@@ -245,7 +245,7 @@ const likeHandle = (event) => {
     };
     return (
       <>
-      <Paper ref={ref} className={classes.post}>
+      <Paper ref={ref} style={{backgroundColor: "#E8E8E8"}} className={classes.post}>
         <div className={classes.post__header}>
           <Avatar src={profileUserData?.photoURL} style={{marginTop:-30}}/>
           <div className={classes.header__info}>
@@ -338,7 +338,7 @@ const likeHandle = (event) => {
             </div> */}
       <Collapse in={expanded} timeout="auto" unmountOnExit>
       <CardContent>
-      <div style={{display: "flex",padding:10,justifyContent:"space-between"}}>
+      <div style={{display: "flex",padding:2,justifyContent:"space-between"}}>
 
 <div>
   <EmailShareButton

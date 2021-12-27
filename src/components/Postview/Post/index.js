@@ -87,7 +87,7 @@ import ReactPlayer from "react-player";
 import ReactTimeago from "react-timeago";
 import Style from "../../../components/Testhome/posts/post/Style";
 import { db, auth1 } from "../../../components/firebase"
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
 import Moment from 'react-moment';
@@ -344,9 +344,13 @@ setComments1("")
 
 <Paper  className={classes.post}>
         <div className={classes.post__header}>
+          <Link to={`/profileview/${uid}`}>
           <Avatar src={profileUserData?.photoURL} style={{marginTop:-30}}/>
+          </Link>
           <div className={classes.header__info}>
+          <Link to={`/profileview/${uid}`}>
             <h4>{profileUserData?.firstName} {profileUserData?.lastName}</h4>
+            </Link>
             <p style={{marginLeft:-3}}>
             <Moment format='MMMM Do YYYY, h:mm:ss a'>{post?.timestamp}</Moment>             </p>
           </div>
@@ -405,7 +409,7 @@ setComments1("")
             </div>
             <Collapse in={expanded} timeout="auto" unmountOnExit>
       <CardContent>
-      <div style={{display: "flex",padding:10,justifyContent:"space-between"}}>
+      <div style={{display: "flex",padding:2,justifyContent:"space-between"}}>
 
 <div>
   <EmailShareButton

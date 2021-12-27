@@ -226,3 +226,414 @@ figure.effect-marley:hover div {
 	-webkit-transform: translate3d(0,0,0);
 	transform: translate3d(0,0,0);
 }
+
+
+a:link {
+    text-decoration: none;
+    color: none;
+
+  }
+  
+  a:visited {
+    text-decoration: none;
+    color: none;
+
+  }
+  
+  a:hover {
+    text-decoration: none;
+    color: none;
+
+  }
+  
+  a:active {
+    text-decoration: none;
+    color: none;
+  }
+
+
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid transparent;
+    border-radius: .25rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 6px 0 rgb(218 218 253 / 65%), 0 2px 6px 0 rgb(206 206 238 / 54%);
+}
+.me-2 {
+    margin-right: .5rem!important;
+}
+
+.main-body {
+  padding: 15px;
+}
+.card {
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 0 solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+}
+
+.card-body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1rem;
+}
+
+.gutters-sm {
+  margin-right: -8px;
+  margin-left: -8px;
+}
+
+.gutters-sm>.col, .gutters-sm>[class*=col-] {
+  padding-right: 8px;
+  padding-left: 8px;
+}
+.mb-3, .my-3 {
+  margin-bottom: 1rem!important;
+}
+
+.bg-gray-300 {
+  background-color: #e2e8f0;
+}
+.h-100 {
+  height: 100%!important;
+}
+.shadow-none {
+  box-shadow: none!important;
+}
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+/* body {
+    font-family: 'Poppins', sans-serif;
+    background-color: aliceblue
+} */
+
+.wrapper {
+    padding: 30px 50px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    margin: 10px auto;
+    max-width: 600px
+}
+
+h4 {
+    letter-spacing: -1px;
+    font-weight: 400
+}
+
+.img {
+    width: 70px;
+    height: 70px;
+    border-radius: 6px;
+    object-fit: cover
+}
+
+#img-section p,
+#deactivate p {
+    font-size: 12px;
+    color: #777;
+    margin-bottom: 10px;
+    text-align: justify
+}
+
+#img-section b,
+#img-section button,
+#deactivate b {
+    font-size: 14px
+}
+
+label {
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: #777;
+    padding-left: 3px
+}
+
+.form-control {
+    border-radius: 10px
+}
+
+input[placeholder] {
+    font-weight: 500
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border: 1.5px solid #0779e4
+}
+
+select {
+    display: block;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    height: 40px;
+    padding: 5px 10px
+}
+
+select:focus {
+    outline: none
+}
+
+.button {
+    background-color: #fff;
+    color: #45CBB2
+}
+
+.button:hover {
+    background-color: #45CBB2;
+    color: #fff
+}
+
+.btn-primary {
+    background-color: #0779e4
+}
+
+.danger {
+    background-color: #fff;
+    color: #e20404;
+    border: 1px solid #ddd
+}
+
+.danger:hover {
+    background-color: #e20404;
+    color: #fff
+}
+
+@media(max-width:576px) {
+    .wrapper {
+        padding: 25px 20px
+    }
+
+    #deactivate {
+        line-height: 18px
+    }
+}
+
+
+.bioFields {
+  display: none;
+  flex-direction: column;
+  place-items: center;
+}
+
+.usernameFields{
+  display: none;
+  flex-direction: column;
+  place-items: center;
+}
+
+.firstNameFields{
+  display: none;
+  flex-direction: column;
+  place-items: center;
+}
+.lastNameFields{
+  display: none;
+  flex-direction: column;
+  place-items: center;
+}
+
+.locationFields{
+  display: none;
+  flex-direction: column;
+  place-items: center;
+}
+
+.placeOfWorkFields{
+  display: none;
+  flex-direction: column;
+  place-items: center;
+}
+
+.schoolFields{
+  display: none;
+  flex-direction: column;
+  place-items: center;
+}
+
+.birthdayFields{
+  display: none;
+  flex-direction: column;
+  place-items: center;
+}
+
+.bioInput {
+background-color: #a6a9ad;
+border: none;
+min-height: 50px;
+height: fit-content;
+outline: none;
+border-radius: 5px;
+width: 200px;
+margin-top: 10px;
+color: #fff;
+text-align: center;
+padding-left: 10px;
+padding-top: 5px;
+font-weight: 700;
+}
+
+.bioFields p {
+  font-weight: 400;
+  font-size: 13px;
+  color: #b0c4d8;
+  float: right;
+  margin-left: 40px;
+}
+
+.cancelAndSaveButtons button {
+  background-color: #3A3B3C;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  margin-left: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.cancelAndSaveButtons button:hover {
+background-color: #535353;
+}
+
+.cancelAndSaveButtons {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  float: right;
+  margin-left: 50px;
+}
+
+.saveButton {
+  opacity: 0.4;
+  outline: none;
+}
+
+.saveButton:hover {
+  background-color: #3A3B3C;
+}
+
+.bioText {
+  text-align: center;
+  color: #AAADB2;
+}
+
+.profileAvatar {
+  /* margin-left: 42%; */
+  height: 130px !important;
+  width: 130px !important;
+  border: 2px solid #3f51b5;
+  /* bottom: -20px; */
+  /* margin-bottom: -20px; */
+border-radius: 65px;
+/* cursor: pointer; */
+object-fit: cover;
+}
+
+img{
+  padding: 0px;
+
+}
+
+.profileHead2 p {
+  color: rgb(107, 97, 97);
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  padding: 15px;
+}
+
+.profileHead2 {
+  display: flex;
+  flex-direction: column;
+}
+
+.profileHead2 button {
+  background-color: #1E87DC;
+  border: none;
+  width: 100px;
+  height: 40px;
+  color: white;
+  font-size: 15px;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+  outline: none;
+  margin-bottom: 20px;
+}
+
+
+.profileHead2 button:hover {
+  background-color: #2276bb;
+  color: #fff;
+}
+
+
+
+
+
+.progress {
+  margin-left: 40px;
+  margin-bottom: 10px;
+}
+
+
+.row {
+  display: flex;
+  flex-direction: row;
+
+
+}
+
+.register__date2 {
+
+  height: 40px;
+  width: 70px;
+  outline: #CCD0D5;
+  border-radius: 5px;
+  margin-top: 20px;
+  float: left;
+}
+
+.register__date3 {
+
+  height: 40px;
+  width: 80px;
+  outline: #CCD0D5;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.img-container-block {
+  text-align: center;
+}
