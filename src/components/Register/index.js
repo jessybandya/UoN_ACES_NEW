@@ -900,12 +900,12 @@ function Register() {
                     <h5 style={{background: "white",color:"#3f51b5",fontWeight: "600"}} >Gender</h5>
                   
                     <div  className="register__radiocontainer">
-                        <div className="wrapper">
+                        <div className="wrapper1">
                             <label style={{marginLeft: "0%",color: "#3f51b5"}}>Female</label>
                             <input onChange={(e) => setGender(e.target.value)} type="radio" name="gender" value="Female" />
                         </div>
 
-                        <div style={{marginLeft: "0%",color: "#3f51b5"}} className="wrapper">
+                        <div style={{marginLeft: "0%",color: "#3f51b5"}} className="wrapper1">
                             <label style={{marginLeft: "0%",color: "#3f51b5"}}>Male</label>
                             <input onChange={(e) => setGender(e.target.value)} type="radio" name="gender" value="Male" />
                         </div>
